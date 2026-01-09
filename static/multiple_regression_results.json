@@ -1,0 +1,1082 @@
+{
+  "metadata": {
+    "analysis_type": "multiple_regression",
+    "n_observations": 73,
+    "n_models": 5,
+    "timestamp": "2025-06-12T15:01:53.859931"
+  },
+  "regression_results": {
+    "期中成績": {
+      "model_config": {
+        "predictors": [
+          "相關性標籤頻率",
+          "具體性標籤頻率",
+          "建設性標籤頻率"
+        ],
+        "target": "期中成績",
+        "description": "預測期中成績的多元回歸模型"
+      },
+      "summary": {
+        "r_squared": 0.06755285735424255,
+        "adjusted_r_squared": 0.02701167723920961,
+        "f_statistic": 1.6662775272590924,
+        "f_pvalue": 0.18229301792198407,
+        "aic": 665.6081219811491,
+        "bic": 674.7699597457427,
+        "n_observations": 73,
+        "degrees_freedom": 69,
+        "coefficients": {
+          "const": {
+            "coefficient": 58.60724546041645,
+            "std_error": 4.41973012889624,
+            "t_statistic": 13.26036743221983,
+            "p_value": 1.187054472070172e-20,
+            "conf_int_lower": 49.79012510376358,
+            "conf_int_upper": 67.42436581706933
+          },
+          "相關性標籤頻率": {
+            "coefficient": 0.1137894206804475,
+            "std_error": 11.49520433483294,
+            "t_statistic": 0.0098988601999567,
+            "p_value": 0.9921305463580493,
+            "conf_int_lower": -22.818515762815366,
+            "conf_int_upper": 23.04609460417626
+          },
+          "具體性標籤頻率": {
+            "coefficient": 48.65816067858255,
+            "std_error": 30.0828214794742,
+            "t_statistic": 1.6174733048820729,
+            "p_value": 0.11033904943371499,
+            "conf_int_lower": -11.355426105384034,
+            "conf_int_upper": 108.67174746254912
+          },
+          "建設性標籤頻率": {
+            "coefficient": -28.33104829927566,
+            "std_error": 76.14459736458474,
+            "t_statistic": -0.37206905387686223,
+            "p_value": 0.7109817093398155,
+            "conf_int_lower": -180.23536369694062,
+            "conf_int_upper": 123.5732670983893
+          }
+        },
+        "significance_interpretation": {
+          "const": "正向影響，極顯著 (p < 0.001)",
+          "相關性標籤頻率": "正向影響，不顯著 (p ≥ 0.1)",
+          "具體性標籤頻率": "正向影響，不顯著 (p ≥ 0.1)",
+          "建設性標籤頻率": "負向影響，不顯著 (p ≥ 0.1)"
+        },
+        "effect_size_interpretation": "小效果 (0.01 ≤ R² < 0.09)"
+      },
+      "diagnostics": {
+        "normality_shapiro": {
+          "statistic": 0.968645278876744,
+          "p_value": 0.06582964771107318,
+          "interpretation": "殘差呈正態分布"
+        },
+        "normality_jarque_bera": {
+          "statistic": 3.2252702059763534,
+          "p_value": 0.19936158300340648,
+          "interpretation": "殘差呈正態分布"
+        },
+        "heteroscedasticity_bp": {
+          "statistic": 5.373459536543147,
+          "p_value": 0.14640610963960113,
+          "interpretation": "同質變異數"
+        },
+        "heteroscedasticity_white": {
+          "statistic": 7.805958965712314,
+          "p_value": 0.5538131295823759,
+          "interpretation": "同質變異數"
+        },
+        "multicollinearity": {
+          "相關性標籤頻率": {
+            "vif": 1.4065774031248823,
+            "interpretation": "無多重共線性問題"
+          },
+          "具體性標籤頻率": {
+            "vif": 2.520596862564339,
+            "interpretation": "無多重共線性問題"
+          },
+          "建設性標籤頻率": {
+            "vif": 2.0017017750935007,
+            "interpretation": "無多重共線性問題"
+          }
+        },
+        "autocorrelation_dw": {
+          "statistic": 1.3380297559945573,
+          "interpretation": "可能存在正自相關"
+        },
+        "outliers": {
+          "count": 0,
+          "percentage": 0.0,
+          "indices": [],
+          "interpretation": "發現 0 個極端離群值（|標準化殘差| > 3）"
+        }
+      },
+      "cross_validation": {
+        "cv_r2_scores": [
+          -0.2170840852175595,
+          -0.44549542313129376,
+          0.09639440753750017,
+          -0.5923853562092667,
+          -0.09182533522547343
+        ],
+        "cv_r2_mean": -0.25007915844921863,
+        "cv_r2_std": 0.24557602850330654,
+        "interpretation": "交叉驗證R²平均值: -0.2501 (±0.2456)"
+      }
+    },
+    "期末成績": {
+      "model_config": {
+        "predictors": [
+          "相關性標籤頻率",
+          "具體性標籤頻率",
+          "建設性標籤頻率"
+        ],
+        "target": "期末成績",
+        "description": "預測期末成績的多元回歸模型"
+      },
+      "summary": {
+        "r_squared": 0.03270189548111979,
+        "adjusted_r_squared": -0.009354543845788044,
+        "f_statistic": 0.7775716633290217,
+        "f_pvalue": 0.5104877813901764,
+        "aic": 675.1030285217845,
+        "bic": 684.264866286378,
+        "n_observations": 73,
+        "degrees_freedom": 69,
+        "coefficients": {
+          "const": {
+            "coefficient": 60.48628361878754,
+            "std_error": 4.716713401689553,
+            "t_statistic": 12.823819992353364,
+            "p_value": 6.195450405129956e-20,
+            "conf_int_lower": 51.076697843712104,
+            "conf_int_upper": 69.89586939386297
+          },
+          "相關性標籤頻率": {
+            "coefficient": -6.2452141546126105,
+            "std_error": 12.26762330730969,
+            "t_statistic": -0.5090810174201702,
+            "p_value": 0.6123195978137864,
+            "conf_int_lower": -30.718453025792762,
+            "conf_int_upper": 18.22802471656754
+          },
+          "具體性標籤頻率": {
+            "coefficient": 45.628121177572126,
+            "std_error": 32.104233311708036,
+            "t_statistic": 1.421249364049821,
+            "p_value": 0.15974820964483985,
+            "conf_int_lower": -18.41807187315287,
+            "conf_int_upper": 109.67431422829712
+          },
+          "建設性標籤頻率": {
+            "coefficient": -49.89209813659626,
+            "std_error": 81.26112508717465,
+            "t_statistic": -0.6139725247844332,
+            "p_value": 0.5412525232474965,
+            "conf_int_lower": -212.00360705571103,
+            "conf_int_upper": 112.21941078251852
+          }
+        },
+        "significance_interpretation": {
+          "const": "正向影響，極顯著 (p < 0.001)",
+          "相關性標籤頻率": "負向影響，不顯著 (p ≥ 0.1)",
+          "具體性標籤頻率": "正向影響，不顯著 (p ≥ 0.1)",
+          "建設性標籤頻率": "負向影響，不顯著 (p ≥ 0.1)"
+        },
+        "effect_size_interpretation": "小效果 (0.01 ≤ R² < 0.09)"
+      },
+      "diagnostics": {
+        "normality_shapiro": {
+          "statistic": 0.9288926667068125,
+          "p_value": 0.0004965477242407644,
+          "interpretation": "殘差不呈正態分布"
+        },
+        "normality_jarque_bera": {
+          "statistic": 12.978719231924945,
+          "p_value": 0.0015195217740515139,
+          "interpretation": "殘差不呈正態分布"
+        },
+        "heteroscedasticity_bp": {
+          "statistic": 2.161107199764334,
+          "p_value": 0.539649610031014,
+          "interpretation": "同質變異數"
+        },
+        "heteroscedasticity_white": {
+          "statistic": 8.26081380060168,
+          "p_value": 0.508091301898477,
+          "interpretation": "同質變異數"
+        },
+        "multicollinearity": {
+          "相關性標籤頻率": {
+            "vif": 1.4065774031248823,
+            "interpretation": "無多重共線性問題"
+          },
+          "具體性標籤頻率": {
+            "vif": 2.520596862564339,
+            "interpretation": "無多重共線性問題"
+          },
+          "建設性標籤頻率": {
+            "vif": 2.0017017750935007,
+            "interpretation": "無多重共線性問題"
+          }
+        },
+        "autocorrelation_dw": {
+          "statistic": 1.4443719298851478,
+          "interpretation": "可能存在正自相關"
+        },
+        "outliers": {
+          "count": 0,
+          "percentage": 0.0,
+          "indices": [],
+          "interpretation": "發現 0 個極端離群值（|標準化殘差| > 3）"
+        }
+      },
+      "cross_validation": {
+        "cv_r2_scores": [
+          -0.5130136893388269,
+          -1.5155871282482725,
+          0.021741407624226605,
+          -1.3544307636588608,
+          -0.06542640455503457
+        ],
+        "cv_r2_mean": -0.6853433156353537,
+        "cv_r2_std": 0.6404601602121067,
+        "interpretation": "交叉驗證R²平均值: -0.6853 (±0.6405)"
+      }
+    },
+    "學期成績": {
+      "model_config": {
+        "predictors": [
+          "相關性標籤頻率",
+          "具體性標籤頻率",
+          "建設性標籤頻率"
+        ],
+        "target": "學期成績",
+        "description": "預測學期成績的多元回歸模型"
+      },
+      "summary": {
+        "r_squared": 0.060986977226884065,
+        "adjusted_r_squared": 0.020160324062835522,
+        "f_statistic": 1.4938030061349354,
+        "f_pvalue": 0.2239021383243415,
+        "aic": 630.6459632256483,
+        "bic": 639.8078009902418,
+        "n_observations": 73,
+        "degrees_freedom": 69,
+        "coefficients": {
+          "const": {
+            "coefficient": 66.56595058027851,
+            "std_error": 3.478536977493677,
+            "t_statistic": 19.136191741230242,
+            "p_value": 2.6486340098056e-29,
+            "conf_int_lower": 59.62645918574651,
+            "conf_int_upper": 73.50544197481051
+          },
+          "相關性標籤頻率": {
+            "coefficient": 1.3707505313345472,
+            "std_error": 9.04727034827984,
+            "t_statistic": 0.15150984535298742,
+            "p_value": 0.8800156542983191,
+            "conf_int_lower": -16.67805996920198,
+            "conf_int_upper": 19.419561031871073
+          },
+          "具體性標籤頻率": {
+            "coefficient": 40.19038679996063,
+            "std_error": 23.676605550987645,
+            "t_statistic": 1.6974724993162766,
+            "p_value": 0.09411378384677636,
+            "conf_int_lower": -7.043148889284744,
+            "conf_int_upper": 87.423922489206
+          },
+          "建設性標籤頻率": {
+            "coefficient": -53.37999378128501,
+            "std_error": 59.92940515470416,
+            "t_statistic": -0.8907145606315924,
+            "p_value": 0.3761776679920823,
+            "conf_int_lower": -172.9358858247661,
+            "conf_int_upper": 66.1758982621961
+          }
+        },
+        "significance_interpretation": {
+          "const": "正向影響，極顯著 (p < 0.001)",
+          "相關性標籤頻率": "正向影響，不顯著 (p ≥ 0.1)",
+          "具體性標籤頻率": "正向影響，邊際顯著 (p < 0.1)",
+          "建設性標籤頻率": "負向影響，不顯著 (p ≥ 0.1)"
+        },
+        "effect_size_interpretation": "小效果 (0.01 ≤ R² < 0.09)"
+      },
+      "diagnostics": {
+        "normality_shapiro": {
+          "statistic": 0.9166890563634885,
+          "p_value": 0.00013752336772891954,
+          "interpretation": "殘差不呈正態分布"
+        },
+        "normality_jarque_bera": {
+          "statistic": 21.44527334973228,
+          "p_value": 2.204032837229397e-05,
+          "interpretation": "殘差不呈正態分布"
+        },
+        "heteroscedasticity_bp": {
+          "statistic": 2.1915125513947897,
+          "p_value": 0.5336220681964012,
+          "interpretation": "同質變異數"
+        },
+        "heteroscedasticity_white": {
+          "statistic": 5.514342100401932,
+          "p_value": 0.787367450389033,
+          "interpretation": "同質變異數"
+        },
+        "multicollinearity": {
+          "相關性標籤頻率": {
+            "vif": 1.4065774031248823,
+            "interpretation": "無多重共線性問題"
+          },
+          "具體性標籤頻率": {
+            "vif": 2.520596862564339,
+            "interpretation": "無多重共線性問題"
+          },
+          "建設性標籤頻率": {
+            "vif": 2.0017017750935007,
+            "interpretation": "無多重共線性問題"
+          }
+        },
+        "autocorrelation_dw": {
+          "statistic": 1.1772231634955477,
+          "interpretation": "可能存在正自相關"
+        },
+        "outliers": {
+          "count": 1,
+          "percentage": 1.36986301369863,
+          "indices": [
+            0
+          ],
+          "interpretation": "發現 1 個極端離群值（|標準化殘差| > 3）"
+        }
+      },
+      "cross_validation": {
+        "cv_r2_scores": [
+          -0.6489692935626294,
+          -0.6698175333881753,
+          0.04342780013831116,
+          -3.392614049102642,
+          0.03932509919979432
+        ],
+        "cv_r2_mean": -0.9257295953430683,
+        "cv_r2_std": 1.2726509951256664,
+        "interpretation": "交叉驗證R²平均值: -0.9257 (±1.2727)"
+      }
+    },
+    "期中成績_部分預測變數": {
+      "model_config": {
+        "predictors": [
+          "相關性標籤頻率",
+          "具體性標籤頻率"
+        ],
+        "target": "期中成績",
+        "description": "使用主要標籤頻率預測期中成績"
+      },
+      "summary": {
+        "r_squared": 0.06568207945109372,
+        "adjusted_r_squared": 0.03898728172112509,
+        "f_statistic": 2.4604823799566042,
+        "f_pvalue": 0.09274996613941848,
+        "aic": 663.7544358749975,
+        "bic": 670.6258141984426,
+        "n_observations": 73,
+        "degrees_freedom": 70,
+        "coefficients": {
+          "const": {
+            "coefficient": 58.995942381885484,
+            "std_error": 4.267978849168488,
+            "t_statistic": 13.82292285571645,
+            "p_value": 1.0843999158709434e-21,
+            "conf_int_lower": 50.483726972849375,
+            "conf_int_upper": 67.50815779092159
+          },
+          "相關性標籤頻率": {
+            "coefficient": 0.5807861646094068,
+            "std_error": 11.355939638509746,
+            "t_statistic": 0.05114382280087781,
+            "p_value": 0.9593565794881898,
+            "conf_int_lower": -22.067921289467897,
+            "conf_int_upper": 23.22949361868671
+          },
+          "具體性標籤頻率": {
+            "coefficient": 41.16127079561267,
+            "std_error": 22.200107054324437,
+            "t_statistic": 1.8541023561233108,
+            "p_value": 0.06793761209643508,
+            "conf_int_lower": -3.1154465988252937,
+            "conf_int_upper": 85.43798819005065
+          }
+        },
+        "significance_interpretation": {
+          "const": "正向影響，極顯著 (p < 0.001)",
+          "相關性標籤頻率": "正向影響，不顯著 (p ≥ 0.1)",
+          "具體性標籤頻率": "正向影響，邊際顯著 (p < 0.1)"
+        },
+        "effect_size_interpretation": "小效果 (0.01 ≤ R² < 0.09)"
+      },
+      "diagnostics": {
+        "normality_shapiro": {
+          "statistic": 0.9679493592480864,
+          "p_value": 0.05992033735367517,
+          "interpretation": "殘差呈正態分布"
+        },
+        "normality_jarque_bera": {
+          "statistic": 3.3402900448388624,
+          "p_value": 0.18821976757330064,
+          "interpretation": "殘差呈正態分布"
+        },
+        "heteroscedasticity_bp": {
+          "statistic": 4.9186325349615565,
+          "p_value": 0.08549338559612721,
+          "interpretation": "同質變異數"
+        },
+        "heteroscedasticity_white": {
+          "statistic": 7.122690753966406,
+          "p_value": 0.21167439551417902,
+          "interpretation": "同質變異數"
+        },
+        "multicollinearity": {
+          "相關性標籤頻率": {
+            "vif": 1.3898082608193554,
+            "interpretation": "無多重共線性問題"
+          },
+          "具體性標籤頻率": {
+            "vif": 1.3898082608193558,
+            "interpretation": "無多重共線性問題"
+          }
+        },
+        "autocorrelation_dw": {
+          "statistic": 1.3275627794318428,
+          "interpretation": "可能存在正自相關"
+        },
+        "outliers": {
+          "count": 0,
+          "percentage": 0.0,
+          "indices": [],
+          "interpretation": "發現 0 個極端離群值（|標準化殘差| > 3）"
+        }
+      },
+      "cross_validation": {
+        "cv_r2_scores": [
+          -0.0666380653159826,
+          -0.42236626588390824,
+          0.09395995061833229,
+          -0.42288341162799115,
+          -0.09690444510463836
+        ],
+        "cv_r2_mean": -0.1829664474628376,
+        "cv_r2_std": 0.20615509377712848,
+        "interpretation": "交叉驗證R²平均值: -0.1830 (±0.2062)"
+      }
+    },
+    "期末成績_部分預測變數": {
+      "model_config": {
+        "predictors": [
+          "相關性標籤頻率",
+          "具體性標籤頻率"
+        ],
+        "target": "期末成績",
+        "description": "使用主要標籤頻率預測期末成績"
+      },
+      "summary": {
+        "r_squared": 0.027417331992360072,
+        "adjusted_r_squared": -0.00037074423642957655,
+        "f_statistic": 0.9866581539010778,
+        "f_pvalue": 0.3779448285007163,
+        "aic": 673.5007582116025,
+        "bic": 680.3721365350476,
+        "n_observations": 73,
+        "degrees_freedom": 70,
+        "coefficients": {
+          "const": {
+            "coefficient": 61.17079429225316,
+            "std_error": 4.562615392940776,
+            "t_statistic": 13.406958295651192,
+            "p_value": 5.162863302435386e-21,
+            "conf_int_lower": 52.07094482583361,
+            "conf_int_upper": 70.27064375867272
+          },
+          "相關性標籤頻率": {
+            "coefficient": -5.422814392646311,
+            "std_error": 12.139887948616554,
+            "t_statistic": -0.4466939411301805,
+            "p_value": 0.6564750037490406,
+            "conf_int_lower": -29.635057450110942,
+            "conf_int_upper": 18.789428664818317
+          },
+          "具體性標籤頻率": {
+            "coefficient": 32.42580117129302,
+            "std_error": 23.732673883969174,
+            "t_statistic": 1.3662936308746834,
+            "p_value": 0.17621997270448697,
+            "conf_int_lower": -14.907524384457922,
+            "conf_int_upper": 79.75912672704396
+          }
+        },
+        "significance_interpretation": {
+          "const": "正向影響，極顯著 (p < 0.001)",
+          "相關性標籤頻率": "負向影響，不顯著 (p ≥ 0.1)",
+          "具體性標籤頻率": "正向影響，不顯著 (p ≥ 0.1)"
+        },
+        "effect_size_interpretation": "小效果 (0.01 ≤ R² < 0.09)"
+      },
+      "diagnostics": {
+        "normality_shapiro": {
+          "statistic": 0.9254311388969554,
+          "p_value": 0.00034178259450430625,
+          "interpretation": "殘差不呈正態分布"
+        },
+        "normality_jarque_bera": {
+          "statistic": 13.273275746667114,
+          "p_value": 0.0013114290305224108,
+          "interpretation": "殘差不呈正態分布"
+        },
+        "heteroscedasticity_bp": {
+          "statistic": 1.6196469452421765,
+          "p_value": 0.444936602783082,
+          "interpretation": "同質變異數"
+        },
+        "heteroscedasticity_white": {
+          "statistic": 7.93773281879216,
+          "p_value": 0.15970084623818334,
+          "interpretation": "同質變異數"
+        },
+        "multicollinearity": {
+          "相關性標籤頻率": {
+            "vif": 1.3898082608193554,
+            "interpretation": "無多重共線性問題"
+          },
+          "具體性標籤頻率": {
+            "vif": 1.3898082608193558,
+            "interpretation": "無多重共線性問題"
+          }
+        },
+        "autocorrelation_dw": {
+          "statistic": 1.4075268278621829,
+          "interpretation": "可能存在正自相關"
+        },
+        "outliers": {
+          "count": 0,
+          "percentage": 0.0,
+          "indices": [],
+          "interpretation": "發現 0 個極端離群值（|標準化殘差| > 3）"
+        }
+      },
+      "cross_validation": {
+        "cv_r2_scores": [
+          -0.2688066719562734,
+          -1.4640436522172409,
+          0.011720141763453373,
+          -0.7555805425731794,
+          -0.05706408535429919
+        ],
+        "cv_r2_mean": -0.5067549620675079,
+        "cv_r2_std": 0.5488120830413733,
+        "interpretation": "交叉驗證R²平均值: -0.5068 (±0.5488)"
+      }
+    }
+  },
+  "academic_report": {
+    "title": "學生成績與同儕評論標籤頻率之多元回歸分析報告",
+    "abstract": "本研究旨在探討學生在同儕評論活動中的標籤使用頻率與學業成績之間的回歸關係。\n研究對象為 73 名學生，分析其相關性、具體性、建設性標籤頻率對期中成績、期末成績及學期成績的預測效果。\n使用多元線性回歸分析建立 5 個預測模型，並執行完整的回歸診斷檢驗。\n研究結果將為理解同儕評論品質與學習成效關係提供實證依據。",
+    "methodology": "\n### 研究方法\n\n**數據來源：** 學生成績數據與同儕評論標籤數據\n\n**變數定義：**\n- 預測變數：相關性標籤頻率、具體性標籤頻率、建設性標籤頻率\n- 被預測變數：期中成績、期末成績、學期成績\n\n**分析方法：**\n1. 多元線性回歸分析 (Multiple Linear Regression)\n2. 回歸診斷檢驗：\n   - 殘差正態性檢驗 (Shapiro-Wilk, Jarque-Bera)\n   - 異質變異數檢驗 (Breusch-Pagan, White)\n   - 多重共線性檢驗 (VIF)\n   - 自相關檢驗 (Durbin-Watson)\n   - 離群值檢測\n3. 交叉驗證評估模型穩定性\n\n**統計軟體：** Python (statsmodels, scikit-learn)\n**顯著性水準：** α = 0.05\n        ",
+    "results": "### 研究結果\n\n#### 期中成績\n\n**模型配適度：**\n- R² = 0.0676\n- 調整R² = 0.0270\n- F統計量 = 1.6663, p = 0.1823\n- 樣本數 = 73\n\n**回歸係數：**\n- 相關性標籤頻率: β = 0.1138, SE = 11.4952, t = 0.0099, p = 0.9921\n- 具體性標籤頻率: β = 48.6582, SE = 30.0828, t = 1.6175, p = 0.1103\n- 建設性標籤頻率: β = -28.3310, SE = 76.1446, t = -0.3721, p = 0.7110\n\n**診斷檢驗結果：**\n- 正態性檢驗: 殘差呈正態分布\n- 異質變異數檢驗: 同質變異數\n- 自相關檢驗: 可能存在正自相關\n\n---\n\n#### 期末成績\n\n**模型配適度：**\n- R² = 0.0327\n- 調整R² = -0.0094\n- F統計量 = 0.7776, p = 0.5105\n- 樣本數 = 73\n\n**回歸係數：**\n- 相關性標籤頻率: β = -6.2452, SE = 12.2676, t = -0.5091, p = 0.6123\n- 具體性標籤頻率: β = 45.6281, SE = 32.1042, t = 1.4212, p = 0.1597\n- 建設性標籤頻率: β = -49.8921, SE = 81.2611, t = -0.6140, p = 0.5413\n\n**診斷檢驗結果：**\n- 正態性檢驗: 殘差不呈正態分布\n- 異質變異數檢驗: 同質變異數\n- 自相關檢驗: 可能存在正自相關\n\n---\n\n#### 學期成績\n\n**模型配適度：**\n- R² = 0.0610\n- 調整R² = 0.0202\n- F統計量 = 1.4938, p = 0.2239\n- 樣本數 = 73\n\n**回歸係數：**\n- 相關性標籤頻率: β = 1.3708, SE = 9.0473, t = 0.1515, p = 0.8800\n- 具體性標籤頻率: β = 40.1904, SE = 23.6766, t = 1.6975, p = 0.0941\n- 建設性標籤頻率: β = -53.3800, SE = 59.9294, t = -0.8907, p = 0.3762\n\n**診斷檢驗結果：**\n- 正態性檢驗: 殘差不呈正態分布\n- 異質變異數檢驗: 同質變異數\n- 自相關檢驗: 可能存在正自相關\n\n---\n\n#### 期中成績_部分預測變數\n\n**模型配適度：**\n- R² = 0.0657\n- 調整R² = 0.0390\n- F統計量 = 2.4605, p = 0.0927\n- 樣本數 = 73\n\n**回歸係數：**\n- 相關性標籤頻率: β = 0.5808, SE = 11.3559, t = 0.0511, p = 0.9594\n- 具體性標籤頻率: β = 41.1613, SE = 22.2001, t = 1.8541, p = 0.0679\n\n**診斷檢驗結果：**\n- 正態性檢驗: 殘差呈正態分布\n- 異質變異數檢驗: 同質變異數\n- 自相關檢驗: 可能存在正自相關\n\n---\n\n#### 期末成績_部分預測變數\n\n**模型配適度：**\n- R² = 0.0274\n- 調整R² = -0.0004\n- F統計量 = 0.9867, p = 0.3779\n- 樣本數 = 73\n\n**回歸係數：**\n- 相關性標籤頻率: β = -5.4228, SE = 12.1399, t = -0.4467, p = 0.6565\n- 具體性標籤頻率: β = 32.4258, SE = 23.7327, t = 1.3663, p = 0.1762\n\n**診斷檢驗結果：**\n- 正態性檢驗: 殘差不呈正態分布\n- 異質變異數檢驗: 同質變異數\n- 自相關檢驗: 可能存在正自相關\n\n---\n\n",
+    "discussion": "\n### 討論\n\n回歸分析結果顯示同儕評論標籤頻率與學業成績之間存在複雜的關係模式。\n主要發現包括：\n\n1. **預測效果：** 不同標籤頻率對各成績指標的預測能力存在差異\n2. **統計顯著性：** 部分標籤頻率變數達到統計顯著水準\n3. **效果大小：** 需要考慮實際教育意義與統計顯著性的平衡\n4. **模型假設：** 回歸診斷結果影響結果解釋的可信度\n\n**研究限制：**\n- 樣本大小可能限制統計檢定力\n- 可能存在未測量的混淆變數\n- 因果關係需要更嚴謹的研究設計驗證\n        ",
+    "conclusion": "\n### 結論\n\n本研究通過多元回歸分析探討了學生同儕評論標籤使用頻率對學業成績的預測效果。\n研究結果為理解同儕評論品質評估指標提供了實證基礎，並為教育實務應用提供參考依據。\n\n**主要貢獻：**\n1. 建立了同儕評論標籤頻率與學業成績的量化預測模型\n2. 提供了標籤使用行為對學習成效影響的實證證據\n3. 為同儕評論系統的設計和評估提供了參考框架\n\n**未來研究方向：**\n- 擴大樣本規模以提高統計檢定力\n- 納入更多控制變數以提高模型解釋力\n- 使用縱貫研究設計探討因果關係\n        ",
+    "statistical_appendix": {
+      "期中成績": {
+        "regression_coefficients": {
+          "const": {
+            "coefficient": 58.60724546041645,
+            "std_error": 4.41973012889624,
+            "t_statistic": 13.26036743221983,
+            "p_value": 1.187054472070172e-20,
+            "conf_int_lower": 49.79012510376358,
+            "conf_int_upper": 67.42436581706933
+          },
+          "相關性標籤頻率": {
+            "coefficient": 0.1137894206804475,
+            "std_error": 11.49520433483294,
+            "t_statistic": 0.0098988601999567,
+            "p_value": 0.9921305463580493,
+            "conf_int_lower": -22.818515762815366,
+            "conf_int_upper": 23.04609460417626
+          },
+          "具體性標籤頻率": {
+            "coefficient": 48.65816067858255,
+            "std_error": 30.0828214794742,
+            "t_statistic": 1.6174733048820729,
+            "p_value": 0.11033904943371499,
+            "conf_int_lower": -11.355426105384034,
+            "conf_int_upper": 108.67174746254912
+          },
+          "建設性標籤頻率": {
+            "coefficient": -28.33104829927566,
+            "std_error": 76.14459736458474,
+            "t_statistic": -0.37206905387686223,
+            "p_value": 0.7109817093398155,
+            "conf_int_lower": -180.23536369694062,
+            "conf_int_upper": 123.5732670983893
+          }
+        },
+        "model_fit_statistics": {
+          "r_squared": 0.06755285735424255,
+          "adjusted_r_squared": 0.02701167723920961,
+          "f_statistic": 1.6662775272590924,
+          "f_pvalue": 0.18229301792198407,
+          "aic": 665.6081219811491,
+          "bic": 674.7699597457427
+        },
+        "diagnostic_tests": {
+          "normality_shapiro": {
+            "statistic": 0.968645278876744,
+            "p_value": 0.06582964771107318,
+            "interpretation": "殘差呈正態分布"
+          },
+          "normality_jarque_bera": {
+            "statistic": 3.2252702059763534,
+            "p_value": 0.19936158300340648,
+            "interpretation": "殘差呈正態分布"
+          },
+          "heteroscedasticity_bp": {
+            "statistic": 5.373459536543147,
+            "p_value": 0.14640610963960113,
+            "interpretation": "同質變異數"
+          },
+          "heteroscedasticity_white": {
+            "statistic": 7.805958965712314,
+            "p_value": 0.5538131295823759,
+            "interpretation": "同質變異數"
+          },
+          "multicollinearity": {
+            "相關性標籤頻率": {
+              "vif": 1.4065774031248823,
+              "interpretation": "無多重共線性問題"
+            },
+            "具體性標籤頻率": {
+              "vif": 2.520596862564339,
+              "interpretation": "無多重共線性問題"
+            },
+            "建設性標籤頻率": {
+              "vif": 2.0017017750935007,
+              "interpretation": "無多重共線性問題"
+            }
+          },
+          "autocorrelation_dw": {
+            "statistic": 1.3380297559945573,
+            "interpretation": "可能存在正自相關"
+          },
+          "outliers": {
+            "count": 0,
+            "percentage": 0.0,
+            "indices": [],
+            "interpretation": "發現 0 個極端離群值（|標準化殘差| > 3）"
+          }
+        },
+        "cross_validation": {
+          "cv_r2_scores": [
+            -0.2170840852175595,
+            -0.44549542313129376,
+            0.09639440753750017,
+            -0.5923853562092667,
+            -0.09182533522547343
+          ],
+          "cv_r2_mean": -0.25007915844921863,
+          "cv_r2_std": 0.24557602850330654,
+          "interpretation": "交叉驗證R²平均值: -0.2501 (±0.2456)"
+        }
+      },
+      "期末成績": {
+        "regression_coefficients": {
+          "const": {
+            "coefficient": 60.48628361878754,
+            "std_error": 4.716713401689553,
+            "t_statistic": 12.823819992353364,
+            "p_value": 6.195450405129956e-20,
+            "conf_int_lower": 51.076697843712104,
+            "conf_int_upper": 69.89586939386297
+          },
+          "相關性標籤頻率": {
+            "coefficient": -6.2452141546126105,
+            "std_error": 12.26762330730969,
+            "t_statistic": -0.5090810174201702,
+            "p_value": 0.6123195978137864,
+            "conf_int_lower": -30.718453025792762,
+            "conf_int_upper": 18.22802471656754
+          },
+          "具體性標籤頻率": {
+            "coefficient": 45.628121177572126,
+            "std_error": 32.104233311708036,
+            "t_statistic": 1.421249364049821,
+            "p_value": 0.15974820964483985,
+            "conf_int_lower": -18.41807187315287,
+            "conf_int_upper": 109.67431422829712
+          },
+          "建設性標籤頻率": {
+            "coefficient": -49.89209813659626,
+            "std_error": 81.26112508717465,
+            "t_statistic": -0.6139725247844332,
+            "p_value": 0.5412525232474965,
+            "conf_int_lower": -212.00360705571103,
+            "conf_int_upper": 112.21941078251852
+          }
+        },
+        "model_fit_statistics": {
+          "r_squared": 0.03270189548111979,
+          "adjusted_r_squared": -0.009354543845788044,
+          "f_statistic": 0.7775716633290217,
+          "f_pvalue": 0.5104877813901764,
+          "aic": 675.1030285217845,
+          "bic": 684.264866286378
+        },
+        "diagnostic_tests": {
+          "normality_shapiro": {
+            "statistic": 0.9288926667068125,
+            "p_value": 0.0004965477242407644,
+            "interpretation": "殘差不呈正態分布"
+          },
+          "normality_jarque_bera": {
+            "statistic": 12.978719231924945,
+            "p_value": 0.0015195217740515139,
+            "interpretation": "殘差不呈正態分布"
+          },
+          "heteroscedasticity_bp": {
+            "statistic": 2.161107199764334,
+            "p_value": 0.539649610031014,
+            "interpretation": "同質變異數"
+          },
+          "heteroscedasticity_white": {
+            "statistic": 8.26081380060168,
+            "p_value": 0.508091301898477,
+            "interpretation": "同質變異數"
+          },
+          "multicollinearity": {
+            "相關性標籤頻率": {
+              "vif": 1.4065774031248823,
+              "interpretation": "無多重共線性問題"
+            },
+            "具體性標籤頻率": {
+              "vif": 2.520596862564339,
+              "interpretation": "無多重共線性問題"
+            },
+            "建設性標籤頻率": {
+              "vif": 2.0017017750935007,
+              "interpretation": "無多重共線性問題"
+            }
+          },
+          "autocorrelation_dw": {
+            "statistic": 1.4443719298851478,
+            "interpretation": "可能存在正自相關"
+          },
+          "outliers": {
+            "count": 0,
+            "percentage": 0.0,
+            "indices": [],
+            "interpretation": "發現 0 個極端離群值（|標準化殘差| > 3）"
+          }
+        },
+        "cross_validation": {
+          "cv_r2_scores": [
+            -0.5130136893388269,
+            -1.5155871282482725,
+            0.021741407624226605,
+            -1.3544307636588608,
+            -0.06542640455503457
+          ],
+          "cv_r2_mean": -0.6853433156353537,
+          "cv_r2_std": 0.6404601602121067,
+          "interpretation": "交叉驗證R²平均值: -0.6853 (±0.6405)"
+        }
+      },
+      "學期成績": {
+        "regression_coefficients": {
+          "const": {
+            "coefficient": 66.56595058027851,
+            "std_error": 3.478536977493677,
+            "t_statistic": 19.136191741230242,
+            "p_value": 2.6486340098056e-29,
+            "conf_int_lower": 59.62645918574651,
+            "conf_int_upper": 73.50544197481051
+          },
+          "相關性標籤頻率": {
+            "coefficient": 1.3707505313345472,
+            "std_error": 9.04727034827984,
+            "t_statistic": 0.15150984535298742,
+            "p_value": 0.8800156542983191,
+            "conf_int_lower": -16.67805996920198,
+            "conf_int_upper": 19.419561031871073
+          },
+          "具體性標籤頻率": {
+            "coefficient": 40.19038679996063,
+            "std_error": 23.676605550987645,
+            "t_statistic": 1.6974724993162766,
+            "p_value": 0.09411378384677636,
+            "conf_int_lower": -7.043148889284744,
+            "conf_int_upper": 87.423922489206
+          },
+          "建設性標籤頻率": {
+            "coefficient": -53.37999378128501,
+            "std_error": 59.92940515470416,
+            "t_statistic": -0.8907145606315924,
+            "p_value": 0.3761776679920823,
+            "conf_int_lower": -172.9358858247661,
+            "conf_int_upper": 66.1758982621961
+          }
+        },
+        "model_fit_statistics": {
+          "r_squared": 0.060986977226884065,
+          "adjusted_r_squared": 0.020160324062835522,
+          "f_statistic": 1.4938030061349354,
+          "f_pvalue": 0.2239021383243415,
+          "aic": 630.6459632256483,
+          "bic": 639.8078009902418
+        },
+        "diagnostic_tests": {
+          "normality_shapiro": {
+            "statistic": 0.9166890563634885,
+            "p_value": 0.00013752336772891954,
+            "interpretation": "殘差不呈正態分布"
+          },
+          "normality_jarque_bera": {
+            "statistic": 21.44527334973228,
+            "p_value": 2.204032837229397e-05,
+            "interpretation": "殘差不呈正態分布"
+          },
+          "heteroscedasticity_bp": {
+            "statistic": 2.1915125513947897,
+            "p_value": 0.5336220681964012,
+            "interpretation": "同質變異數"
+          },
+          "heteroscedasticity_white": {
+            "statistic": 5.514342100401932,
+            "p_value": 0.787367450389033,
+            "interpretation": "同質變異數"
+          },
+          "multicollinearity": {
+            "相關性標籤頻率": {
+              "vif": 1.4065774031248823,
+              "interpretation": "無多重共線性問題"
+            },
+            "具體性標籤頻率": {
+              "vif": 2.520596862564339,
+              "interpretation": "無多重共線性問題"
+            },
+            "建設性標籤頻率": {
+              "vif": 2.0017017750935007,
+              "interpretation": "無多重共線性問題"
+            }
+          },
+          "autocorrelation_dw": {
+            "statistic": 1.1772231634955477,
+            "interpretation": "可能存在正自相關"
+          },
+          "outliers": {
+            "count": 1,
+            "percentage": 1.36986301369863,
+            "indices": [
+              0
+            ],
+            "interpretation": "發現 1 個極端離群值（|標準化殘差| > 3）"
+          }
+        },
+        "cross_validation": {
+          "cv_r2_scores": [
+            -0.6489692935626294,
+            -0.6698175333881753,
+            0.04342780013831116,
+            -3.392614049102642,
+            0.03932509919979432
+          ],
+          "cv_r2_mean": -0.9257295953430683,
+          "cv_r2_std": 1.2726509951256664,
+          "interpretation": "交叉驗證R²平均值: -0.9257 (±1.2727)"
+        }
+      },
+      "期中成績_部分預測變數": {
+        "regression_coefficients": {
+          "const": {
+            "coefficient": 58.995942381885484,
+            "std_error": 4.267978849168488,
+            "t_statistic": 13.82292285571645,
+            "p_value": 1.0843999158709434e-21,
+            "conf_int_lower": 50.483726972849375,
+            "conf_int_upper": 67.50815779092159
+          },
+          "相關性標籤頻率": {
+            "coefficient": 0.5807861646094068,
+            "std_error": 11.355939638509746,
+            "t_statistic": 0.05114382280087781,
+            "p_value": 0.9593565794881898,
+            "conf_int_lower": -22.067921289467897,
+            "conf_int_upper": 23.22949361868671
+          },
+          "具體性標籤頻率": {
+            "coefficient": 41.16127079561267,
+            "std_error": 22.200107054324437,
+            "t_statistic": 1.8541023561233108,
+            "p_value": 0.06793761209643508,
+            "conf_int_lower": -3.1154465988252937,
+            "conf_int_upper": 85.43798819005065
+          }
+        },
+        "model_fit_statistics": {
+          "r_squared": 0.06568207945109372,
+          "adjusted_r_squared": 0.03898728172112509,
+          "f_statistic": 2.4604823799566042,
+          "f_pvalue": 0.09274996613941848,
+          "aic": 663.7544358749975,
+          "bic": 670.6258141984426
+        },
+        "diagnostic_tests": {
+          "normality_shapiro": {
+            "statistic": 0.9679493592480864,
+            "p_value": 0.05992033735367517,
+            "interpretation": "殘差呈正態分布"
+          },
+          "normality_jarque_bera": {
+            "statistic": 3.3402900448388624,
+            "p_value": 0.18821976757330064,
+            "interpretation": "殘差呈正態分布"
+          },
+          "heteroscedasticity_bp": {
+            "statistic": 4.9186325349615565,
+            "p_value": 0.08549338559612721,
+            "interpretation": "同質變異數"
+          },
+          "heteroscedasticity_white": {
+            "statistic": 7.122690753966406,
+            "p_value": 0.21167439551417902,
+            "interpretation": "同質變異數"
+          },
+          "multicollinearity": {
+            "相關性標籤頻率": {
+              "vif": 1.3898082608193554,
+              "interpretation": "無多重共線性問題"
+            },
+            "具體性標籤頻率": {
+              "vif": 1.3898082608193558,
+              "interpretation": "無多重共線性問題"
+            }
+          },
+          "autocorrelation_dw": {
+            "statistic": 1.3275627794318428,
+            "interpretation": "可能存在正自相關"
+          },
+          "outliers": {
+            "count": 0,
+            "percentage": 0.0,
+            "indices": [],
+            "interpretation": "發現 0 個極端離群值（|標準化殘差| > 3）"
+          }
+        },
+        "cross_validation": {
+          "cv_r2_scores": [
+            -0.0666380653159826,
+            -0.42236626588390824,
+            0.09395995061833229,
+            -0.42288341162799115,
+            -0.09690444510463836
+          ],
+          "cv_r2_mean": -0.1829664474628376,
+          "cv_r2_std": 0.20615509377712848,
+          "interpretation": "交叉驗證R²平均值: -0.1830 (±0.2062)"
+        }
+      },
+      "期末成績_部分預測變數": {
+        "regression_coefficients": {
+          "const": {
+            "coefficient": 61.17079429225316,
+            "std_error": 4.562615392940776,
+            "t_statistic": 13.406958295651192,
+            "p_value": 5.162863302435386e-21,
+            "conf_int_lower": 52.07094482583361,
+            "conf_int_upper": 70.27064375867272
+          },
+          "相關性標籤頻率": {
+            "coefficient": -5.422814392646311,
+            "std_error": 12.139887948616554,
+            "t_statistic": -0.4466939411301805,
+            "p_value": 0.6564750037490406,
+            "conf_int_lower": -29.635057450110942,
+            "conf_int_upper": 18.789428664818317
+          },
+          "具體性標籤頻率": {
+            "coefficient": 32.42580117129302,
+            "std_error": 23.732673883969174,
+            "t_statistic": 1.3662936308746834,
+            "p_value": 0.17621997270448697,
+            "conf_int_lower": -14.907524384457922,
+            "conf_int_upper": 79.75912672704396
+          }
+        },
+        "model_fit_statistics": {
+          "r_squared": 0.027417331992360072,
+          "adjusted_r_squared": -0.00037074423642957655,
+          "f_statistic": 0.9866581539010778,
+          "f_pvalue": 0.3779448285007163,
+          "aic": 673.5007582116025,
+          "bic": 680.3721365350476
+        },
+        "diagnostic_tests": {
+          "normality_shapiro": {
+            "statistic": 0.9254311388969554,
+            "p_value": 0.00034178259450430625,
+            "interpretation": "殘差不呈正態分布"
+          },
+          "normality_jarque_bera": {
+            "statistic": 13.273275746667114,
+            "p_value": 0.0013114290305224108,
+            "interpretation": "殘差不呈正態分布"
+          },
+          "heteroscedasticity_bp": {
+            "statistic": 1.6196469452421765,
+            "p_value": 0.444936602783082,
+            "interpretation": "同質變異數"
+          },
+          "heteroscedasticity_white": {
+            "statistic": 7.93773281879216,
+            "p_value": 0.15970084623818334,
+            "interpretation": "同質變異數"
+          },
+          "multicollinearity": {
+            "相關性標籤頻率": {
+              "vif": 1.3898082608193554,
+              "interpretation": "無多重共線性問題"
+            },
+            "具體性標籤頻率": {
+              "vif": 1.3898082608193558,
+              "interpretation": "無多重共線性問題"
+            }
+          },
+          "autocorrelation_dw": {
+            "statistic": 1.4075268278621829,
+            "interpretation": "可能存在正自相關"
+          },
+          "outliers": {
+            "count": 0,
+            "percentage": 0.0,
+            "indices": [],
+            "interpretation": "發現 0 個極端離群值（|標準化殘差| > 3）"
+          }
+        },
+        "cross_validation": {
+          "cv_r2_scores": [
+            -0.2688066719562734,
+            -1.4640436522172409,
+            0.011720141763453373,
+            -0.7555805425731794,
+            -0.05706408535429919
+          ],
+          "cv_r2_mean": -0.5067549620675079,
+          "cv_r2_std": 0.5488120830413733,
+          "interpretation": "交叉驗證R²平均值: -0.5068 (±0.5488)"
+        }
+      }
+    }
+  }
+}

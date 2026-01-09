@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpor        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+            justify-items: center;
+        }ent="width=device-width, initial-scale=1.0">
+    <title>描述性統計報告</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #f39c12;
+            padding-left: 15px;
+        }
+        .legend-title {
+            color: #2c3e50;
+            margin: 0;
+            grid-column: 1 / -1;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .variable-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .variable-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .variable-card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 10px;
+        }
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .stats-table th,
+        .stats-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .stats-table th {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        .stats-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        .chart-container {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+            justify-items: center;
+        }
+        @media (max-width: 1024px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            .chart-canvas {
+                width: 100%;
+                height: 120px;
+            }
+            .chart-canvas-small {
+                width: 100%;
+                height: 160px;
+            }
+        }
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            .chart-canvas {
+                width: 100%;
+                height: 100px;
+            }
+            .chart-canvas-small {
+                width: 100%;
+                height: 140px;
+            }
+            .container {
+                padding: 15px;
+            }
+        }
+        .chart-canvas {
+            width: 200px;
+            height: 150px;
+            max-width: 100%;
+        }
+        .chart-canvas-small {
+            width: 250px;
+            height: 180px;
+            max-width: 100%;
+        }
+        .summary-stats {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .summary-stats h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .summary-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .summary-value {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .summary-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .interpretation {
+            background-color: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .interpretation h4 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .navigation {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            background-color: #f39c12;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #d68910;
+        }
+        .distribution-info {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .distribution-info strong {
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 描述性統計報告</h1>
+        
+        <div class="navigation">
+            <a href="multipleRegressionReport.html" class="nav-button">多元回歸分析</a>
+            <a href="correlation_analysis_report.html" class="nav-button">相關係數分析</a>
+            <a href="graph.html" class="nav-button">回到主頁面</a>
+        </div>
+
+        <div class="summary-stats">
+            <h3>📈 資料集概覽</h3>
+            <div id="dataset-summary">
+                <!-- 資料集概覽將在這裡動態載入 -->
+            </div>
+        </div>
+
+        <div id="descriptive-stats">
+            <!-- 描述性統計結果將在這裡動態載入 -->
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>變數分佈比較</h3>
+                <canvas id="distributionChart" class="chart-canvas-small"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>平均值比較</h3>
+                <canvas id="boxplotChart" class="chart-canvas-small"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>變異係數比較</h3>
+                <canvas id="variabilityChart" class="chart-canvas-small"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let statisticsData = null;
+
+        // 載入描述性統計資料
+        async function loadStatisticsData() {
+            try {
+                const response = await fetch('grade_correlation_results.json');
+                statisticsData = await response.json();
+                displayDescriptiveStats();
+                createCharts();
+            } catch (error) {
+                console.error('載入資料時發生錯誤:', error);
+                document.getElementById('descriptive-stats').innerHTML = 
+                    '<p style="color: red; text-align: center;">載入資料時發生錯誤，請檢查資料檔案是否存在。</p>';
+            }
+        }
+
+        // 顯示描述性統計結果
+        function displayDescriptiveStats() {
+            if (!statisticsData || !statisticsData.descriptive_statistics) return;
+
+            // 顯示資料集概覽
+            displayDatasetSummary();
+
+            const container = document.getElementById('descriptive-stats');
+            let html = '<h2>📊 各變數描述性統計</h2>';
+            html += '<div class="stats-grid">';
+
+            Object.entries(statisticsData.descriptive_statistics).forEach(([variable, stats]) => {
+                // 計算額外的統計量
+                const range = stats.max - stats.min;
+                const iqr = stats['75%'] - stats['25%'];
+                const cv = (stats.std / stats.mean) * 100; // 變異係數
+
+                html += `
+                    <div class="variable-card">
+                        <h3>📋 ${variable}</h3>
+                        <table class="stats-table">
+                            <tr><th>統計量</th><th>數值</th></tr>
+                            <tr><td>樣本數</td><td>${stats.count}</td></tr>
+                            <tr><td>平均數</td><td>${stats.mean.toFixed(4)}</td></tr>
+                            <tr><td>標準差</td><td>${stats.std.toFixed(4)}</td></tr>
+                            <tr><td>最小值</td><td>${stats.min.toFixed(4)}</td></tr>
+                            <tr><td>第一四分位數 (Q1)</td><td>${stats['25%'].toFixed(4)}</td></tr>
+                            <tr><td>中位數 (Q2)</td><td>${stats['50%'].toFixed(4)}</td></tr>
+                            <tr><td>第三四分位數 (Q3)</td><td>${stats['75%'].toFixed(4)}</td></tr>
+                            <tr><td>最大值</td><td>${stats.max.toFixed(4)}</td></tr>
+                            <tr><td>全距</td><td>${range.toFixed(4)}</td></tr>
+                            <tr><td>四分位距 (IQR)</td><td>${iqr.toFixed(4)}</td></tr>
+                            <tr><td>變異係數 (%)</td><td>${cv.toFixed(2)}%</td></tr>
+                        </table>
+                        
+                        <div class="distribution-info">
+                            <strong>分佈特徵：</strong><br>
+                            ${getDistributionDescription(stats, cv)}
+                        </div>
+                    </div>`;
+            });
+
+            html += '</div>';
+
+            // 添加統計解釋
+            html += `
+                <div class="interpretation">
+                    <h4>統計量說明</h4>
+                    <ul>
+                        <li><strong>平均數：</strong> 所有數值的算術平均，反映中心趨勢</li>
+                        <li><strong>標準差：</strong> 衡量數據分散程度，數值越大表示變異越大</li>
+                        <li><strong>四分位數：</strong> 將數據分為四等份的數值，用於了解數據分佈</li>
+                        <li><strong>四分位距 (IQR)：</strong> Q3 - Q1，衡量中間50%數據的分散程度</li>
+                        <li><strong>變異係數：</strong> 標準差相對於平均數的比例，用於比較不同變數的變異程度</li>
+                        <li><strong>全距：</strong> 最大值與最小值的差距，反映數據的整體分佈範圍</li>
+                    </ul>
+                </div>`;
+
+            container.innerHTML = html;
+        }
+
+        // 顯示資料集概覽
+        function displayDatasetSummary() {
+            if (!statisticsData || !statisticsData.descriptive_statistics) return;
+
+            const variables = Object.keys(statisticsData.descriptive_statistics);
+            const totalObservations = Object.values(statisticsData.descriptive_statistics)[0].count;
+            
+            // 計算各變數的平均變異係數
+            const avgCV = Object.values(statisticsData.descriptive_statistics)
+                .map(stats => (stats.std / stats.mean) * 100)
+                .reduce((sum, cv) => sum + cv, 0) / variables.length;
+
+            const container = document.getElementById('dataset-summary');
+            container.innerHTML = `
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-value">${variables.length}</div>
+                        <div class="summary-label">分析變數數量</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${totalObservations}</div>
+                        <div class="summary-label">觀測值數量</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${avgCV.toFixed(2)}%</div>
+                        <div class="summary-label">平均變異係數</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${getMostVariable()}</div>
+                        <div class="summary-label">變異最大的變數</div>
+                    </div>
+                </div>`;
+        }
+
+        // 取得變異最大的變數
+        function getMostVariable() {
+            if (!statisticsData || !statisticsData.descriptive_statistics) return 'N/A';
+
+            let maxCV = 0;
+            let mostVariableVar = '';
+
+            Object.entries(statisticsData.descriptive_statistics).forEach(([variable, stats]) => {
+                const cv = (stats.std / stats.mean) * 100;
+                if (cv > maxCV) {
+                    maxCV = cv;
+                    mostVariableVar = variable;
+                }
+            });
+
+            return mostVariableVar;
+        }
+
+        // 根據統計量描述分佈特徵
+        function getDistributionDescription(stats, cv) {
+            let description = [];
+
+            // 變異程度
+            if (cv < 15) {
+                description.push('變異程度低');
+            } else if (cv < 30) {
+                description.push('變異程度中等');
+            } else {
+                description.push('變異程度高');
+            }
+
+            // 偏態判斷 (簡化版)
+            const mean = stats.mean;
+            const median = stats['50%'];
+            if (Math.abs(mean - median) / stats.std < 0.5) {
+                description.push('近似對稱分佈');
+            } else if (mean > median) {
+                description.push('右偏分佈');
+            } else {
+                description.push('左偏分佈');
+            }
+
+            // 異常值判斷
+            const iqr = stats['75%'] - stats['25%'];
+            const lowerBound = stats['25%'] - 1.5 * iqr;
+            const upperBound = stats['75%'] + 1.5 * iqr;
+            if (stats.min < lowerBound || stats.max > upperBound) {
+                description.push('可能存在異常值');
+            }
+
+            return description.join('，');
+        }
+
+        // 創建圖表
+        function createCharts() {
+            if (!statisticsData) return;
+
+            createDistributionChart();
+            createBoxplotChart();
+            createVariabilityChart();
+        }
+
+        // 創建分佈比較圖
+        function createDistributionChart() {
+            const ctx = document.getElementById('distributionChart').getContext('2d');
+            
+            const variables = Object.keys(statisticsData.descriptive_statistics);
+            const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6'];
+
+            const datasets = variables.map((variable, index) => {
+                const stats = statisticsData.descriptive_statistics[variable];
+                return {
+                    label: variable,
+                    data: [
+                        { x: '最小值', y: stats.min },
+                        { x: 'Q1', y: stats['25%'] },
+                        { x: '中位數', y: stats['50%'] },
+                        { x: 'Q3', y: stats['75%'] },
+                        { x: '最大值', y: stats.max }
+                    ],
+                    borderColor: colors[index % colors.length],
+                    backgroundColor: colors[index % colors.length] + '20',
+                    fill: false,
+                    tension: 0.4
+                };
+            });
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: datasets
+                },
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: true,
+                    aspectRatio: 5/12,
+                    scales: {
+                        x: {
+                            type: 'category',
+                            labels: ['最小值', 'Q1', '中位數', 'Q3', '最大值'],
+                            title: {
+                                display: true,
+                                text: '統計量'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: '數值'
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '各變數五數概括比較',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+        }
+
+        // 創建箱型圖（簡化版）
+        function createBoxplotChart() {
+            const ctx = document.getElementById('boxplotChart').getContext('2d');
+            
+            // 強制設定 canvas 尺寸
+            const canvas = ctx.canvas;
+            canvas.width = 250;
+            canvas.height = 180;
+            
+            const variables = Object.keys(statisticsData.descriptive_statistics);
+            const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6'];
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: variables,
+                    datasets: [{
+                        label: '平均值',
+                        data: variables.map(variable => 
+                            statisticsData.descriptive_statistics[variable].mean
+                        ),
+                        backgroundColor: variables.map((_, index) => 
+                            colors[index % colors.length] + '80'
+                        ),
+                        borderColor: variables.map((_, index) => 
+                            colors[index % colors.length]
+                        ),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '數值',
+                                font: { size: 10 }
+                            },
+                            ticks: { font: { size: 9 } }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: '變數',
+                                font: { size: 10 }
+                            },
+                            ticks: { font: { size: 9 } }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '各變數平均值比較',
+                            font: { size: 12 }
+                        },
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        // 創建變異性比較圖
+        function createVariabilityChart() {
+            const ctx = document.getElementById('variabilityChart').getContext('2d');
+            
+            // 強制設定 canvas 尺寸
+            const canvas = ctx.canvas;
+            canvas.width = 250;
+            canvas.height = 180;
+            
+            const variables = Object.keys(statisticsData.descriptive_statistics);
+            const cvValues = variables.map(variable => {
+                const stats = statisticsData.descriptive_statistics[variable];
+                return (stats.std / stats.mean) * 100;
+            });
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: variables,
+                    datasets: [{
+                        label: '變異係數 (%)',
+                        data: cvValues,
+                        backgroundColor: cvValues.map(cv => {
+                            if (cv < 15) return '#2ecc71';
+                            if (cv < 30) return '#f39c12';
+                            return '#e74c3c';
+                        }),
+                        borderColor: cvValues.map(cv => {
+                            if (cv < 15) return '#27ae60';
+                            if (cv < 30) return '#d68910';
+                            return '#c0392b';
+                        }),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '變異係數 (%)',
+                                font: { size: 10 }
+                            },
+                            ticks: { font: { size: 9 } }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: '變數',
+                                font: { size: 10 }
+                            },
+                            ticks: { font: { size: 9 } }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '各變數變異係數比較',
+                            font: { size: 12 }
+                        },
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        // 頁面載入時執行
+        document.addEventListener('DOMContentLoaded', loadStatisticsData);
+    </script>
+</body>
+</html>

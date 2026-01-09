@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>標籤與成績關聯視覺化分析</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <!-- html2canvas for HTML to PNG conversion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            min-height: 500px;
+        }
+        
+        .chart-title {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e74c3c;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .correlation-matrix {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+        
+        .control-panel {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .btn-custom {
+            margin: 5px;
+            border-radius: 20px;
+            padding: 8px 20px;
+        }
+        
+        .dropdown-menu {
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .dropdown-item {
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 2px 5px;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            transform: translateX(5px);
+            transition: all 0.2s ease;
+        }
+        
+        .export-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            min-width: 300px;
+        }
+        
+        .alert-info-custom {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .chart-canvas {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+        
+        .heatmap-cell {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 40px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            border: 1px solid #fff;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 15px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">
+                <i class="fas fa-chart-area me-2"></i>標籤與成績關聯視覺化分析
+            </span>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="./index.html">
+                    <i class="fas fa-home"></i> 返回首頁
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        
+        <!-- 錯誤訊息容器 -->
+        <div id="errorMessage" style="display: none;"></div>
+        
+        <!-- 匯出狀態提示 -->
+        <div id="exportStatus" class="export-status" style="display: none;">
+            <div class="alert alert-info alert-dismissible fade show">
+                <i class="fas fa-download me-2"></i>
+                <span id="exportMessage">正在匯出圖表...</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+        
+        <!-- 頁面標題和概覽 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="alert alert-info-custom">
+                    <h4 class="mb-3">
+                        <i class="fas fa-eye me-2"></i>視覺化分析報告
+                    </h4>
+                    <p class="mb-0">
+                        通過熱力圖、散點圖和箱形圖深入探索同儕評論標籤頻率與學業成績之間的關聯性
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 統計概覽卡片 -->
+        <div class="row mb-4" id="statsOverview">
+            <!-- 動態載入統計卡片 -->
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <h5><i class="fas fa-sliders-h me-2"></i>視覺化控制</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label">圖表類型：</label>
+                    <select id="chartType" class="form-select">
+                        <option value="all">顯示所有圖表</option>
+                        <option value="heatmap">相關係數熱力圖</option>
+                        <option value="scatter">散點圖分析</option>
+                        <option value="boxplot">箱形圖比較</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">成績類型：</label>
+                    <select id="gradeType" class="form-select">
+                        <option value="semester_grade">學期成績</option>
+                        <option value="midterm_grade">期中成績</option>
+                        <option value="final_grade">期末成績</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">標籤類型：</label>
+                    <select id="labelType" class="form-select">
+                        <option value="all">所有標籤</option>
+                        <option value="relevance">相關性標籤</option>
+                        <option value="concreteness">具體性標籤</option>
+                        <option value="constructive">建設性標籤</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <button id="updateCharts" class="btn btn-primary btn-custom">
+                        <i class="fas fa-sync-alt me-2"></i>更新圖表
+                    </button>
+                    <div class="btn-group" role="group">
+                        <button id="exportCharts" class="btn btn-success btn-custom dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fas fa-download me-2"></i>匯出圖表
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="exportAllPNG">
+                                <i class="fas fa-images me-2"></i>匯出所有圖表 (PNG)
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" id="exportHeatmapPNG">
+                                <i class="fas fa-th-large me-2"></i>匯出熱力圖 (PNG)
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" id="exportScatterPNG">
+                                <i class="fas fa-scatter-chart me-2"></i>匯出散點圖 (PNG)
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" id="exportBoxplotPNG">
+                                <i class="fas fa-chart-area me-2"></i>匯出箱形圖 (PNG)
+                            </a></li>
+                        </ul>
+                    </div>
+                    <button id="resetView" class="btn btn-secondary btn-custom">
+                        <i class="fas fa-undo me-2"></i>重置視圖
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 相關係數熱力圖 -->
+        <div class="chart-container" id="heatmapContainer">
+            <h3 class="chart-title">
+                <i class="fas fa-th-large me-2"></i>變數相關係數熱力圖
+            </h3>
+            <div id="correlationHeatmap">
+                <div class="loading-spinner">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">載入中...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 散點圖分析 -->
+        <div class="chart-container" id="scatterContainer">
+            <h3 class="chart-title">
+                <i class="fas fa-scatter-chart me-2"></i>標籤頻率與成績散點圖
+            </h3>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="chart-canvas">
+                        <canvas id="scatterRelevance"></canvas>
+                    </div>
+                    <h6 class="text-center mt-2">相關性標籤 vs 成績</h6>
+                </div>
+                <div class="col-lg-4">
+                    <div class="chart-canvas">
+                        <canvas id="scatterConcreteness"></canvas>
+                    </div>
+                    <h6 class="text-center mt-2">具體性標籤 vs 成績</h6>
+                </div>
+                <div class="col-lg-4">
+                    <div class="chart-canvas">
+                        <canvas id="scatterConstructive"></canvas>
+                    </div>
+                    <h6 class="text-center mt-2">建設性標籤 vs 成績</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- 箱形圖比較 -->
+        <div class="chart-container" id="boxplotContainer">
+            <h3 class="chart-title">
+                <i class="fas fa-chart-area me-2"></i>高低標籤分數學生成績分布比較
+            </h3>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="chart-canvas" style="height: 500px;">
+                        <canvas id="boxplotComparison"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <strong>說明：</strong>
+                        將學生按照標籤頻率分為高分組（前25%）和低分組（後25%），比較兩組學生的成績分布差異。
+                        箱形圖顯示中位數、四分位數範圍和異常值。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細統計分析 -->
+        <div class="chart-container">
+            <h3 class="chart-title">
+                <i class="fas fa-calculator me-2"></i>詳細統計分析
+            </h3>
+            <div id="detailedStats">
+                <!-- 動態載入詳細統計 -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 視覺化分析器類
+        class VisualizationAnalyzer {
+            constructor() {
+                this.data = null;
+                this.correlationMatrix = null;
+                this.charts = {};
+                this.currentGradeType = 'semester_grade';
+                this.currentLabelType = 'all';
+            }
+
+            async loadData() {
+                try {
+                    console.log('開始載入視覺化數據...');
+                    
+                    // 載入視覺化數據
+                    const response = await fetch('./visualization_data.json');
+                    console.log('響應狀態:', response.status, response.statusText);
+                    console.log('響應頭 Content-Type:', response.headers.get('Content-Type'));
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    
+                    // 獲取響應文本進行調試
+                    const responseText = await response.text();
+                    console.log('響應文本前200字符:', responseText.substring(0, 200));
+                    
+                    // 檢查是否包含HTTP頭 - 修復常見問題
+                    let cleanJsonText = responseText;
+                    if (responseText.startsWith('HTTP/')) {
+                        console.warn('檢測到HTTP響應頭，嘗試提取JSON部分...');
+                        
+                        // 尋找JSON開始位置（通常在空行之後）
+                        const jsonStart = responseText.indexOf('\r\n\r\n');
+                        if (jsonStart !== -1) {
+                            cleanJsonText = responseText.substring(jsonStart + 4);
+                            console.log('提取的JSON前100字符:', cleanJsonText.substring(0, 100));
+                        } else {
+                            // 備用方法：尋找第一個 { 字符
+                            const braceStart = responseText.indexOf('{');
+                            if (braceStart !== -1) {
+                                cleanJsonText = responseText.substring(braceStart);
+                                console.log('使用備用方法提取JSON');
+                            }
+                        }
+                    }
+                    
+                    // 嘗試解析JSON
+                    let vizData;
+                    try {
+                        vizData = JSON.parse(cleanJsonText);
+                        console.log('✅ JSON解析成功');
+                    } catch (parseError) {
+                        console.error('❌ JSON解析錯誤:', parseError);
+                        console.error('原始響應:', responseText.substring(0, 500));
+                        console.error('清理後JSON:', cleanJsonText.substring(0, 500));
+                        throw new Error('JSON解析失敗: ' + parseError.message);
+                    }
+                    
+                    // 驗證數據結構
+                    if (!vizData.correlation_matrix) {
+                        throw new Error('缺少correlation_matrix數據');
+                    }
+                    if (!vizData.original_data) {
+                        throw new Error('缺少original_data數據');
+                    }
+                    
+                    // 設置數據
+                    this.data = vizData.original_data;
+                    this.correlationMatrix = vizData.correlation_matrix;
+                    
+                    console.log('視覺化數據載入成功:', {
+                        correlation_matrix_keys: Object.keys(vizData.correlation_matrix),
+                        original_data_length: vizData.original_data?.length || 0,
+                        descriptive_statistics: !!vizData.descriptive_statistics
+                    });
+                    
+                    return vizData;
+                } catch (error) {
+                    console.error('載入數據失敗:', error);
+                    
+                    // 顯示用戶友好的錯誤消息
+                    const errorContainer = document.getElementById('errorMessage');
+                    if (errorContainer) {
+                        errorContainer.innerHTML = `
+                            <div class="alert alert-danger" role="alert">
+                                <h5>數據載入失敗</h5>
+                                <p><strong>錯誤：</strong> ${error.message}</p>
+                                <p><strong>建議：</strong></p>
+                                <ul>
+                                    <li>確保服務器正在運行</li>
+                                    <li>檢查 visualization_data.json 文件是否存在</li>
+                                    <li>查看瀏覽器控制台獲取詳細信息</li>
+                                </ul>
+                            </div>
+                        `;
+                        errorContainer.style.display = 'block';
+                    }
+                    
+                    throw error;
+                }
+            }
+
+            renderStatsOverview() {
+                const container = document.getElementById('statsOverview');
+                const stats = this.data.descriptive_statistics;
+                
+                const statsHtml = `
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-value">${this.data.data_summary.merged_records}</div>
+                            <div class="stat-label">有效樣本數</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-value">${(stats['相關性標籤頻率'].mean * 100).toFixed(1)}%</div>
+                            <div class="stat-label">平均相關性標籤頻率</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-value">${stats['學期成績'].mean.toFixed(1)}</div>
+                            <div class="stat-label">平均學期成績</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-value">${Object.keys(this.correlationMatrix).length}</div>
+                            <div class="stat-label">分析變數數量</div>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML = statsHtml;
+            }
+
+            renderCorrelationHeatmap() {
+                const container = document.getElementById('correlationHeatmap');
+                
+                if (!this.correlationMatrix) {
+                    container.innerHTML = '<div class="alert alert-warning">相關係數矩陣數據不可用</div>';
+                    return;
+                }
+
+                const variables = Object.keys(this.correlationMatrix);
+                const shortNames = {
+                    '相關性標籤頻率': '相關性',
+                    '具體性標籤頻率': '具體性',
+                    '建設性標籤頻率': '建設性',
+                    '期中成績': '期中',
+                    '期末成績': '期末',
+                    '學期成績': '學期'
+                };
+
+                let tableHtml = `
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>變數</th>
+                `;
+
+                variables.forEach(var1 => {
+                    tableHtml += `<th>${shortNames[var1] || var1}</th>`;
+                });
+                tableHtml += '</tr></thead><tbody>';
+
+                variables.forEach(var1 => {
+                    tableHtml += `<tr><td class="fw-bold">${shortNames[var1] || var1}</td>`;
+                    variables.forEach(var2 => {
+                        const correlation = this.correlationMatrix[var1][var2];
+                        const intensity = Math.abs(correlation);
+                        const color = correlation > 0 ? 
+                            `rgba(255, 0, 0, ${intensity})` : 
+                            `rgba(0, 0, 255, ${intensity})`;
+                        
+                        tableHtml += `
+                            <td style="background-color: ${color}; color: ${intensity > 0.5 ? 'white' : 'black'};">
+                                ${correlation.toFixed(3)}
+                            </td>
+                        `;
+                    });
+                    tableHtml += '</tr>';
+                });
+
+                tableHtml += `
+                    </tbody>
+                    </table>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(to right, rgba(0,0,255,0.2), rgba(0,0,255,1));"></div>
+                            <span>負相關（藍色）</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(to right, rgba(255,0,0,0.2), rgba(255,0,0,1));"></div>
+                            <span>正相關（紅色）</span>
+                        </div>
+                        <div class="legend-item">
+                            <span>顏色深度表示相關性強度</span>
+                        </div>
+                    </div>
+                </div>
+                `;
+
+                container.innerHTML = tableHtml;
+            }
+
+            renderScatterPlots() {
+                const gradeField = this.getGradeField(this.currentGradeType);
+                const labelFields = this.currentLabelType === 'all' ? 
+                    ['相關性標籤頻率', '具體性標籤頻率', '建設性標籤頻率'] : 
+                    [this.getLabelField(this.currentLabelType)];
+
+                const canvasIds = ['scatterRelevance', 'scatterConcreteness', 'scatterConstructive'];
+                
+                labelFields.forEach((labelField, index) => {
+                    if (index >= canvasIds.length) return;
+                    
+                    const canvasId = canvasIds[index];
+                    const ctx = document.getElementById(canvasId);
+                    if (!ctx) return;
+
+                    // 銷毀現有圖表
+                    if (this.charts[canvasId]) {
+                        this.charts[canvasId].destroy();
+                    }
+
+                    const scatterData = this.data.raw_data.map(d => ({
+                        x: d[labelField] * 100, // 轉換為百分比
+                        y: d[gradeField]
+                    }));
+
+                    this.charts[canvasId] = new Chart(ctx, {
+                        type: 'scatter',
+                        data: {
+                            datasets: [{
+                                label: `${this.getFieldDisplayName(labelField)} vs ${this.getFieldDisplayName(gradeField)}`,
+                                data: scatterData,
+                                backgroundColor: this.getScatterColor(index),
+                                borderColor: this.getScatterColor(index),
+                                borderWidth: 2,
+                                pointRadius: 5,
+                                pointHoverRadius: 8
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: (context) => {
+                                            return `標籤頻率: ${context.parsed.x.toFixed(1)}%, 成績: ${context.parsed.y}分`;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: '標籤頻率 (%)'
+                                    },
+                                    min: 0,
+                                    max: 100
+                                },
+                                y: {
+                                    title: {
+                                        display: true,
+                                        text: '成績'
+                                    },
+                                    min: 0,
+                                    max: 100
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            renderBoxPlots() {
+                const ctx = document.getElementById('boxplotComparison');
+                if (!ctx) return;
+
+                // 銷毀現有圖表
+                if (this.charts['boxplotComparison']) {
+                    this.charts['boxplotComparison'].destroy();
+                }
+
+                const gradeField = this.getGradeField(this.currentGradeType);
+                const labelFields = ['相關性標籤頻率', '具體性標籤頻率', '建設性標籤頻率'];
+                
+                const datasets = [];
+                const colors = ['#FFE693', '#B3EC94', '#D8ACF6']; // 使用標籤代表顏色
+
+                labelFields.forEach((labelField, index) => {
+                    // 排序並分組
+                    const sortedData = this.data.raw_data
+                        .map(d => ({ label: d[labelField], grade: d[gradeField] }))
+                        .sort((a, b) => a.label - b.label);
+
+                    const totalCount = sortedData.length;
+                    const groupSize = Math.floor(totalCount / 4);
+
+                    const lowGroup = sortedData.slice(0, groupSize).map(d => d.grade);
+                    const highGroup = sortedData.slice(-groupSize).map(d => d.grade);
+
+                    // 計算箱形圖統計量
+                    const lowStats = this.calculateBoxPlotStats(lowGroup);
+                    const highStats = this.calculateBoxPlotStats(highGroup);
+
+                    // 添加低分組數據
+                    datasets.push({
+                        label: `${this.getFieldDisplayName(labelField)} - 低頻率組`,
+                        data: [lowStats],
+                        backgroundColor: colors[index] + '80',
+                        borderColor: colors[index],
+                        borderWidth: 2
+                    });
+
+                    // 添加高分組數據
+                    datasets.push({
+                        label: `${this.getFieldDisplayName(labelField)} - 高頻率組`,
+                        data: [highStats],
+                        backgroundColor: colors[index] + 'B0',
+                        borderColor: colors[index],
+                        borderWidth: 2
+                    });
+                });
+
+                this.charts['boxplotComparison'] = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['相關性-低', '相關性-高', '具體性-低', '具體性-高', '建設性-低', '建設性-高'],
+                        datasets: [{
+                            label: '成績分布',
+                            data: datasets.map(d => d.data[0]).flat(),
+                            backgroundColor: [
+                                '#FFE69380', '#FFE693B0',
+                                '#B3EC9480', '#B3EC94B0', 
+                                '#D8ACF680', '#D8ACF6B0'
+                            ],
+                            borderColor: [
+                                '#FFE693', '#FFE693',
+                                '#B3EC94', '#B3EC94',
+                                '#D8ACF6', '#D8ACF6'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: (context) => {
+                                        return `平均成績: ${context.parsed.y.toFixed(1)}分`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: '成績'
+                                },
+                                min: 0,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+
+            calculateBoxPlotStats(data) {
+                if (!data || data.length === 0) return 0;
+                
+                const sorted = data.slice().sort((a, b) => a - b);
+                const sum = sorted.reduce((a, b) => a + b, 0);
+                const mean = sum / sorted.length;
+                
+                return mean;
+            }
+
+            renderDetailedStats() {
+                const container = document.getElementById('detailedStats');
+                
+                if (!this.correlationMatrix) {
+                    container.innerHTML = '<div class="alert alert-warning">統計數據不可用</div>';
+                    return;
+                }
+
+                // 找出最強的相關性
+                let strongestCorrelations = [];
+                const gradeFields = ['期中成績', '期末成績', '學期成績'];
+                const labelFields = ['相關性標籤頻率', '具體性標籤頻率', '建設性標籤頻率'];
+
+                labelFields.forEach(labelField => {
+                    gradeFields.forEach(gradeField => {
+                        const correlation = this.correlationMatrix[labelField][gradeField];
+                        strongestCorrelations.push({
+                            label: labelField,
+                            grade: gradeField,
+                            correlation: correlation,
+                            absCorrelation: Math.abs(correlation)
+                        });
+                    });
+                });
+
+                strongestCorrelations.sort((a, b) => b.absCorrelation - a.absCorrelation);
+
+                let statsHtml = `
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h5>最強相關性排名</h5>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>標籤類型</th>
+                                            <th>成績類型</th>
+                                            <th>相關係數</th>
+                                            <th>強度</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                `;
+
+                strongestCorrelations.slice(0, 6).forEach(item => {
+                    const strength = this.getCorrelationStrength(item.absCorrelation);
+                    const colorClass = item.correlation > 0 ? 'text-success' : 'text-danger';
+                    
+                    statsHtml += `
+                        <tr>
+                            <td>${this.getFieldDisplayName(item.label)}</td>
+                            <td>${this.getFieldDisplayName(item.grade)}</td>
+                            <td class="${colorClass}">${item.correlation.toFixed(3)}</td>
+                            <td>${strength}</td>
+                        </tr>
+                    `;
+                });
+
+                statsHtml += `
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h5>標籤頻率分析</h5>
+                            <div class="alert alert-info">
+                                <strong>觀察要點：</strong>
+                                <ul class="mt-2">
+                                    <li><strong>相關性標籤</strong>：使用頻率最高 (${(this.data.descriptive_statistics['相關性標籤頻率'].mean * 100).toFixed(1)}%)</li>
+                                    <li><strong>具體性標籤</strong>：使用頻率中等 (${(this.data.descriptive_statistics['具體性標籤頻率'].mean * 100).toFixed(1)}%)</li>
+                                    <li><strong>建設性標籤</strong>：使用頻率最低 (${(this.data.descriptive_statistics['建設性標籤頻率'].mean * 100).toFixed(1)}%)</li>
+                                </ul>
+                            </div>
+                            <h5 class="mt-4">統計解釋</h5>
+                            <div class="alert alert-warning">
+                                <strong>相關性解釋：</strong>
+                                <ul class="mt-2">
+                                    <li><strong>強相關</strong>：|r| ≥ 0.7</li>
+                                    <li><strong>中等相關</strong>：0.3 ≤ |r| < 0.7</li>
+                                    <li><strong>弱相關</strong>：0.1 ≤ |r| < 0.3</li>
+                                    <li><strong>無相關</strong>：|r| < 0.1</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML = statsHtml;
+            }
+
+            getCorrelationStrength(absCorrelation) {
+                if (absCorrelation >= 0.7) return '強相關';
+                if (absCorrelation >= 0.3) return '中等相關';
+                if (absCorrelation >= 0.1) return '弱相關';
+                return '無相關';
+            }
+
+            getFieldDisplayName(field) {
+                const displayNames = {
+                    '相關性標籤頻率': '相關性標籤',
+                    '具體性標籤頻率': '具體性標籤',
+                    '建設性標籤頻率': '建設性標籤',
+                    '期中成績': '期中成績',
+                    '期末成績': '期末成績',
+                    '學期成績': '學期成績',
+                    'semester_grade': '學期成績',
+                    'midterm_grade': '期中成績',
+                    'final_grade': '期末成績'
+                };
+                return displayNames[field] || field;
+            }
+
+            getGradeField(gradeType) {
+                const gradeFields = {
+                    'semester_grade': '學期成績',
+                    'midterm_grade': '期中成績', 
+                    'final_grade': '期末成績'
+                };
+                return gradeFields[gradeType] || '學期成績';
+            }
+
+            getLabelField(labelType) {
+                const labelFields = {
+                    'relevance': '相關性標籤頻率',
+                    'concreteness': '具體性標籤頻率',
+                    'constructive': '建設性標籤頻率'
+                };
+                return labelFields[labelType] || '相關性標籤頻率';
+            }
+
+            getScatterColor(index) {
+                // 使用標籤代表顏色：相關性(#FFE693)、具體性(#B3EC94)、建設性(#D8ACF6)
+                const colors = ['#FFE693', '#B3EC94', '#D8ACF6'];
+                return colors[index % colors.length];
+            }
+
+            updateCharts() {
+                this.currentGradeType = document.getElementById('gradeType').value;
+                this.currentLabelType = document.getElementById('labelType').value;
+                
+                const chartType = document.getElementById('chartType').value;
+                
+                // 根據選擇顯示/隱藏圖表容器
+                const containers = {
+                    'heatmap': document.getElementById('heatmapContainer'),
+                    'scatter': document.getElementById('scatterContainer'),
+                    'boxplot': document.getElementById('boxplotContainer')
+                };
+
+                Object.entries(containers).forEach(([type, container]) => {
+                    if (chartType === 'all' || chartType === type) {
+                        container.style.display = 'block';
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+
+                // 重新渲染圖表
+                if (chartType === 'all' || chartType === 'heatmap') {
+                    this.renderCorrelationHeatmap();
+                }
+                if (chartType === 'all' || chartType === 'scatter') {
+                    this.renderScatterPlots();
+                }
+                if (chartType === 'all' || chartType === 'boxplot') {
+                    this.renderBoxPlots();
+                }
+                if (chartType === 'all') {
+                    this.renderDetailedStats();
+                }
+            }
+
+            // 新增：PNG圖表匯出功能
+            showExportStatus(message, type = 'info') {
+                const statusDiv = document.getElementById('exportStatus');
+                const messageSpan = document.getElementById('exportMessage');
+                const alertDiv = statusDiv.querySelector('.alert');
+                
+                messageSpan.textContent = message;
+                alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+                statusDiv.style.display = 'block';
+                
+                // 3秒後自動隱藏（除非是錯誤訊息）
+                if (type !== 'danger') {
+                    setTimeout(() => {
+                        statusDiv.style.display = 'none';
+                    }, 3000);
+                }
+            }
+
+            exportChartAsPNG(chartId, filename) {
+                const canvas = document.getElementById(chartId);
+                if (!canvas) {
+                    this.showExportStatus(`找不到圖表: ${chartId}`, 'warning');
+                    return;
+                }
+
+                try {
+                    this.showExportStatus(`正在匯出 ${filename}...`, 'info');
+                    
+                    // 創建下載連結
+                    const link = document.createElement('a');
+                    link.download = `${filename}_${new Date().toISOString().split('T')[0]}.png`;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    
+                    // 觸發下載
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    this.showExportStatus(`成功匯出: ${filename}.png`, 'success');
+                    console.log(`成功匯出圖表: ${filename}`);
+                } catch (error) {
+                    console.error('匯出圖表失敗:', error);
+                    this.showExportStatus('匯出圖表時發生錯誤，請稍後再試', 'danger');
+                }
+            }
+
+            exportHeatmapAsPNG() {
+                // 由於熱力圖是HTML表格，需要特殊處理
+                const heatmapContainer = document.getElementById('correlationHeatmap');
+                if (!heatmapContainer) {
+                    this.showExportStatus('找不到熱力圖', 'warning');
+                    return;
+                }
+
+                this.showExportStatus('正在處理熱力圖匯出...', 'info');
+                
+                // 使用html2canvas庫來轉換HTML為Canvas
+                this.convertHTMLToCanvas(heatmapContainer, 'correlation_heatmap');
+            }
+
+            convertHTMLToCanvas(element, filename) {
+                // 檢查是否載入了html2canvas
+                if (typeof html2canvas === 'undefined') {
+                    this.showExportStatus('正在載入匯出工具...', 'info');
+                    // 動態載入html2canvas
+                    const script = document.createElement('script');
+                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+                    script.onload = () => {
+                        this.performHTMLToCanvasConversion(element, filename);
+                    };
+                    script.onerror = () => {
+                        this.showExportStatus('載入匯出工具失敗', 'danger');
+                    };
+                    document.head.appendChild(script);
+                } else {
+                    this.performHTMLToCanvasConversion(element, filename);
+                }
+            }
+
+            performHTMLToCanvasConversion(element, filename) {
+                html2canvas(element, {
+                    backgroundColor: '#ffffff',
+                    scale: 2,
+                    logging: false,
+                    useCORS: true,
+                    width: element.offsetWidth,
+                    height: element.offsetHeight
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `${filename}_${new Date().toISOString().split('T')[0]}.png`;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    this.showExportStatus(`成功匯出: ${filename}.png`, 'success');
+                    console.log(`成功匯出HTML元素: ${filename}`);
+                }).catch(error => {
+                    console.error('HTML轉換Canvas失敗:', error);
+                    this.showExportStatus('匯出圖表時發生錯誤，請稍後再試', 'danger');
+                });
+            }
+
+            exportAllChartsAsPNG() {
+                this.showExportStatus('開始批量匯出所有圖表...', 'info');
+                
+                let exportCount = 0;
+                const totalExports = 4; // 3個散點圖 + 1個箱形圖
+                
+                // 匯出散點圖
+                ['scatterRelevance', 'scatterConcreteness', 'scatterConstructive'].forEach((canvasId, index) => {
+                    const canvas = document.getElementById(canvasId);
+                    if (canvas && this.charts[canvasId]) {
+                        setTimeout(() => {
+                            this.exportChartAsPNG(canvasId, `scatter_chart_${['relevance', 'concreteness', 'constructive'][index]}`);
+                            exportCount++;
+                            
+                            if (exportCount === totalExports) {
+                                setTimeout(() => {
+                                    this.exportHeatmapAsPNG();
+                                    this.showExportStatus('所有圖表匯出完成！', 'success');
+                                }, 500);
+                            }
+                        }, index * 800); // 增加延遲避免瀏覽器阻塞下載
+                    }
+                });
+
+                // 匯出箱形圖
+                setTimeout(() => {
+                    this.exportChartAsPNG('boxplotComparison', 'boxplot_comparison');
+                    exportCount++;
+                }, 2400);
+            }
+
+            resetView() {
+                document.getElementById('chartType').value = 'all';
+                document.getElementById('gradeType').value = 'semester_grade';
+                document.getElementById('labelType').value = 'all';
+                this.updateCharts();
+            }
+
+            init() {
+                // 綁定事件監聽器
+                document.getElementById('updateCharts').addEventListener('click', () => this.updateCharts());
+                document.getElementById('resetView').addEventListener('click', () => this.resetView());
+                
+                // 綁定PNG匯出事件
+                document.getElementById('exportAllPNG').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.exportAllChartsAsPNG();
+                });
+                
+                document.getElementById('exportHeatmapPNG').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.exportHeatmapAsPNG();
+                });
+                
+                document.getElementById('exportScatterPNG').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // 匯出所有散點圖
+                    ['scatterRelevance', 'scatterConcreteness', 'scatterConstructive'].forEach((canvasId, index) => {
+                        setTimeout(() => {
+                            this.exportChartAsPNG(canvasId, `scatter_${['relevance', 'concreteness', 'constructive'][index]}`);
+                        }, index * 300);
+                    });
+                });
+                
+                document.getElementById('exportBoxplotPNG').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.exportChartAsPNG('boxplotComparison', 'boxplot_comparison');
+                });
+                
+                // 綁定下拉選單變更事件
+                ['chartType', 'gradeType', 'labelType'].forEach(id => {
+                    document.getElementById(id).addEventListener('change', () => this.updateCharts());
+                });
+            }
+
+            async render() {
+                try {
+                    await this.loadData();
+                    
+                    this.renderStatsOverview();
+                    this.renderCorrelationHeatmap();
+                    this.renderScatterPlots();
+                    this.renderBoxPlots();
+                    this.renderDetailedStats();
+                    
+                    this.init();
+                    
+                } catch (error) {
+                    console.error('渲染失敗:', error);
+                    document.body.innerHTML = `
+                        <div class="container mt-5">
+                            <div class="alert alert-danger">
+                                <h4>載入失敗</h4>
+                                <p>無法載入視覺化分析數據：${error.message}</p>
+                                <p>請確認數據文件是否存在且格式正確。</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // 頁面載入完成後初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            const analyzer = new VisualizationAnalyzer();
+            analyzer.render();
+        });
+    </script>
+</body>
+</html>

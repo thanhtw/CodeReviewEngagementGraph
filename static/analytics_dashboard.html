@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProgEdu 統計分析儀表板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .analysis-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analysis-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #3498db, #e74c3c, #f39c12);
+        }
+
+        .analysis-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .card-description {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .action-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .action-btn.secondary {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        }
+
+        .action-btn.secondary:hover {
+            background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+            box-shadow: 0 5px 15px rgba(149, 165, 166, 0.4);
+        }
+
+        .quick-stats {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .quick-stats h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .navigation-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation-section h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .nav-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-card-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .nav-card-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .nav-card-desc {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>📊 ProgEdu 統計分析儀表板</h1>
+            <p>全方位的程式教育評論數據分析平台</p>
+        </div>
+
+        <div class="main-content">
+            <!-- 快速統計 -->
+            <div class="quick-stats">
+                <h3>📈 數據概覽</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">73</div>
+                        <div class="stat-label">觀測樣本</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">回歸模型</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">標籤類型</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">作業數量</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分析功能卡片 -->
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">描述性統計分析</h3>
+                    <p class="card-description">
+                        深入了解各變數的分佈特徵，包括中心趨勢、離散程度、分佈形狀等關鍵統計指標。
+                    </p>
+                    <div class="card-actions">
+                        <a href="descriptive_statistics.html" class="action-btn">
+                            查看詳細分析
+                        </a>
+                    </div>
+                </div>
+
+                <div class="analysis-card">
+                    <div class="card-icon">🔗</div>
+                    <h3 class="card-title">相關係數分析</h3>
+                    <p class="card-description">
+                        探索變數間的線性關係強度，識別重要的相關模式，支援決策制定。
+                    </p>
+                    <div class="card-actions">
+                        <a href="correlation_analysis_report.html" class="action-btn">
+                            查看相關分析
+                        </a>
+                    </div>
+                </div>
+
+                <div class="analysis-card">
+                    <div class="card-icon">📈</div>
+                    <h3 class="card-title">多元回歸分析</h3>
+                    <p class="card-description">
+                        建立預測模型，量化變數間的因果關係，評估模型適配度和預測能力。
+                    </p>
+                    <div class="card-actions">
+                        <a href="multipleRegressionReport.html" class="action-btn">
+                            查看回歸模型
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 導航區域 -->
+            <div class="navigation-section">
+                <h3>🔍 分析工具導航</h3>
+                <div class="nav-grid">
+                    <a href="graph.html" class="nav-card">
+                        <div class="nav-card-icon">🕸️</div>
+                        <div class="nav-card-title">網絡視覺化</div>
+                        <div class="nav-card-desc">互動式評論網絡圖表</div>
+                    </a>
+                    
+                    <a href="labelChart.html" class="nav-card">
+                        <div class="nav-card-icon">📊</div>
+                        <div class="nav-card-title">標籤圖表</div>
+                        <div class="nav-card-desc">標籤分佈統計圖表</div>
+                    </a>
+                    
+                    <a href="3label.html" class="nav-card">
+                        <div class="nav-card-icon">🏷️</div>
+                        <div class="nav-card-title">三標籤分析</div>
+                        <div class="nav-card-desc">建設性標籤專門分析</div>
+                    </a>
+                    
+                    <a href="gradeCorrelation.html" class="nav-card">
+                        <div class="nav-card-icon">🎯</div>
+                        <div class="nav-card-title">成績關聯</div>
+                        <div class="nav-card-desc">成績與標籤相關性</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 添加一些動態效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 為卡片添加載入動畫
+            const cards = document.querySelectorAll('.analysis-card, .nav-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // 動態更新統計數字
+            animateNumbers();
+        });
+
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.stat-number');
+            numbers.forEach(number => {
+                const target = parseInt(number.textContent);
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    number.textContent = Math.floor(current);
+                }, 20);
+            });
+        }
+    </script>
+</body>
+</html>

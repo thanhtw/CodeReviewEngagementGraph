@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Peer Review Quality Analysis - Visualization Dashboard</title>
+    <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./static/graph.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@latest"></script>
+    <style>
+        /* Professional styling overrides */
+        .pipeline-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .pipeline-header h1 {
+            margin: 0;
+            font-size: 1.6em;
+            font-weight: 600;
+        }
+        .pipeline-header a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .pipeline-header a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateX(-3px);
+        }
+        .data-info {
+            text-align: center;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 8px;
+            margin: 0 auto 25px auto;
+            max-width: 700px;
+            font-size: 0.95em;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+        .section-title {
+            text-align: center;
+            color: #333;
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+        .section-description {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 25px auto;
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            line-height: 1.7;
+            color: #555;
+        }
+        .section-description strong {
+            color: #333;
+        }
+        .legend-box {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid rgba(0,0,0,0.1);
+        }
+        .note-text {
+            font-size: 0.85em;
+            color: #777;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="pipeline-header">
+    <h1>📊 Peer Review Quality Analysis Dashboard</h1>
+    <a href="/">← Back to Pipeline</a>
+  </div>
+  
+  <!-- Data Status -->
+  <div class="data-info" id="data-info">
+    <span id="loading-text">⏳ Loading data...</span>
+    <div id="loading-progress" style="display:none; margin-top:8px;">
+      <div style="width:100%; height:6px; background:#e0e0e0; border-radius:3px; overflow:hidden;">
+        <div id="progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg, #667eea, #764ba2); transition:width 0.3s;"></div>
+      </div>
+    </div>
+  </div>
+
+  <h1 style="display:none;">Review Engagement Graph</h1>
+  
+  <!-- Section: Network Graph -->
+  <h2 class="section-title">🔗 Review Engagement Network</h2>
+  <div class="section-description">
+    <strong>Network Visualization:</strong> Each node represents a student reviewer. 
+    Arrows indicate review relationships (reviewer → author).<br>
+    <strong>Node Size:</strong> Review participation rate (completed assignments / assigned assignments).<br>
+    <strong>Node Color:</strong> Quality score intensity based on the selected metric below.
+  </div>
+  
+  <!-- Mode Switch Buttons -->
+  <div class="switch-bar">
+    <button class="switch-btn active" onclick="window.updateGraphMode('all')">All Metrics</button>
+    <button class="switch-btn" onclick="window.updateGraphMode('relevance')">Relevance</button>
+    <button class="switch-btn" onclick="window.updateGraphMode('concreteness')">Concreteness</button>
+    <button class="switch-btn" onclick="window.updateGraphMode('constructive')">Constructive</button>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend-box">
+    <div class="legend-item"><div class="legend-color" style="background:#73BEFF"></div> Complete (≥3 rounds)</div>
+    <div class="legend-item"><div class="legend-color" style="background:#ff6b6b; border-style:dashed"></div> Incomplete (&lt;3 rounds)</div>
+    <div class="legend-item"><span style="font-size:1.2em">●</span> Large = High participation</div>
+    <div class="legend-item"><span style="opacity:0.3">●</span> Light = Low score | <span style="opacity:1">●</span> Dark = High score</div>
+  </div>
+
+  <!-- Main Graph and Control Panel -->
+  <div id="review-graph-container">
+    <div class="floating-panel">
+      <label for="hw-select" class="assignment-label">Assignment Filter</label>
+      <button id="hw-apply-btn">Apply</button>
+      <select id="hw-select" multiple size="5">
+        <!-- Options will be dynamically generated by JavaScript -->
+      </select>
+    </div>
+    <div id="review-graph"></div>
+  </div>
+
+  <!-- Section: Bubble Chart -->
+  <h2 class="section-title">📈 Multi-Dimensional Quality Matrix</h2>
+  <div class="section-description">
+    <strong>Bubble Chart Overview:</strong> A comprehensive view of all students' review quality across multiple dimensions.<br><br>
+    <strong>X-Axis (Quality Indicators):</strong><br>
+    • <strong>Relevance</strong> – Does the feedback address the actual code/assignment?<br>
+    • <strong>Concreteness</strong> – Is the feedback specific with actionable details?<br>
+    • <strong>Constructive</strong> – Does the feedback provide helpful suggestions for improvement?<br>
+    • <strong>Overall</strong> – Average score across all three metrics.<br><br>
+    <strong>Y-Axis:</strong> Individual students (sorted by overall performance).<br>
+    <strong>Bubble Size:</strong> Review participation rate (larger = higher engagement).<br>
+    <strong>Bubble Color:</strong> Label proportion intensity (darker = higher quality ratio).<br><br>
+    <span class="note-text">Note: Individual label ratios may exceed 100% since a single review can contain multiple quality labels simultaneously.</span>
+  </div>
+    
+  <!-- Export Controls -->
+  <div class="export-controls">
+      <button id="exportBubblePng" class="export-btn">💾 Export as PNG</button>
+      <button id="exportBubbleHighRes" class="export-btn">📸 Export High Resolution</button>
+  </div>
+  
+  <!-- Bubble Chart -->
+  <div class="bubble-chart-section">
+    <div class="bubble-chart-container">
+      <canvas id="bubbleChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Load graph functions from local static folder -->
+  <script type="module">
+    // Import graph functions from local static folder
+    import { processReviewerData } from './static/graph_func.js';
+    import { updateNetworkInstance } from './static/graph_3labelFunc.js';
+    
+    let currentMode = 'all';
+    let rawData = null;
+    let currentHW = [];
+    let bubbleChartManager = null;
+
+    // Color configuration for 4 levels (same as original)
+    const colorConfig = {
+        relevance: { 
+            colors: ["#FFEEB7", "#FFD753", "#F1BC0D", "#D4A302"], 
+            title: 'Relevance Score' 
+        },
+        concreteness: { 
+            colors: ["#CFFFCA", "#95ED65", "#54AF23", "#327111"], 
+            title: 'Concreteness Score' 
+        },
+        constructive: { 
+            colors: ["#F1DCFF", "#C78EED", "#9444CA", "#590A8E"], 
+            title: 'Constructive Score' 
+        },
+        all: {
+            colors: ["#F0F0F0", "#E0E0E0", "#757575", "#424242"],
+            title: 'Overall Performance Score'
+        }
+    };
+
+    // Generate graph function (same logic as graph_3labelFunc.js)
+    function generateGraph(rawData, mode, hwNames) {
+        const container = document.getElementById('review-graph');
+        if (!container) return;
+
+        const { nodes, links } = processReviewerData(rawData, mode, hwNames);
+
+        // Node size calculation - Assignment level participation rate
+        const allCompletionRates = nodes.map(n => {
+            const assignmentCount = n.feedbacks.length;
+            const completedAssignments = n.feedbacks.filter(fb => fb !== "").length;
+            return assignmentCount > 0 ? completedAssignments / assignmentCount : 0;
+        });
+        const sizeScale = (rate) => 15 + (rate * 35); // Range 15-50
+
+        // Node styles
+        const visNodes = nodes.map(n => {
+            const assignmentCount = n.feedbacks.length;
+            const completedAssignments = n.feedbacks.filter(fb => fb !== "").length;
+            const completionRate = assignmentCount > 0 ? completedAssignments / assignmentCount : 0;
+            
+            const totalFeedbacks = n.feedbacks.filter(fb => fb !== "").length;
+            let score;
+            
+            if (mode === 'all') {
+                if (totalFeedbacks > 0) {
+                    const relevanceScore = n.labelCounts.relevance / totalFeedbacks;
+                    const concretenessScore = n.labelCounts.concreteness / totalFeedbacks;
+                    const constructiveScore = n.labelCounts.constructive / totalFeedbacks;
+                    score = (relevanceScore + concretenessScore + constructiveScore) / 3;
+                } else {
+                    score = 0;
+                }
+            } else {
+                score = totalFeedbacks > 0 ? n.labelCounts[mode] / totalFeedbacks : 0;
+            }
+            
+            // 4-level color calculation
+            let color;
+            if (score >= 0.75) color = colorConfig[mode].colors[3];
+            else if (score >= 0.5) color = colorConfig[mode].colors[2];
+            else if (score >= 0.25) color = colorConfig[mode].colors[1];
+            else color = colorConfig[mode].colors[0];
+
+            return {
+                id: n.id,
+                label: n.id,
+                value: sizeScale(completionRate),
+                color: { background: color, border: color },
+                borderWidth: 0,
+                shape: "dot",
+                title: `Reviewer: ${n.id}\n${colorConfig[mode].title}: ${Math.round(score * 100)}%\nReview participation: ${Math.round(completionRate * 100)}%`
+            };
+        });
+
+        // Edge styles
+        const visEdges = links.map(e => ({
+            from: e.from,
+            to: e.to,
+            color: { color: e.completedAll ? "#73BEFF" : "#ff6b6b", highlight: e.completedAll ? "#73BEFF" : "#ff6b6b" },
+            dashes: !e.completedAll,
+            arrows: "to",
+            width: 1.5
+        }));
+
+        const data = { nodes: new vis.DataSet(visNodes), edges: new vis.DataSet(visEdges) };
+        const options = {
+            nodes: {
+                scaling: {
+                    min: 20,
+                    max: 60,
+                    label: { enabled: true, min: 12, max: 20 }
+                }
+            },
+            edges: {
+                arrowStrikethrough: false,
+                selectionWidth: 3
+            },
+            physics: {
+                stabilization: { iterations: 100, fit: true },
+                barnesHut: {
+                    gravitationalConstant: -2000,
+                    springLength: 150,
+                    damping: 0.5
+                }
+            },
+            interaction: {
+                hover: true,
+                tooltipDelay: 200
+            }
+        };
+
+        updateNetworkInstance(container, data, options, rawData);
+    }
+
+    // Update graph mode function
+    function updateGraphMode(mode, hwNames = [...currentHW]) {
+        if (!rawData) return;
+        currentMode = mode;
+        currentHW = [...hwNames];
+
+        // Update button active state
+        document.querySelectorAll('.switch-btn').forEach(btn => btn.classList.remove('active'));
+        const modeButtons = { 'all': 0, 'relevance': 1, 'concreteness': 2, 'constructive': 3 };
+        const buttons = document.querySelectorAll('.switch-btn');
+        if (buttons[modeButtons[mode]]) {
+            buttons[modeButtons[mode]].classList.add('active');
+        }
+
+        generateGraph(rawData, mode, hwNames);
+        updateBubbleChart(hwNames);
+    }
+
+    // Make globally accessible
+    window.updateGraphMode = updateGraphMode;
+
+    // Prepare network data for bubble chart
+    function prepareNetworkDataForBubbleChart(hwNames) {
+        if (!rawData) return null;
+        const studentData = new Map();
+        
+        hwNames.forEach(hwName => {
+            const hwData = rawData[hwName] || [];
+            hwData.forEach(assignment => {
+                const reviewer = assignment.Reviewer_Name || assignment.reviewer;
+                const author = assignment.Author_Name || assignment.author;
+                
+                [reviewer, author].forEach(studentId => {
+                    if (studentId && !studentData.has(studentId)) {
+                        studentData.set(studentId, {
+                            id: studentId,
+                            name: studentId,
+                            validComments: 0,
+                            validRounds: 0,
+                            assignedTasks: 0,
+                            relevanceCount: 0,
+                            concretenessCount: 0,
+                            constructiveCount: 0
+                        });
+                    }
+                });
+                
+                if (reviewer && studentData.has(reviewer)) {
+                    const reviewerData = studentData.get(reviewer);
+                    reviewerData.assignedTasks++;
+                    
+                    let hasValidFeedback = false;
+                    let validRoundsCount = 0;
+                    
+                    if (assignment.Round && assignment.Round.length > 0) {
+                        assignment.Round.forEach(round => {
+                            if (round.Feedback && round.Feedback.trim() !== "") {
+                                hasValidFeedback = true;
+                                validRoundsCount++;
+                                if (round.Relevance === 1) reviewerData.relevanceCount++;
+                                if (round.Concreteness === 1) reviewerData.concretenessCount++;
+                                if (round.Constructive === 1) reviewerData.constructiveCount++;
+                            }
+                        });
+                    }
+                    
+                    if (hasValidFeedback) reviewerData.validComments++;
+                    reviewerData.validRounds += validRoundsCount;
+                }
+            });
+        });
+        
+        const nodes = Array.from(studentData.values()).map(student => ({
+            id: student.id,
+            label: student.name,
+            group: 'student',
+            validComments: student.validComments,
+            validRounds: student.validRounds,
+            assignedTasks: student.assignedTasks,
+            relevanceCount: student.relevanceCount,
+            concretenessCount: student.concretenessCount,
+            constructiveCount: student.constructiveCount
+        }));
+        
+        return { nodes, edges: [] };
+    }
+
+    // Update bubble chart
+    function updateBubbleChart(hwNames) {
+        if (!rawData || !bubbleChartManager) return;
+        try {
+            const networkData = prepareNetworkDataForBubbleChart(hwNames);
+            if (networkData) {
+                bubbleChartManager.updateData(networkData);
+            }
+        } catch (error) {
+            console.error("Error updating bubble chart:", error);
+        }
+    }
+
+    // Initialize on DOM ready
+    document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Bubble Chart manager
+        if (window.BubbleChartManager) {
+            bubbleChartManager = new window.BubbleChartManager();
+        }
+        
+        // Show loading progress
+        const loadingText = document.getElementById('loading-text');
+        const loadingProgress = document.getElementById('loading-progress');
+        const progressBar = document.getElementById('progress-bar');
+        
+        function updateProgress(percent, text) {
+            if (loadingText) loadingText.textContent = text;
+            if (loadingProgress) loadingProgress.style.display = 'block';
+            if (progressBar) progressBar.style.width = percent + '%';
+        }
+        
+        // Load summary data (fast) or fall back to full data
+        async function loadData() {
+            updateProgress(10, '⏳ Checking for data...');
+            
+            // Try summary first (much faster - ~400KB vs 14MB)
+            try {
+                updateProgress(20, '⏳ Loading summary data...');
+                const response = await fetch("./output/data_summary.json");
+                if (response.ok) {
+                    updateProgress(50, '⏳ Parsing summary...');
+                    const summaryData = await response.json();
+                    console.log('✅ Loaded summary data (fast mode)');
+                    updateProgress(80, '⏳ Converting to display format...');
+                    
+                    // Convert summary format to display format
+                    const displayData = convertSummaryToDisplayFormat(summaryData);
+                    updateProgress(100, '✅ Ready!');
+                    return { data: displayData, source: 'summary', summaryData };
+                }
+            } catch (e) {
+                console.log('Summary not available, loading full data...');
+            }
+            
+            // Fall back to full data (slower)
+            updateProgress(30, '⏳ Loading full data (this may take a moment)...');
+            const response = await fetch("./output/final_result.json");
+            if (response.ok) {
+                updateProgress(60, '⏳ Parsing large JSON file...');
+                const data = await response.json();
+                updateProgress(100, '✅ Ready!');
+                console.log('✅ Loaded full data');
+                return { data, source: 'full' };
+            }
+            
+            throw new Error("No data source available");
+        }
+        
+        // Convert summary format to the format expected by visualization
+        function convertSummaryToDisplayFormat(summary) {
+            const result = {};
+            
+            for (const [hwName, hwData] of Object.entries(summary)) {
+                result[hwName] = [];
+                
+                // Check if we have actual edges in the summary
+                const edges = hwData.edges || [];
+                
+                if (edges.length > 0) {
+                    // Use actual edges from the data
+                    const edgeMap = new Map();  // Group edges by reviewer
+                    
+                    edges.forEach(edge => {
+                        if (!edgeMap.has(edge.from)) {
+                            edgeMap.set(edge.from, []);
+                        }
+                        edgeMap.get(edge.from).push(edge);
+                    });
+                    
+                    // Create assignment records from edges
+                    for (const [reviewerId, reviewerEdges] of edgeMap) {
+                        const reviewerData = hwData.reviewers[reviewerId] || {};
+                        
+                        reviewerEdges.forEach(edge => {
+                            const assignment = {
+                                Assignment: hwName,
+                                Reviewer_Name: reviewerId,
+                                Author_Name: edge.to,
+                                Round: []
+                            };
+                            
+                            // Generate rounds based on edge data
+                            const roundCount = edge.rounds || 1;
+                            const validFeedbacks = Math.min(roundCount, reviewerData.validFeedbacks || 0);
+                            
+                            for (let i = 0; i < roundCount; i++) {
+                                const sampleFeedback = reviewerData.sampleFeedbacks?.[i % (reviewerData.sampleFeedbacks?.length || 1)];
+                                assignment.Round.push({
+                                    Feedback: i < validFeedbacks ? (sampleFeedback?.feedback || "Valid feedback") : "",
+                                    Relevance: i < (reviewerData.relevance || 0) ? 1 : 0,
+                                    Concreteness: i < (reviewerData.concreteness || 0) ? 1 : 0,
+                                    Constructive: i < (reviewerData.constructive || 0) ? 1 : 0
+                                });
+                            }
+                            
+                            result[hwName].push(assignment);
+                        });
+                    }
+                    
+                    // Also add reviewers who have no edges (no author data)
+                    for (const [reviewerId, reviewerData] of Object.entries(hwData.reviewers)) {
+                        if (!edgeMap.has(reviewerId) && reviewerData.validFeedbacks > 0) {
+                            // Reviewer with feedback but no author - create self-referencing record
+                            const assignment = {
+                                Assignment: hwName,
+                                Reviewer_Name: reviewerId,
+                                Author_Name: "NULL",
+                                Round: []
+                            };
+                            
+                            for (let i = 0; i < reviewerData.validFeedbacks; i++) {
+                                const sampleFeedback = reviewerData.sampleFeedbacks?.[i % (reviewerData.sampleFeedbacks?.length || 1)];
+                                assignment.Round.push({
+                                    Feedback: sampleFeedback?.feedback || "Valid feedback",
+                                    Relevance: i < reviewerData.relevance ? 1 : 0,
+                                    Concreteness: i < reviewerData.concreteness ? 1 : 0,
+                                    Constructive: i < reviewerData.constructive ? 1 : 0
+                                });
+                            }
+                            
+                            result[hwName].push(assignment);
+                        }
+                    }
+                } else {
+                    // No edges - create records from reviewers only (old format fallback)
+                    for (const [reviewerId, reviewerData] of Object.entries(hwData.reviewers)) {
+                        // Create a simplified assignment record for each reviewer
+                        const assignment = {
+                            Assignment: hwName,
+                            Reviewer_Name: reviewerId,
+                            Author_Name: reviewerData.authors[0] || "NULL",
+                            Round: []
+                        };
+                        
+                        // Generate synthetic rounds based on summary stats
+                        for (let i = 0; i < reviewerData.validFeedbacks; i++) {
+                            const sampleFeedback = reviewerData.sampleFeedbacks[i % reviewerData.sampleFeedbacks.length];
+                            assignment.Round.push({
+                                Feedback: sampleFeedback ? sampleFeedback.feedback : "Valid feedback",
+                                Relevance: i < reviewerData.relevance ? 1 : 0,
+                                Concreteness: i < reviewerData.concreteness ? 1 : 0,
+                                Constructive: i < reviewerData.constructive ? 1 : 0
+                            });
+                        }
+                        
+                        // Add edges to all authors this reviewer reviewed
+                        if (reviewerData.authors.length > 0) {
+                            reviewerData.authors.forEach(author => {
+                                result[hwName].push({
+                                    ...assignment,
+                                    Author_Name: author
+                                });
+                            });
+                        } else {
+                            // If no authors, still add the reviewer
+                            result[hwName].push(assignment);
+                        }
+                    }
+                }
+            }
+            
+            return result;
+        }
+        
+        loadData()
+            .then(({ data, source, summaryData }) => {
+                rawData = data;
+                window.summaryData = summaryData;  // Store for potential use
+                
+                // Update data info
+                const hwKeys = Object.keys(data).sort();
+                let totalAssignments = 0;
+                let totalFeedbacks = 0;
+                
+                if (source === 'summary' && summaryData) {
+                    // Use stats from summary
+                    hwKeys.forEach(hw => {
+                        if (summaryData[hw] && summaryData[hw].stats) {
+                            totalAssignments += summaryData[hw].stats.totalAssignments;
+                            totalFeedbacks += summaryData[hw].stats.totalFeedbacks;
+                        }
+                    });
+                } else {
+                    // Count from full data
+                    hwKeys.forEach(hw => {
+                        totalAssignments += data[hw].length;
+                        data[hw].forEach(a => {
+                            totalFeedbacks += (a.Round || []).length;
+                        });
+                    });
+                }
+                
+                const sourceLabel = source === 'summary' ? '⚡ Fast Mode' : '📦 Full Data';
+                document.getElementById('data-info').innerHTML = 
+                    `✅ Loaded: <strong>${hwKeys.length}</strong> assignments | ` +
+                    `<strong>${totalAssignments}</strong> records | ` +
+                    `<strong>${totalFeedbacks.toLocaleString()}</strong> reviews (${sourceLabel})`;
+                
+                currentHW = [...hwKeys];
+                
+                // Generate select options dynamically
+                const hwSelect = document.getElementById('hw-select');
+                if (hwSelect) {
+                    hwSelect.innerHTML = '';
+                    hwKeys.forEach(hwKey => {
+                        const option = document.createElement('option');
+                        option.value = hwKey;
+                        option.textContent = hwKey;
+                        option.selected = true;
+                        hwSelect.appendChild(option);
+                    });
+                }
+                
+                updateGraphMode('all', currentHW);
+            })
+            .catch(error => {
+                console.error("Failed to load JSON:", error);
+                document.getElementById('data-info').innerHTML = 
+                    `❌ No data available. <a href="/">Upload CSV and run pipeline</a>`;
+            });
+
+        // GO button event
+        document.getElementById('hw-apply-btn').addEventListener('click', () => {
+            const select = document.getElementById('hw-select');
+            const selectedHWs = Array.from(select.selectedOptions).map(opt => opt.value);
+            if (selectedHWs.length === 0) {
+                alert("Please select at least one assignment!");
+                return;
+            }
+            currentHW = [...selectedHWs];
+            updateGraphMode(currentMode, currentHW);
+        });
+    });
+  </script>
+
+  <!-- Load Bubble Chart from local static folder -->
+  <script src="./static/bubbleChart.js?v=7"></script>
+  
+  <script>
+    // Bubble Chart PNG export function
+    function exportBubbleChartAsPNG(filename = 'bubble-chart.png', scale = 1) {
+        const canvas = document.getElementById('bubbleChart');
+        if (!canvas) {
+            alert('Bubble chart not found. Please load the chart first.');
+            return;
+        }
+        
+        const exportCanvas = document.createElement('canvas');
+        const exportCtx = exportCanvas.getContext('2d');
+        
+        const originalWidth = canvas.width;
+        const originalHeight = canvas.height;
+        exportCanvas.width = originalWidth * scale;
+        exportCanvas.height = originalHeight * scale;
+        
+        exportCtx.fillStyle = 'white';
+        exportCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+        
+        exportCtx.scale(scale, scale);
+        exportCtx.drawImage(canvas, 0, 0);
+        
+        exportCanvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 'image/png');
+    }
+
+    // Bind export button events after DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+        const exportBtn = document.getElementById('exportBubblePng');
+        const exportHighResBtn = document.getElementById('exportBubbleHighRes');
+        
+        if (exportBtn) {
+            exportBtn.addEventListener('click', () => {
+                exportBubbleChartAsPNG('bubble-chart.png', 1);
+            });
+        }
+        
+        if (exportHighResBtn) {
+            exportHighResBtn.addEventListener('click', () => {
+                exportBubbleChartAsPNG('bubble-chart-highres.png', 2);
+            });
+        }
+    });
+  </script>
+</body>
+</html>

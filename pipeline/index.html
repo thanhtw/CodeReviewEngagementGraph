@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Graph - Data Pipeline</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2 .step-num {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+        }
+        
+        /* Upload Section */
+        .upload-area {
+            border: 3px dashed #ddd;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .upload-area:hover, .upload-area.dragover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .upload-area .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .upload-area p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .upload-area .filename {
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        /* Options Section */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .option-group {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .option-group label {
+            display: block;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .option-group select, .option-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .checkbox-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* Run Button */
+        .run-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .run-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .run-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* Progress Section */
+        .progress-container {
+            margin-top: 20px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+        
+        .steps-list {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+        
+        .step-item.active {
+            opacity: 1;
+        }
+        
+        .step-item.completed {
+            opacity: 1;
+            color: #28a745;
+        }
+        
+        .step-item .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+        
+        .step-item.active .step-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .step-item.completed .step-icon {
+            background: #28a745;
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .step-item span {
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        /* Status Message */
+        .status-message {
+            text-align: center;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        .status-message.info {
+            background: #e7f1ff;
+            color: #0056b3;
+        }
+        
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        /* Result Section */
+        .result-section {
+            display: none;
+        }
+        
+        .result-section.show {
+            display: block;
+        }
+        
+        .result-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-box .value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .stat-box .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .view-graph-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .view-graph-btn:hover {
+            background: #218838;
+        }
+        
+        /* Pipeline Diagram */
+        .pipeline-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .pipeline-box {
+            padding: 10px 15px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        
+        .pipeline-arrow {
+            font-size: 1.5em;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Review Graph Data Pipeline</h1>
+        
+        <!-- Pipeline Overview -->
+        <div class="card">
+            <h2>Pipeline Overview</h2>
+            <div class="pipeline-diagram">
+                <div class="pipeline-box">📄 CSV File<br><small>Raw Data</small></div>
+                <span class="pipeline-arrow">→</span>
+                <div class="pipeline-box">📋 JSON<br><small>Converted</small></div>
+                <span class="pipeline-arrow">→</span>
+                <div class="pipeline-box">🗂️ Organized<br><small>By HW</small></div>
+                <span class="pipeline-arrow">→</span>
+                <div class="pipeline-box">🤖 Labeled<br><small>ML Inference</small></div>
+                <span class="pipeline-arrow">→</span>
+                <div class="pipeline-box">📈 Graph<br><small>Visualization</small></div>
+            </div>
+        </div>
+        
+        <!-- Step 1: Upload -->
+        <div class="card">
+            <h2><span class="step-num">1</span> Upload CSV File</h2>
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">📁</div>
+                <p>Drag & drop your CSV file here</p>
+                <p>or click to browse</p>
+                <div class="filename" id="uploadedFilename"></div>
+            </div>
+            <input type="file" id="fileInput" accept=".csv">
+        </div>
+        
+        <!-- Step 2: Options -->
+        <div class="card">
+            <h2><span class="step-num">2</span> Configure Options</h2>
+            <div class="options-grid">
+                <div class="option-group">
+                    <label for="hwStart">Start Homework</label>
+                    <select id="hwStart">
+                        <option value="1">HW1</option>
+                        <option value="2">HW2</option>
+                        <option value="3">HW3</option>
+                        <option value="4">HW4</option>
+                        <option value="5">HW5</option>
+                        <option value="6">HW6</option>
+                        <option value="7">HW7</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label for="hwEnd">End Homework</label>
+                    <select id="hwEnd">
+                        <option value="1">HW1</option>
+                        <option value="2">HW2</option>
+                        <option value="3">HW3</option>
+                        <option value="4">HW4</option>
+                        <option value="5">HW5</option>
+                        <option value="6">HW6</option>
+                        <option value="7" selected>HW7</option>
+                    </select>
+                </div>
+            </div>
+            <div class="checkbox-option">
+                <input type="checkbox" id="useML" checked>
+                <label for="useML">Use ML Model for Labeling (BERT 3-Label Classification)</label>
+            </div>
+        </div>
+        
+        <!-- Step 3: Run Pipeline -->
+        <div class="card">
+            <h2><span class="step-num">3</span> Run Pipeline</h2>
+            <button class="run-btn" id="runBtn" disabled>
+                🚀 Start Pipeline
+            </button>
+            
+            <div class="progress-container" id="progressContainer" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="steps-list">
+                    <div class="step-item" id="step1">
+                        <div class="step-icon">📄</div>
+                        <span>CSV → JSON</span>
+                    </div>
+                    <div class="step-item" id="step2">
+                        <div class="step-icon">🗂️</div>
+                        <span>Organize</span>
+                    </div>
+                    <div class="step-item" id="step3">
+                        <div class="step-icon">🤖</div>
+                        <span>ML Inference</span>
+                    </div>
+                    <div class="step-item" id="step4">
+                        <div class="step-icon">✅</div>
+                        <span>Complete</span>
+                    </div>
+                </div>
+                <div class="status-message info" id="statusMessage">Ready to start...</div>
+            </div>
+        </div>
+        
+        <!-- Result Section -->
+        <div class="card result-section" id="resultSection">
+            <h2>✅ Pipeline Complete!</h2>
+            <div class="result-stats" id="resultStats"></div>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="/graph" class="view-graph-btn" target="_blank">
+                    📈 View Graph Visualization
+                </a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const uploadedFilename = document.getElementById('uploadedFilename');
+        const runBtn = document.getElementById('runBtn');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressFill = document.getElementById('progressFill');
+        const statusMessage = document.getElementById('statusMessage');
+        const resultSection = document.getElementById('resultSection');
+        const resultStats = document.getElementById('resultStats');
+        
+        let uploadedFile = null;
+        let pollInterval = null;
+        
+        // Upload Area Events
+        uploadArea.addEventListener('click', () => fileInput.click());
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+        
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+        
+        // Handle File Selection
+        function handleFile(file) {
+            if (!file.name.endsWith('.csv')) {
+                alert('Please upload a CSV file');
+                return;
+            }
+            
+            uploadedFile = file;
+            uploadedFilename.textContent = `📄 ${file.name} (${formatBytes(file.size)})`;
+            
+            // Upload file to server
+            uploadFileToServer(file);
+        }
+        
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+        
+        // Upload File to Server
+        async function uploadFileToServer(file) {
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    uploadedFilename.textContent = `✅ ${file.name} uploaded successfully`;
+                    runBtn.disabled = false;
+                } else {
+                    uploadedFilename.textContent = `❌ Upload failed: ${result.error}`;
+                }
+            } catch (error) {
+                uploadedFilename.textContent = `❌ Upload error: ${error.message}`;
+            }
+        }
+        
+        // Run Pipeline
+        runBtn.addEventListener('click', async () => {
+            if (!uploadedFile) return;
+            
+            runBtn.disabled = true;
+            progressContainer.style.display = 'block';
+            resultSection.classList.remove('show');
+            
+            // Reset progress
+            updateProgress(0, 'Starting pipeline...');
+            
+            try {
+                const response = await fetch('/run', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        filename: uploadedFile.name,
+                        use_ml: document.getElementById('useML').checked,
+                        hw_start: parseInt(document.getElementById('hwStart').value),
+                        hw_end: parseInt(document.getElementById('hwEnd').value)
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Start polling for status
+                    startPolling();
+                } else {
+                    showError(result.error);
+                }
+            } catch (error) {
+                showError(error.message);
+            }
+        });
+        
+        // Poll Status
+        function startPolling() {
+            pollInterval = setInterval(async () => {
+                try {
+                    const response = await fetch('/status');
+                    const status = await response.json();
+                    
+                    updateProgress(status.step, status.message);
+                    
+                    if (!status.running) {
+                        clearInterval(pollInterval);
+                        
+                        if (status.error) {
+                            showError(status.error);
+                        } else {
+                            showSuccess(status.result);
+                        }
+                    }
+                } catch (error) {
+                    clearInterval(pollInterval);
+                    showError(error.message);
+                }
+            }, 500);
+        }
+        
+        // Update Progress UI
+        function updateProgress(step, message) {
+            const progress = (step / 4) * 100;
+            progressFill.style.width = progress + '%';
+            
+            // Update step indicators
+            for (let i = 1; i <= 4; i++) {
+                const stepEl = document.getElementById('step' + i);
+                stepEl.classList.remove('active', 'completed');
+                
+                if (i < step) {
+                    stepEl.classList.add('completed');
+                } else if (i === step) {
+                    stepEl.classList.add('active');
+                }
+            }
+            
+            statusMessage.textContent = message;
+            statusMessage.className = 'status-message info';
+        }
+        
+        // Show Error
+        function showError(message) {
+            statusMessage.textContent = '❌ ' + message;
+            statusMessage.className = 'status-message error';
+            runBtn.disabled = false;
+        }
+        
+        // Show Success
+        function showSuccess(result) {
+            statusMessage.textContent = '✅ Pipeline completed successfully!';
+            statusMessage.className = 'status-message success';
+            
+            // Mark all steps as completed
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById('step' + i).classList.add('completed');
+            }
+            progressFill.style.width = '100%';
+            
+            // Show results
+            if (result) {
+                let statsHtml = '';
+                
+                if (result.step1) {
+                    statsHtml += `
+                        <div class="stat-box">
+                            <div class="value">${result.step1.converted_records || 0}</div>
+                            <div class="label">Records Converted</div>
+                        </div>
+                    `;
+                }
+                
+                if (result.step2) {
+                    statsHtml += `
+                        <div class="stat-box">
+                            <div class="value">${result.step2.homework_count || 0}</div>
+                            <div class="label">Homework Sets</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="value">${result.step2.total_assignments || 0}</div>
+                            <div class="label">Assignments</div>
+                        </div>
+                    `;
+                }
+                
+                if (result.step3) {
+                    statsHtml += `
+                        <div class="stat-box">
+                            <div class="value">${result.step3.total_feedbacks || 0}</div>
+                            <div class="label">Feedbacks Labeled</div>
+                        </div>
+                    `;
+                }
+                
+                resultStats.innerHTML = statsHtml;
+            }
+            
+            resultSection.classList.add('show');
+            runBtn.disabled = false;
+        }
+    </script>
+</body>
+</html>

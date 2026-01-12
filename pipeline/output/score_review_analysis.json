@@ -1,0 +1,8354 @@
+{
+  "summary": {
+    "total_students": 75,
+    "students_with_reviews": 74,
+    "total_reviews_given": 11438,
+    "total_reviews_received": 11438
+  },
+  "correlations": {
+    "HW1": {
+      "data_points": [
+        {
+          "student_id": "D0746163",
+          "name": "胡凱喆",
+          "hw_score": 92,
+          "reviews_given": 18,
+          "reviews_received": 36,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D0751292",
+          "name": "王家誼",
+          "hw_score": 55,
+          "reviews_given": 3,
+          "reviews_received": 25,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D0785683",
+          "name": "陳光宇",
+          "hw_score": 71,
+          "reviews_given": 1,
+          "reviews_received": 25,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D0843601",
+          "name": "林哲瑋",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 13.89
+        },
+        {
+          "student_id": "D1009269",
+          "name": "蔡仲林",
+          "hw_score": 100,
+          "reviews_given": 4,
+          "reviews_received": 30,
+          "quality_score": 58.33
+        },
+        {
+          "student_id": "D1009299",
+          "name": "喻唯甄",
+          "hw_score": 63,
+          "reviews_given": 14,
+          "reviews_received": 24,
+          "quality_score": 9.52
+        },
+        {
+          "student_id": "D1010467",
+          "name": "郭品修",
+          "hw_score": 48,
+          "reviews_given": 0,
+          "reviews_received": 23,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1011175",
+          "name": "林煜展",
+          "hw_score": 48,
+          "reviews_given": 17,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1011264",
+          "name": "馬萁蔚",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 20.37
+        },
+        {
+          "student_id": "D1012323",
+          "name": "周庭緯",
+          "hw_score": 43,
+          "reviews_given": 18,
+          "reviews_received": 13,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1018467",
+          "name": "黃紹軒",
+          "hw_score": 85,
+          "reviews_given": 12,
+          "reviews_received": 15,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1018508",
+          "name": "蔡武宏",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1018525",
+          "name": "趙家豪",
+          "hw_score": 85,
+          "reviews_given": 18,
+          "reviews_received": 21,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1018572",
+          "name": "沈彥良",
+          "hw_score": 78,
+          "reviews_given": 14,
+          "reviews_received": 30,
+          "quality_score": 2.38
+        },
+        {
+          "student_id": "D1018599",
+          "name": "莊程為",
+          "hw_score": 48,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018600",
+          "name": "劉哲瑋",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1018627",
+          "name": "張家郡",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 18.52
+        },
+        {
+          "student_id": "D1018631",
+          "name": "楊怡仁",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1018661",
+          "name": "黃亭蓉",
+          "hw_score": 78,
+          "reviews_given": 3,
+          "reviews_received": 24,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1018703",
+          "name": "黃健紘",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1018720",
+          "name": "劉政諺",
+          "hw_score": 85,
+          "reviews_given": 35,
+          "reviews_received": 13,
+          "quality_score": 3.81
+        },
+        {
+          "student_id": "D1030965",
+          "name": "劉文鑫",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 14,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1030978",
+          "name": "布樂心",
+          "hw_score": 85,
+          "reviews_given": 18,
+          "reviews_received": 11,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1035899",
+          "name": "張牧翔",
+          "hw_score": 90,
+          "reviews_given": 35,
+          "reviews_received": 20,
+          "quality_score": 5.71
+        },
+        {
+          "student_id": "D1050855",
+          "name": "蕭鍇安",
+          "hw_score": 23,
+          "reviews_given": 7,
+          "reviews_received": 19,
+          "quality_score": 4.76
+        },
+        {
+          "student_id": "D1050869",
+          "name": "蔡定瑋",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 13,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1050927",
+          "name": "葉子郡",
+          "hw_score": 100,
+          "reviews_given": 19,
+          "reviews_received": 12,
+          "quality_score": 5.26
+        },
+        {
+          "student_id": "D1050957",
+          "name": "葉秋彤",
+          "hw_score": 85,
+          "reviews_given": 7,
+          "reviews_received": 0,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1050988",
+          "name": "呂欣諭",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 13,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1051015",
+          "name": "李映頡",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 20,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051028",
+          "name": "邱怡清",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 6.48
+        },
+        {
+          "student_id": "D1051058",
+          "name": "陳文斌",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 20.37
+        },
+        {
+          "student_id": "D1051062",
+          "name": "陳建丞",
+          "hw_score": 70,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051089",
+          "name": "林郁倫",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 20.37
+        },
+        {
+          "student_id": "D1051118",
+          "name": "吳柏逸",
+          "hw_score": 70,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051121",
+          "name": "曾苔湘",
+          "hw_score": 55,
+          "reviews_given": 1,
+          "reviews_received": 36,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1051151",
+          "name": "洪梓祐",
+          "hw_score": 85,
+          "reviews_given": 14,
+          "reviews_received": 26,
+          "quality_score": 2.38
+        },
+        {
+          "student_id": "D1051210",
+          "name": "尤婕蓉",
+          "hw_score": 70,
+          "reviews_given": 12,
+          "reviews_received": 21,
+          "quality_score": 19.44
+        },
+        {
+          "student_id": "D1051253",
+          "name": "潘柏叡",
+          "hw_score": 100,
+          "reviews_given": 7,
+          "reviews_received": 4,
+          "quality_score": 19.05
+        },
+        {
+          "student_id": "D1051267",
+          "name": "楚延靜",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 7,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1051312",
+          "name": "林芷儀",
+          "hw_score": 87,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1051428",
+          "name": "沈誌恩",
+          "hw_score": 78,
+          "reviews_given": 3,
+          "reviews_received": 24,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051458",
+          "name": "林建甫",
+          "hw_score": 40,
+          "reviews_given": 5,
+          "reviews_received": 30,
+          "quality_score": 6.67
+        },
+        {
+          "student_id": "D1051489",
+          "name": "李政達",
+          "hw_score": 78,
+          "reviews_given": 6,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051492",
+          "name": "張詠瑄",
+          "hw_score": 15,
+          "reviews_given": 3,
+          "reviews_received": 24,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051517",
+          "name": "鄧芸非",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051550",
+          "name": "吳建凱",
+          "hw_score": 64,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051564",
+          "name": "林邑軒",
+          "hw_score": 65,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 19.44
+        },
+        {
+          "student_id": "D1051594",
+          "name": "翁家雋",
+          "hw_score": 55,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051619",
+          "name": "林柏宇",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1051622",
+          "name": "鄭凱翔",
+          "hw_score": 79,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051652",
+          "name": "張珮怡",
+          "hw_score": 79,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051666",
+          "name": "呂奕萱",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 11,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1051683",
+          "name": "楊凱心",
+          "hw_score": 70,
+          "reviews_given": 5,
+          "reviews_received": 15,
+          "quality_score": 53.33
+        },
+        {
+          "student_id": "D1051712",
+          "name": "吳政鴻",
+          "hw_score": 40,
+          "reviews_given": 7,
+          "reviews_received": 14,
+          "quality_score": 9.52
+        },
+        {
+          "student_id": "D1051769",
+          "name": "白翔哲",
+          "hw_score": 70,
+          "reviews_given": 16,
+          "reviews_received": 8,
+          "quality_score": 6.25
+        },
+        {
+          "student_id": "D1051786",
+          "name": "劉哲睿",
+          "hw_score": 49,
+          "reviews_given": 0,
+          "reviews_received": 19,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051799",
+          "name": "盧偉宸",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 27,
+          "quality_score": 6.48
+        },
+        {
+          "student_id": "D1051827",
+          "name": "龔寬心",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 24.07
+        },
+        {
+          "student_id": "D1051861",
+          "name": "陳宥銜",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051916",
+          "name": "李文心",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 14.81
+        },
+        {
+          "student_id": "D1051929",
+          "name": "陳宥蓉",
+          "hw_score": 70,
+          "reviews_given": 18,
+          "reviews_received": 8,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1051959",
+          "name": "李炎錡",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 13,
+          "quality_score": 14.81
+        },
+        {
+          "student_id": "D1072770",
+          "name": "阮成福",
+          "hw_score": 35,
+          "reviews_given": 12,
+          "reviews_received": 14,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1073027",
+          "name": "中江輝",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 16,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1076758",
+          "name": "賴俊霖",
+          "hw_score": 35,
+          "reviews_given": 36,
+          "reviews_received": 7,
+          "quality_score": 12.96
+        },
+        {
+          "student_id": "D1076789",
+          "name": "王麒翔",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 10,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1090417",
+          "name": "張芯瑜",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 18,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090420",
+          "name": "林易威",
+          "hw_score": 65,
+          "reviews_given": 20,
+          "reviews_received": 24,
+          "quality_score": 10.0
+        },
+        {
+          "student_id": "D1090434",
+          "name": "賴盈如",
+          "hw_score": 70,
+          "reviews_given": 26,
+          "reviews_received": 24,
+          "quality_score": 8.97
+        },
+        {
+          "student_id": "D1090477",
+          "name": "楊雨宸",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 24,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090494",
+          "name": "林怡君",
+          "hw_score": 85,
+          "reviews_given": 19,
+          "reviews_received": 18,
+          "quality_score": 17.54
+        },
+        {
+          "student_id": "D1090519",
+          "name": "許祐誠",
+          "hw_score": 85,
+          "reviews_given": 13,
+          "reviews_received": 24,
+          "quality_score": 7.69
+        },
+        {
+          "student_id": "D1090522",
+          "name": "陳俊佑",
+          "hw_score": 85,
+          "reviews_given": 28,
+          "reviews_received": 14,
+          "quality_score": 10.71
+        },
+        {
+          "student_id": "D1090566",
+          "name": "賴尹鋗",
+          "hw_score": 65,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 16.67
+        }
+      ],
+      "correlation_given": 0.4868,
+      "correlation_quality": 0.0574,
+      "stats": {
+        "avg_score": 72.36,
+        "avg_given": 21.23,
+        "avg_quality": 14.25,
+        "std_score": 22.21,
+        "total_students": 75
+      }
+    },
+    "HW2": {
+      "data_points": [
+        {
+          "student_id": "D0746163",
+          "name": "胡凱喆",
+          "hw_score": 92,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D0751292",
+          "name": "王家誼",
+          "hw_score": 55,
+          "reviews_given": 3,
+          "reviews_received": 22,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D0785683",
+          "name": "陳光宇",
+          "hw_score": 71,
+          "reviews_given": 0,
+          "reviews_received": 12,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0843601",
+          "name": "林哲瑋",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 5,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1009269",
+          "name": "蔡仲林",
+          "hw_score": 100,
+          "reviews_given": 2,
+          "reviews_received": 7,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1009299",
+          "name": "喻唯甄",
+          "hw_score": 63,
+          "reviews_given": 30,
+          "reviews_received": 7,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1010467",
+          "name": "郭品修",
+          "hw_score": 48,
+          "reviews_given": 36,
+          "reviews_received": 8,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1011175",
+          "name": "林煜展",
+          "hw_score": 48,
+          "reviews_given": 42,
+          "reviews_received": 11,
+          "quality_score": 8.73
+        },
+        {
+          "student_id": "D1011264",
+          "name": "馬萁蔚",
+          "hw_score": 100,
+          "reviews_given": 30,
+          "reviews_received": 23,
+          "quality_score": 1.11
+        },
+        {
+          "student_id": "D1012323",
+          "name": "周庭緯",
+          "hw_score": 43,
+          "reviews_given": 36,
+          "reviews_received": 26,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018467",
+          "name": "黃紹軒",
+          "hw_score": 85,
+          "reviews_given": 0,
+          "reviews_received": 17,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1018508",
+          "name": "蔡武宏",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 4,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1018525",
+          "name": "趙家豪",
+          "hw_score": 85,
+          "reviews_given": 0,
+          "reviews_received": 7,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1018572",
+          "name": "沈彥良",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018599",
+          "name": "莊程為",
+          "hw_score": 48,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 30.56
+        },
+        {
+          "student_id": "D1018600",
+          "name": "劉哲瑋",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 12.96
+        },
+        {
+          "student_id": "D1018627",
+          "name": "張家郡",
+          "hw_score": 100,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1018631",
+          "name": "楊怡仁",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 18.52
+        },
+        {
+          "student_id": "D1018661",
+          "name": "黃亭蓉",
+          "hw_score": 78,
+          "reviews_given": 35,
+          "reviews_received": 35,
+          "quality_score": 17.14
+        },
+        {
+          "student_id": "D1018703",
+          "name": "黃健紘",
+          "hw_score": 100,
+          "reviews_given": 35,
+          "reviews_received": 29,
+          "quality_score": 13.33
+        },
+        {
+          "student_id": "D1018720",
+          "name": "劉政諺",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 14.81
+        },
+        {
+          "student_id": "D1030965",
+          "name": "劉文鑫",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 28,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1030978",
+          "name": "布樂心",
+          "hw_score": 85,
+          "reviews_given": 20,
+          "reviews_received": 24,
+          "quality_score": 25.0
+        },
+        {
+          "student_id": "D1035899",
+          "name": "張牧翔",
+          "hw_score": 90,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 20.37
+        },
+        {
+          "student_id": "D1050855",
+          "name": "蕭鍇安",
+          "hw_score": 23,
+          "reviews_given": 0,
+          "reviews_received": 16,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1050869",
+          "name": "蔡定瑋",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 15,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1050927",
+          "name": "葉子郡",
+          "hw_score": 100,
+          "reviews_given": 6,
+          "reviews_received": 18,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1050957",
+          "name": "葉秋彤",
+          "hw_score": 85,
+          "reviews_given": 24,
+          "reviews_received": 30,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1050988",
+          "name": "呂欣諭",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051015",
+          "name": "李映頡",
+          "hw_score": 78,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1051028",
+          "name": "邱怡清",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051058",
+          "name": "陳文斌",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1051062",
+          "name": "陳建丞",
+          "hw_score": 70,
+          "reviews_given": 18,
+          "reviews_received": 18,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051089",
+          "name": "林郁倫",
+          "hw_score": 85,
+          "reviews_given": 10,
+          "reviews_received": 18,
+          "quality_score": 53.33
+        },
+        {
+          "student_id": "D1051118",
+          "name": "吳柏逸",
+          "hw_score": 70,
+          "reviews_given": 3,
+          "reviews_received": 18,
+          "quality_score": 44.44
+        },
+        {
+          "student_id": "D1051121",
+          "name": "曾苔湘",
+          "hw_score": 55,
+          "reviews_given": 7,
+          "reviews_received": 12,
+          "quality_score": 52.38
+        },
+        {
+          "student_id": "D1051151",
+          "name": "洪梓祐",
+          "hw_score": 85,
+          "reviews_given": 15,
+          "reviews_received": 0,
+          "quality_score": 6.67
+        },
+        {
+          "student_id": "D1051210",
+          "name": "尤婕蓉",
+          "hw_score": 70,
+          "reviews_given": 0,
+          "reviews_received": 12,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051253",
+          "name": "潘柏叡",
+          "hw_score": 100,
+          "reviews_given": 6,
+          "reviews_received": 12,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1051267",
+          "name": "楚延靜",
+          "hw_score": 78,
+          "reviews_given": 27,
+          "reviews_received": 24,
+          "quality_score": 9.88
+        },
+        {
+          "student_id": "D1051312",
+          "name": "林芷儀",
+          "hw_score": 87,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 8.33
+        },
+        {
+          "student_id": "D1051428",
+          "name": "沈誌恩",
+          "hw_score": 78,
+          "reviews_given": 14,
+          "reviews_received": 30,
+          "quality_score": 7.14
+        },
+        {
+          "student_id": "D1051458",
+          "name": "林建甫",
+          "hw_score": 40,
+          "reviews_given": 0,
+          "reviews_received": 32,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051489",
+          "name": "李政達",
+          "hw_score": 78,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051492",
+          "name": "張詠瑄",
+          "hw_score": 15,
+          "reviews_given": 31,
+          "reviews_received": 35,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051517",
+          "name": "鄧芸非",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1051550",
+          "name": "吳建凱",
+          "hw_score": 64,
+          "reviews_given": 36,
+          "reviews_received": 13,
+          "quality_score": 34.26
+        },
+        {
+          "student_id": "D1051564",
+          "name": "林邑軒",
+          "hw_score": 65,
+          "reviews_given": 18,
+          "reviews_received": 14,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051594",
+          "name": "翁家雋",
+          "hw_score": 55,
+          "reviews_given": 35,
+          "reviews_received": 12,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051619",
+          "name": "林柏宇",
+          "hw_score": 78,
+          "reviews_given": 35,
+          "reviews_received": 25,
+          "quality_score": 5.71
+        },
+        {
+          "student_id": "D1051622",
+          "name": "鄭凱翔",
+          "hw_score": 79,
+          "reviews_given": 36,
+          "reviews_received": 25,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1051652",
+          "name": "張珮怡",
+          "hw_score": 79,
+          "reviews_given": 29,
+          "reviews_received": 30,
+          "quality_score": 10.34
+        },
+        {
+          "student_id": "D1051666",
+          "name": "呂奕萱",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1051683",
+          "name": "楊凱心",
+          "hw_score": 70,
+          "reviews_given": 5,
+          "reviews_received": 36,
+          "quality_score": 60.0
+        },
+        {
+          "student_id": "D1051712",
+          "name": "吳政鴻",
+          "hw_score": 40,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051769",
+          "name": "白翔哲",
+          "hw_score": 70,
+          "reviews_given": 2,
+          "reviews_received": 24,
+          "quality_score": 83.33
+        },
+        {
+          "student_id": "D1051786",
+          "name": "劉哲睿",
+          "hw_score": 49,
+          "reviews_given": 5,
+          "reviews_received": 12,
+          "quality_score": 26.67
+        },
+        {
+          "student_id": "D1051799",
+          "name": "盧偉宸",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1051827",
+          "name": "龔寬心",
+          "hw_score": 85,
+          "reviews_given": 18,
+          "reviews_received": 18,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1051861",
+          "name": "陳宥銜",
+          "hw_score": 78,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051916",
+          "name": "李文心",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051929",
+          "name": "陳宥蓉",
+          "hw_score": 70,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 12.96
+        },
+        {
+          "student_id": "D1051959",
+          "name": "李炎錡",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 18.52
+        },
+        {
+          "student_id": "D1072770",
+          "name": "阮成福",
+          "hw_score": 35,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1073027",
+          "name": "中江輝",
+          "hw_score": 78,
+          "reviews_given": 18,
+          "reviews_received": 34,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1076758",
+          "name": "賴俊霖",
+          "hw_score": 35,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1076789",
+          "name": "王麒翔",
+          "hw_score": 85,
+          "reviews_given": 0,
+          "reviews_received": 22,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090417",
+          "name": "張芯瑜",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090420",
+          "name": "林易威",
+          "hw_score": 65,
+          "reviews_given": 0,
+          "reviews_received": 16,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090434",
+          "name": "賴盈如",
+          "hw_score": 70,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 32.41
+        },
+        {
+          "student_id": "D1090477",
+          "name": "楊雨宸",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 12,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090494",
+          "name": "林怡君",
+          "hw_score": 85,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1090519",
+          "name": "許祐誠",
+          "hw_score": 85,
+          "reviews_given": 27,
+          "reviews_received": 24,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1090522",
+          "name": "陳俊佑",
+          "hw_score": 85,
+          "reviews_given": 35,
+          "reviews_received": 30,
+          "quality_score": 12.38
+        },
+        {
+          "student_id": "D1090566",
+          "name": "賴尹鋗",
+          "hw_score": 65,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 8.33
+        }
+      ],
+      "correlation_given": 0.2295,
+      "correlation_quality": 0.0203,
+      "stats": {
+        "avg_score": 72.36,
+        "avg_given": 22.44,
+        "avg_quality": 14.48,
+        "std_score": 22.21,
+        "total_students": 75
+      }
+    },
+    "HW3": {
+      "data_points": [
+        {
+          "student_id": "D0746163",
+          "name": "胡凱喆",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 28,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0751292",
+          "name": "王家誼",
+          "hw_score": 98,
+          "reviews_given": 18,
+          "reviews_received": 12,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D0785683",
+          "name": "陳光宇",
+          "hw_score": 64,
+          "reviews_given": 2,
+          "reviews_received": 17,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D0843601",
+          "name": "林哲瑋",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1009269",
+          "name": "蔡仲林",
+          "hw_score": 60,
+          "reviews_given": 1,
+          "reviews_received": 28,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1009299",
+          "name": "喻唯甄",
+          "hw_score": 100,
+          "reviews_given": 32,
+          "reviews_received": 35,
+          "quality_score": 2.08
+        },
+        {
+          "student_id": "D1010467",
+          "name": "郭品修",
+          "hw_score": 99,
+          "reviews_given": 24,
+          "reviews_received": 30,
+          "quality_score": 25.0
+        },
+        {
+          "student_id": "D1011175",
+          "name": "林煜展",
+          "hw_score": 100,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1011264",
+          "name": "馬萁蔚",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1012323",
+          "name": "周庭緯",
+          "hw_score": 57,
+          "reviews_given": 18,
+          "reviews_received": 20,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018467",
+          "name": "黃紹軒",
+          "hw_score": 97,
+          "reviews_given": 1,
+          "reviews_received": 24,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1018508",
+          "name": "蔡武宏",
+          "hw_score": 94,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 8.33
+        },
+        {
+          "student_id": "D1018525",
+          "name": "趙家豪",
+          "hw_score": 97,
+          "reviews_given": 1,
+          "reviews_received": 19,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1018572",
+          "name": "沈彥良",
+          "hw_score": 32,
+          "reviews_given": 0,
+          "reviews_received": 16,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1018599",
+          "name": "莊程為",
+          "hw_score": 96,
+          "reviews_given": 36,
+          "reviews_received": 4,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1018600",
+          "name": "劉哲瑋",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1018627",
+          "name": "張家郡",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1018631",
+          "name": "楊怡仁",
+          "hw_score": 69,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018661",
+          "name": "黃亭蓉",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1018703",
+          "name": "黃健紘",
+          "hw_score": 98,
+          "reviews_given": 24,
+          "reviews_received": 36,
+          "quality_score": 8.33
+        },
+        {
+          "student_id": "D1018720",
+          "name": "劉政諺",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 14.81
+        },
+        {
+          "student_id": "D1030965",
+          "name": "劉文鑫",
+          "hw_score": 99,
+          "reviews_given": 9,
+          "reviews_received": 35,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1030978",
+          "name": "布樂心",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1035899",
+          "name": "張牧翔",
+          "hw_score": 95,
+          "reviews_given": 18,
+          "reviews_received": 18,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1050855",
+          "name": "蕭鍇安",
+          "hw_score": 95,
+          "reviews_given": 0,
+          "reviews_received": 6,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1050869",
+          "name": "蔡定瑋",
+          "hw_score": 31,
+          "reviews_given": 18,
+          "reviews_received": 20,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1050927",
+          "name": "葉子郡",
+          "hw_score": 99,
+          "reviews_given": 1,
+          "reviews_received": 12,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1050957",
+          "name": "葉秋彤",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 15.74
+        },
+        {
+          "student_id": "D1050988",
+          "name": "呂欣諭",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 21,
+          "quality_score": 29.63
+        },
+        {
+          "student_id": "D1051015",
+          "name": "李映頡",
+          "hw_score": 65,
+          "reviews_given": 0,
+          "reviews_received": 24,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051028",
+          "name": "邱怡清",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051058",
+          "name": "陳文斌",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051062",
+          "name": "陳建丞",
+          "hw_score": 95,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051089",
+          "name": "林郁倫",
+          "hw_score": 100,
+          "reviews_given": 5,
+          "reviews_received": 18,
+          "quality_score": 40.0
+        },
+        {
+          "student_id": "D1051118",
+          "name": "吳柏逸",
+          "hw_score": 100,
+          "reviews_given": 4,
+          "reviews_received": 12,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1051121",
+          "name": "曾苔湘",
+          "hw_score": 98,
+          "reviews_given": 19,
+          "reviews_received": 13,
+          "quality_score": 1.75
+        },
+        {
+          "student_id": "D1051151",
+          "name": "洪梓祐",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051210",
+          "name": "尤婕蓉",
+          "hw_score": 98,
+          "reviews_given": 0,
+          "reviews_received": 24,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051253",
+          "name": "潘柏叡",
+          "hw_score": 100,
+          "reviews_given": 6,
+          "reviews_received": 36,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051267",
+          "name": "楚延靜",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1051312",
+          "name": "林芷儀",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 10.19
+        },
+        {
+          "student_id": "D1051428",
+          "name": "沈誌恩",
+          "hw_score": 91,
+          "reviews_given": 2,
+          "reviews_received": 30,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051458",
+          "name": "林建甫",
+          "hw_score": 91,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051489",
+          "name": "李政達",
+          "hw_score": 59,
+          "reviews_given": 6,
+          "reviews_received": 32,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051492",
+          "name": "張詠瑄",
+          "hw_score": 86,
+          "reviews_given": 17,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051517",
+          "name": "鄧芸非",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051550",
+          "name": "吳建凱",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 21.3
+        },
+        {
+          "student_id": "D1051564",
+          "name": "林邑軒",
+          "hw_score": 98,
+          "reviews_given": 30,
+          "reviews_received": 12,
+          "quality_score": 13.33
+        },
+        {
+          "student_id": "D1051594",
+          "name": "翁家雋",
+          "hw_score": 92,
+          "reviews_given": 18,
+          "reviews_received": 6,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051619",
+          "name": "林柏宇",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 6.48
+        },
+        {
+          "student_id": "D1051622",
+          "name": "鄭凱翔",
+          "hw_score": 87,
+          "reviews_given": 24,
+          "reviews_received": 25,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051652",
+          "name": "張珮怡",
+          "hw_score": 99,
+          "reviews_given": 35,
+          "reviews_received": 24,
+          "quality_score": 8.57
+        },
+        {
+          "student_id": "D1051666",
+          "name": "呂奕萱",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1051683",
+          "name": "楊凱心",
+          "hw_score": 98,
+          "reviews_given": 12,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051712",
+          "name": "吳政鴻",
+          "hw_score": 99,
+          "reviews_given": 18,
+          "reviews_received": 36,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051769",
+          "name": "白翔哲",
+          "hw_score": 100,
+          "reviews_given": 9,
+          "reviews_received": 25,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051786",
+          "name": "劉哲睿",
+          "hw_score": 95,
+          "reviews_given": 10,
+          "reviews_received": 15,
+          "quality_score": 13.33
+        },
+        {
+          "student_id": "D1051799",
+          "name": "盧偉宸",
+          "hw_score": 99,
+          "reviews_given": 35,
+          "reviews_received": 10,
+          "quality_score": 6.67
+        },
+        {
+          "student_id": "D1051827",
+          "name": "龔寬心",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 20,
+          "quality_score": 38.89
+        },
+        {
+          "student_id": "D1051861",
+          "name": "陳宥銜",
+          "hw_score": 96,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1051916",
+          "name": "李文心",
+          "hw_score": 94,
+          "reviews_given": 18,
+          "reviews_received": 14,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051929",
+          "name": "陳宥蓉",
+          "hw_score": 96,
+          "reviews_given": 18,
+          "reviews_received": 14,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051959",
+          "name": "李炎錡",
+          "hw_score": 98,
+          "reviews_given": 32,
+          "reviews_received": 26,
+          "quality_score": 7.29
+        },
+        {
+          "student_id": "D1072770",
+          "name": "阮成福",
+          "hw_score": 41,
+          "reviews_given": 13,
+          "reviews_received": 24,
+          "quality_score": 5.13
+        },
+        {
+          "student_id": "D1073027",
+          "name": "中江輝",
+          "hw_score": 89,
+          "reviews_given": 18,
+          "reviews_received": 19,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1076758",
+          "name": "賴俊霖",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 7,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1076789",
+          "name": "王麒翔",
+          "hw_score": 99,
+          "reviews_given": 6,
+          "reviews_received": 11,
+          "quality_score": 38.89
+        },
+        {
+          "student_id": "D1090417",
+          "name": "張芯瑜",
+          "hw_score": 16,
+          "reviews_given": 0,
+          "reviews_received": 24,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090420",
+          "name": "林易威",
+          "hw_score": 91,
+          "reviews_given": 3,
+          "reviews_received": 30,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1090434",
+          "name": "賴盈如",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 32.41
+        },
+        {
+          "student_id": "D1090477",
+          "name": "楊雨宸",
+          "hw_score": 64,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090494",
+          "name": "林怡君",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1090519",
+          "name": "許祐誠",
+          "hw_score": 67,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1090522",
+          "name": "陳俊佑",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1090566",
+          "name": "賴尹鋗",
+          "hw_score": 100,
+          "reviews_given": 35,
+          "reviews_received": 29,
+          "quality_score": 5.71
+        }
+      ],
+      "correlation_given": 0.4393,
+      "correlation_quality": 0.1519,
+      "stats": {
+        "avg_score": 88.88,
+        "avg_given": 21.87,
+        "avg_quality": 11.37,
+        "std_score": 21.03,
+        "total_students": 75
+      }
+    },
+    "HW4": {
+      "data_points": [
+        {
+          "student_id": "D0746163",
+          "name": "胡凱喆",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0751292",
+          "name": "王家誼",
+          "hw_score": 69,
+          "reviews_given": 35,
+          "reviews_received": 19,
+          "quality_score": 15.24
+        },
+        {
+          "student_id": "D0785683",
+          "name": "陳光宇",
+          "hw_score": 48,
+          "reviews_given": 6,
+          "reviews_received": 20,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D0843601",
+          "name": "林哲瑋",
+          "hw_score": 80,
+          "reviews_given": 18,
+          "reviews_received": 14,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1009269",
+          "name": "蔡仲林",
+          "hw_score": 68,
+          "reviews_given": 1,
+          "reviews_received": 28,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1009299",
+          "name": "喻唯甄",
+          "hw_score": 99,
+          "reviews_given": 8,
+          "reviews_received": 24,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1010467",
+          "name": "郭品修",
+          "hw_score": 83,
+          "reviews_given": 18,
+          "reviews_received": 12,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1011175",
+          "name": "林煜展",
+          "hw_score": 100,
+          "reviews_given": 3,
+          "reviews_received": 0,
+          "quality_score": 55.56
+        },
+        {
+          "student_id": "D1011264",
+          "name": "馬萁蔚",
+          "hw_score": 92,
+          "reviews_given": 30,
+          "reviews_received": 6,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1012323",
+          "name": "周庭緯",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 12,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018467",
+          "name": "黃紹軒",
+          "hw_score": 88,
+          "reviews_given": 1,
+          "reviews_received": 24,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1018508",
+          "name": "蔡武宏",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 25.93
+        },
+        {
+          "student_id": "D1018525",
+          "name": "趙家豪",
+          "hw_score": 100,
+          "reviews_given": 2,
+          "reviews_received": 30,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1018572",
+          "name": "沈彥良",
+          "hw_score": 25,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1018599",
+          "name": "莊程為",
+          "hw_score": 83,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1018600",
+          "name": "劉哲瑋",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 31,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1018627",
+          "name": "張家郡",
+          "hw_score": 70,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 15.74
+        },
+        {
+          "student_id": "D1018631",
+          "name": "楊怡仁",
+          "hw_score": 100,
+          "reviews_given": 30,
+          "reviews_received": 27,
+          "quality_score": 10.0
+        },
+        {
+          "student_id": "D1018661",
+          "name": "黃亭蓉",
+          "hw_score": 100,
+          "reviews_given": 27,
+          "reviews_received": 19,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1018703",
+          "name": "黃健紘",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 9,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018720",
+          "name": "劉政諺",
+          "hw_score": 95,
+          "reviews_given": 36,
+          "reviews_received": 7,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1030965",
+          "name": "劉文鑫",
+          "hw_score": 82,
+          "reviews_given": 1,
+          "reviews_received": 12,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1030978",
+          "name": "布樂心",
+          "hw_score": 30,
+          "reviews_given": 0,
+          "reviews_received": 24,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1035899",
+          "name": "張牧翔",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 36,
+          "quality_score": 14.81
+        },
+        {
+          "student_id": "D1050855",
+          "name": "蕭鍇安",
+          "hw_score": 67,
+          "reviews_given": 27,
+          "reviews_received": 36,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1050869",
+          "name": "蔡定瑋",
+          "hw_score": 31,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1050927",
+          "name": "葉子郡",
+          "hw_score": 95,
+          "reviews_given": 15,
+          "reviews_received": 24,
+          "quality_score": 4.44
+        },
+        {
+          "student_id": "D1050957",
+          "name": "葉秋彤",
+          "hw_score": 100,
+          "reviews_given": 33,
+          "reviews_received": 12,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1050988",
+          "name": "呂欣諭",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 25.0
+        },
+        {
+          "student_id": "D1051015",
+          "name": "李映頡",
+          "hw_score": 50,
+          "reviews_given": 0,
+          "reviews_received": 18,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051028",
+          "name": "邱怡清",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1051058",
+          "name": "陳文斌",
+          "hw_score": 83,
+          "reviews_given": 18,
+          "reviews_received": 12,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051062",
+          "name": "陳建丞",
+          "hw_score": 64,
+          "reviews_given": 0,
+          "reviews_received": 3,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051089",
+          "name": "林郁倫",
+          "hw_score": 100,
+          "reviews_given": 21,
+          "reviews_received": 14,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051118",
+          "name": "吳柏逸",
+          "hw_score": 83,
+          "reviews_given": 6,
+          "reviews_received": 15,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051121",
+          "name": "曾苔湘",
+          "hw_score": 98,
+          "reviews_given": 26,
+          "reviews_received": 24,
+          "quality_score": 12.82
+        },
+        {
+          "student_id": "D1051151",
+          "name": "洪梓祐",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051210",
+          "name": "尤婕蓉",
+          "hw_score": 100,
+          "reviews_given": 4,
+          "reviews_received": 30,
+          "quality_score": 50.0
+        },
+        {
+          "student_id": "D1051253",
+          "name": "潘柏叡",
+          "hw_score": 96,
+          "reviews_given": 10,
+          "reviews_received": 30,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051267",
+          "name": "楚延靜",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1051312",
+          "name": "林芷儀",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051428",
+          "name": "沈誌恩",
+          "hw_score": 33,
+          "reviews_given": 0,
+          "reviews_received": 17,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051458",
+          "name": "林建甫",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 15,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051489",
+          "name": "李政達",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 21,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051492",
+          "name": "張詠瑄",
+          "hw_score": 80,
+          "reviews_given": 18,
+          "reviews_received": 6,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051517",
+          "name": "鄧芸非",
+          "hw_score": 49,
+          "reviews_given": 18,
+          "reviews_received": 7,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1051550",
+          "name": "吳建凱",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 38.89
+        },
+        {
+          "student_id": "D1051564",
+          "name": "林邑軒",
+          "hw_score": 91,
+          "reviews_given": 36,
+          "reviews_received": 11,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051594",
+          "name": "翁家雋",
+          "hw_score": 65,
+          "reviews_given": 18,
+          "reviews_received": 18,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051619",
+          "name": "林柏宇",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051622",
+          "name": "鄭凱翔",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051652",
+          "name": "張珮怡",
+          "hw_score": 98,
+          "reviews_given": 31,
+          "reviews_received": 18,
+          "quality_score": 11.83
+        },
+        {
+          "student_id": "D1051666",
+          "name": "呂奕萱",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 13,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1051683",
+          "name": "楊凱心",
+          "hw_score": 98,
+          "reviews_given": 7,
+          "reviews_received": 13,
+          "quality_score": 52.38
+        },
+        {
+          "student_id": "D1051712",
+          "name": "吳政鴻",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 7,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051769",
+          "name": "白翔哲",
+          "hw_score": 98,
+          "reviews_given": 0,
+          "reviews_received": 18,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051786",
+          "name": "劉哲睿",
+          "hw_score": 83,
+          "reviews_given": 2,
+          "reviews_received": 30,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051799",
+          "name": "盧偉宸",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051827",
+          "name": "龔寬心",
+          "hw_score": 99,
+          "reviews_given": 35,
+          "reviews_received": 24,
+          "quality_score": 38.1
+        },
+        {
+          "student_id": "D1051861",
+          "name": "陳宥銜",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 33,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051916",
+          "name": "李文心",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 14.81
+        },
+        {
+          "student_id": "D1051929",
+          "name": "陳宥蓉",
+          "hw_score": 83,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 20.37
+        },
+        {
+          "student_id": "D1051959",
+          "name": "李炎錡",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 12,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1072770",
+          "name": "阮成福",
+          "hw_score": 60,
+          "reviews_given": 0,
+          "reviews_received": 7,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1073027",
+          "name": "中江輝",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 14,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1076758",
+          "name": "賴俊霖",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1076789",
+          "name": "王麒翔",
+          "hw_score": 50,
+          "reviews_given": 0,
+          "reviews_received": 15,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090417",
+          "name": "張芯瑜",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090420",
+          "name": "林易威",
+          "hw_score": 66,
+          "reviews_given": 8,
+          "reviews_received": 23,
+          "quality_score": 41.67
+        },
+        {
+          "student_id": "D1090434",
+          "name": "賴盈如",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 23,
+          "quality_score": 36.11
+        },
+        {
+          "student_id": "D1090477",
+          "name": "楊雨宸",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 24,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090494",
+          "name": "林怡君",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1090519",
+          "name": "許祐誠",
+          "hw_score": 51,
+          "reviews_given": 18,
+          "reviews_received": 18,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1090522",
+          "name": "陳俊佑",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1090566",
+          "name": "賴尹鋗",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 8,
+          "quality_score": 3.7
+        }
+      ],
+      "correlation_given": 0.6181,
+      "correlation_quality": 0.2839,
+      "stats": {
+        "avg_score": 78.35,
+        "avg_given": 19.56,
+        "avg_quality": 13.97,
+        "std_score": 28.82,
+        "total_students": 75
+      }
+    },
+    "HW5": {
+      "data_points": [
+        {
+          "student_id": "D0746163",
+          "name": "胡凱喆",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0751292",
+          "name": "王家誼",
+          "hw_score": 77,
+          "reviews_given": 18,
+          "reviews_received": 36,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D0785683",
+          "name": "陳光宇",
+          "hw_score": 71,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0843601",
+          "name": "林哲瑋",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1009269",
+          "name": "蔡仲林",
+          "hw_score": 33,
+          "reviews_given": 1,
+          "reviews_received": 36,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1009299",
+          "name": "喻唯甄",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1010467",
+          "name": "郭品修",
+          "hw_score": 79,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1011175",
+          "name": "林煜展",
+          "hw_score": 85,
+          "reviews_given": 23,
+          "reviews_received": 15,
+          "quality_score": 15.94
+        },
+        {
+          "student_id": "D1011264",
+          "name": "馬萁蔚",
+          "hw_score": 97,
+          "reviews_given": 35,
+          "reviews_received": 12,
+          "quality_score": 6.67
+        },
+        {
+          "student_id": "D1012323",
+          "name": "周庭緯",
+          "hw_score": 95,
+          "reviews_given": 30,
+          "reviews_received": 17,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018467",
+          "name": "黃紹軒",
+          "hw_score": 83,
+          "reviews_given": 19,
+          "reviews_received": 24,
+          "quality_score": 3.51
+        },
+        {
+          "student_id": "D1018508",
+          "name": "蔡武宏",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 38.89
+        },
+        {
+          "student_id": "D1018525",
+          "name": "趙家豪",
+          "hw_score": 100,
+          "reviews_given": 17,
+          "reviews_received": 36,
+          "quality_score": 19.61
+        },
+        {
+          "student_id": "D1018572",
+          "name": "沈彥良",
+          "hw_score": 61,
+          "reviews_given": 12,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018599",
+          "name": "莊程為",
+          "hw_score": 74,
+          "reviews_given": 36,
+          "reviews_received": 21,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1018600",
+          "name": "劉哲瑋",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 14.81
+        },
+        {
+          "student_id": "D1018627",
+          "name": "張家郡",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 17.59
+        },
+        {
+          "student_id": "D1018631",
+          "name": "楊怡仁",
+          "hw_score": 89,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 8.33
+        },
+        {
+          "student_id": "D1018661",
+          "name": "黃亭蓉",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 25,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1018703",
+          "name": "黃健紘",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 6.48
+        },
+        {
+          "student_id": "D1018720",
+          "name": "劉政諺",
+          "hw_score": 94,
+          "reviews_given": 36,
+          "reviews_received": 6,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1030965",
+          "name": "劉文鑫",
+          "hw_score": 66,
+          "reviews_given": 3,
+          "reviews_received": 13,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1030978",
+          "name": "布樂心",
+          "hw_score": 61,
+          "reviews_given": 36,
+          "reviews_received": 14,
+          "quality_score": 8.33
+        },
+        {
+          "student_id": "D1035899",
+          "name": "張牧翔",
+          "hw_score": 75,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 46.3
+        },
+        {
+          "student_id": "D1050855",
+          "name": "蕭鍇安",
+          "hw_score": 93,
+          "reviews_given": 0,
+          "reviews_received": 24,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1050869",
+          "name": "蔡定瑋",
+          "hw_score": 5,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1050927",
+          "name": "葉子郡",
+          "hw_score": 90,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1050957",
+          "name": "葉秋彤",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 20.37
+        },
+        {
+          "student_id": "D1050988",
+          "name": "呂欣諭",
+          "hw_score": 99,
+          "reviews_given": 35,
+          "reviews_received": 24,
+          "quality_score": 20.0
+        },
+        {
+          "student_id": "D1051015",
+          "name": "李映頡",
+          "hw_score": 11,
+          "reviews_given": 12,
+          "reviews_received": 18,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051028",
+          "name": "邱怡清",
+          "hw_score": 95,
+          "reviews_given": 36,
+          "reviews_received": 6,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051058",
+          "name": "陳文斌",
+          "hw_score": 100,
+          "reviews_given": 34,
+          "reviews_received": 18,
+          "quality_score": 11.76
+        },
+        {
+          "student_id": "D1051062",
+          "name": "陳建丞",
+          "hw_score": 94,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051089",
+          "name": "林郁倫",
+          "hw_score": 97,
+          "reviews_given": 16,
+          "reviews_received": 12,
+          "quality_score": 35.42
+        },
+        {
+          "student_id": "D1051118",
+          "name": "吳柏逸",
+          "hw_score": 96,
+          "reviews_given": 5,
+          "reviews_received": 7,
+          "quality_score": 53.33
+        },
+        {
+          "student_id": "D1051121",
+          "name": "曾苔湘",
+          "hw_score": 65,
+          "reviews_given": 10,
+          "reviews_received": 17,
+          "quality_score": 20.0
+        },
+        {
+          "student_id": "D1051151",
+          "name": "洪梓祐",
+          "hw_score": 96,
+          "reviews_given": 33,
+          "reviews_received": 24,
+          "quality_score": 13.13
+        },
+        {
+          "student_id": "D1051210",
+          "name": "尤婕蓉",
+          "hw_score": 91,
+          "reviews_given": 19,
+          "reviews_received": 29,
+          "quality_score": 31.58
+        },
+        {
+          "student_id": "D1051253",
+          "name": "潘柏叡",
+          "hw_score": 99,
+          "reviews_given": 7,
+          "reviews_received": 30,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051267",
+          "name": "楚延靜",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1051312",
+          "name": "林芷儀",
+          "hw_score": 65,
+          "reviews_given": 36,
+          "reviews_received": 21,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051428",
+          "name": "沈誌恩",
+          "hw_score": 80,
+          "reviews_given": 13,
+          "reviews_received": 15,
+          "quality_score": 2.56
+        },
+        {
+          "student_id": "D1051458",
+          "name": "林建甫",
+          "hw_score": 48,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1051489",
+          "name": "李政達",
+          "hw_score": 59,
+          "reviews_given": 25,
+          "reviews_received": 30,
+          "quality_score": 6.67
+        },
+        {
+          "student_id": "D1051492",
+          "name": "張詠瑄",
+          "hw_score": 56,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051517",
+          "name": "鄧芸非",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1051550",
+          "name": "吳建凱",
+          "hw_score": 92,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 23.15
+        },
+        {
+          "student_id": "D1051564",
+          "name": "林邑軒",
+          "hw_score": 74,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 25.93
+        },
+        {
+          "student_id": "D1051594",
+          "name": "翁家雋",
+          "hw_score": 80,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 17.59
+        },
+        {
+          "student_id": "D1051619",
+          "name": "林柏宇",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 8.33
+        },
+        {
+          "student_id": "D1051622",
+          "name": "鄭凱翔",
+          "hw_score": 66,
+          "reviews_given": 36,
+          "reviews_received": 27,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051652",
+          "name": "張珮怡",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 19.44
+        },
+        {
+          "student_id": "D1051666",
+          "name": "呂奕萱",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1051683",
+          "name": "楊凱心",
+          "hw_score": 100,
+          "reviews_given": 14,
+          "reviews_received": 6,
+          "quality_score": 9.52
+        },
+        {
+          "student_id": "D1051712",
+          "name": "吳政鴻",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 0,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051769",
+          "name": "白翔哲",
+          "hw_score": 100,
+          "reviews_given": 4,
+          "reviews_received": 12,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1051786",
+          "name": "劉哲睿",
+          "hw_score": 65,
+          "reviews_given": 3,
+          "reviews_received": 24,
+          "quality_score": 44.44
+        },
+        {
+          "student_id": "D1051799",
+          "name": "盧偉宸",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 29,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051827",
+          "name": "龔寬心",
+          "hw_score": 100,
+          "reviews_given": 35,
+          "reviews_received": 30,
+          "quality_score": 35.24
+        },
+        {
+          "student_id": "D1051861",
+          "name": "陳宥銜",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 23,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1051916",
+          "name": "李文心",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 12.04
+        },
+        {
+          "student_id": "D1051929",
+          "name": "陳宥蓉",
+          "hw_score": 36,
+          "reviews_given": 18,
+          "reviews_received": 33,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1051959",
+          "name": "李炎錡",
+          "hw_score": 97,
+          "reviews_given": 15,
+          "reviews_received": 14,
+          "quality_score": 13.33
+        },
+        {
+          "student_id": "D1072770",
+          "name": "阮成福",
+          "hw_score": 92,
+          "reviews_given": 18,
+          "reviews_received": 6,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1073027",
+          "name": "中江輝",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 15,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1076758",
+          "name": "賴俊霖",
+          "hw_score": 80,
+          "reviews_given": 36,
+          "reviews_received": 25,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1076789",
+          "name": "王麒翔",
+          "hw_score": 98,
+          "reviews_given": 3,
+          "reviews_received": 15,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1090417",
+          "name": "張芯瑜",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 27,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090420",
+          "name": "林易威",
+          "hw_score": 99,
+          "reviews_given": 7,
+          "reviews_received": 26,
+          "quality_score": 47.62
+        },
+        {
+          "student_id": "D1090434",
+          "name": "賴盈如",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 39.81
+        },
+        {
+          "student_id": "D1090477",
+          "name": "楊雨宸",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090494",
+          "name": "林怡君",
+          "hw_score": 67,
+          "reviews_given": 36,
+          "reviews_received": 14,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1090519",
+          "name": "許祐誠",
+          "hw_score": 66,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1090522",
+          "name": "陳俊佑",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1090566",
+          "name": "賴尹鋗",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 3.7
+        }
+      ],
+      "correlation_given": 0.5172,
+      "correlation_quality": 0.2208,
+      "stats": {
+        "avg_score": 79.48,
+        "avg_given": 23.73,
+        "avg_quality": 14.99,
+        "std_score": 27.94,
+        "total_students": 75
+      }
+    },
+    "HW6": {
+      "data_points": [
+        {
+          "student_id": "D0746163",
+          "name": "胡凱喆",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0751292",
+          "name": "王家誼",
+          "hw_score": 67,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 17.59
+        },
+        {
+          "student_id": "D0785683",
+          "name": "陳光宇",
+          "hw_score": 78,
+          "reviews_given": 2,
+          "reviews_received": 24,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D0843601",
+          "name": "林哲瑋",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1009269",
+          "name": "蔡仲林",
+          "hw_score": 65,
+          "reviews_given": 4,
+          "reviews_received": 18,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1009299",
+          "name": "喻唯甄",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1010467",
+          "name": "郭品修",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 12,
+          "quality_score": 35.19
+        },
+        {
+          "student_id": "D1011175",
+          "name": "林煜展",
+          "hw_score": 97,
+          "reviews_given": 18,
+          "reviews_received": 1,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1011264",
+          "name": "馬萁蔚",
+          "hw_score": 100,
+          "reviews_given": 27,
+          "reviews_received": 12,
+          "quality_score": 39.51
+        },
+        {
+          "student_id": "D1012323",
+          "name": "周庭緯",
+          "hw_score": 48,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1018467",
+          "name": "黃紹軒",
+          "hw_score": 69,
+          "reviews_given": 36,
+          "reviews_received": 29,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018508",
+          "name": "蔡武宏",
+          "hw_score": 83,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 37.04
+        },
+        {
+          "student_id": "D1018525",
+          "name": "趙家豪",
+          "hw_score": 82,
+          "reviews_given": 6,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018572",
+          "name": "沈彥良",
+          "hw_score": 59,
+          "reviews_given": 0,
+          "reviews_received": 21,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1018599",
+          "name": "莊程為",
+          "hw_score": 63,
+          "reviews_given": 30,
+          "reviews_received": 25,
+          "quality_score": 1.11
+        },
+        {
+          "student_id": "D1018600",
+          "name": "劉哲瑋",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 15,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1018627",
+          "name": "張家郡",
+          "hw_score": 53,
+          "reviews_given": 18,
+          "reviews_received": 10,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1018631",
+          "name": "楊怡仁",
+          "hw_score": 67,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1018661",
+          "name": "黃亭蓉",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1018703",
+          "name": "黃健紘",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 14,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1018720",
+          "name": "劉政諺",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 14,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1030965",
+          "name": "劉文鑫",
+          "hw_score": 49,
+          "reviews_given": 0,
+          "reviews_received": 28,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1030978",
+          "name": "布樂心",
+          "hw_score": 94,
+          "reviews_given": 36,
+          "reviews_received": 31,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1035899",
+          "name": "張牧翔",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 18,
+          "quality_score": 25.93
+        },
+        {
+          "student_id": "D1050855",
+          "name": "蕭鍇安",
+          "hw_score": 65,
+          "reviews_given": 12,
+          "reviews_received": 13,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1050869",
+          "name": "蔡定瑋",
+          "hw_score": 6,
+          "reviews_given": 6,
+          "reviews_received": 18,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1050927",
+          "name": "葉子郡",
+          "hw_score": 53,
+          "reviews_given": 7,
+          "reviews_received": 18,
+          "quality_score": 9.52
+        },
+        {
+          "student_id": "D1050957",
+          "name": "葉秋彤",
+          "hw_score": 100,
+          "reviews_given": 35,
+          "reviews_received": 18,
+          "quality_score": 13.33
+        },
+        {
+          "student_id": "D1050988",
+          "name": "呂欣諭",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 13.89
+        },
+        {
+          "student_id": "D1051015",
+          "name": "李映頡",
+          "hw_score": 52,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051028",
+          "name": "邱怡清",
+          "hw_score": 95,
+          "reviews_given": 30,
+          "reviews_received": 30,
+          "quality_score": 4.44
+        },
+        {
+          "student_id": "D1051058",
+          "name": "陳文斌",
+          "hw_score": 82,
+          "reviews_given": 15,
+          "reviews_received": 29,
+          "quality_score": 17.78
+        },
+        {
+          "student_id": "D1051062",
+          "name": "陳建丞",
+          "hw_score": 76,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051089",
+          "name": "林郁倫",
+          "hw_score": 100,
+          "reviews_given": 14,
+          "reviews_received": 28,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1051118",
+          "name": "吳柏逸",
+          "hw_score": 80,
+          "reviews_given": 1,
+          "reviews_received": 26,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1051121",
+          "name": "曾苔湘",
+          "hw_score": 76,
+          "reviews_given": 18,
+          "reviews_received": 25,
+          "quality_score": 38.89
+        },
+        {
+          "student_id": "D1051151",
+          "name": "洪梓祐",
+          "hw_score": 100,
+          "reviews_given": 35,
+          "reviews_received": 16,
+          "quality_score": 8.57
+        },
+        {
+          "student_id": "D1051210",
+          "name": "尤婕蓉",
+          "hw_score": 98,
+          "reviews_given": 0,
+          "reviews_received": 12,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051253",
+          "name": "潘柏叡",
+          "hw_score": 100,
+          "reviews_given": 8,
+          "reviews_received": 12,
+          "quality_score": 41.67
+        },
+        {
+          "student_id": "D1051267",
+          "name": "楚延靜",
+          "hw_score": 68,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 10.19
+        },
+        {
+          "student_id": "D1051312",
+          "name": "林芷儀",
+          "hw_score": 67,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051428",
+          "name": "沈誌恩",
+          "hw_score": 65,
+          "reviews_given": 15,
+          "reviews_received": 35,
+          "quality_score": 11.11
+        },
+        {
+          "student_id": "D1051458",
+          "name": "林建甫",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 24,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051489",
+          "name": "李政達",
+          "hw_score": 65,
+          "reviews_given": 35,
+          "reviews_received": 15,
+          "quality_score": 5.71
+        },
+        {
+          "student_id": "D1051492",
+          "name": "張詠瑄",
+          "hw_score": 78,
+          "reviews_given": 6,
+          "reviews_received": 8,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051517",
+          "name": "鄧芸非",
+          "hw_score": 80,
+          "reviews_given": 18,
+          "reviews_received": 19,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051550",
+          "name": "吳建凱",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 39.81
+        },
+        {
+          "student_id": "D1051564",
+          "name": "林邑軒",
+          "hw_score": 81,
+          "reviews_given": 18,
+          "reviews_received": 25,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051594",
+          "name": "翁家雋",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 14,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051619",
+          "name": "林柏宇",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 2,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1051622",
+          "name": "鄭凱翔",
+          "hw_score": 77,
+          "reviews_given": 17,
+          "reviews_received": 13,
+          "quality_score": 3.92
+        },
+        {
+          "student_id": "D1051652",
+          "name": "張珮怡",
+          "hw_score": 100,
+          "reviews_given": 34,
+          "reviews_received": 12,
+          "quality_score": 17.65
+        },
+        {
+          "student_id": "D1051666",
+          "name": "呂奕萱",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1051683",
+          "name": "楊凱心",
+          "hw_score": 100,
+          "reviews_given": 6,
+          "reviews_received": 18,
+          "quality_score": 61.11
+        },
+        {
+          "student_id": "D1051712",
+          "name": "吳政鴻",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051769",
+          "name": "白翔哲",
+          "hw_score": 99,
+          "reviews_given": 1,
+          "reviews_received": 36,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1051786",
+          "name": "劉哲睿",
+          "hw_score": 79,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051799",
+          "name": "盧偉宸",
+          "hw_score": 68,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051827",
+          "name": "龔寬心",
+          "hw_score": 100,
+          "reviews_given": 35,
+          "reviews_received": 18,
+          "quality_score": 40.0
+        },
+        {
+          "student_id": "D1051861",
+          "name": "陳宥銜",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1051916",
+          "name": "李文心",
+          "hw_score": 95,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 16.67
+        },
+        {
+          "student_id": "D1051929",
+          "name": "陳宥蓉",
+          "hw_score": 15,
+          "reviews_given": 0,
+          "reviews_received": 10,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051959",
+          "name": "李炎錡",
+          "hw_score": 96,
+          "reviews_given": 6,
+          "reviews_received": 7,
+          "quality_score": 38.89
+        },
+        {
+          "student_id": "D1072770",
+          "name": "阮成福",
+          "hw_score": 88,
+          "reviews_given": 18,
+          "reviews_received": 7,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1073027",
+          "name": "中江輝",
+          "hw_score": 98,
+          "reviews_given": 30,
+          "reviews_received": 12,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1076758",
+          "name": "賴俊霖",
+          "hw_score": 49,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1076789",
+          "name": "王麒翔",
+          "hw_score": 83,
+          "reviews_given": 4,
+          "reviews_received": 20,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1090417",
+          "name": "張芯瑜",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090420",
+          "name": "林易威",
+          "hw_score": 83,
+          "reviews_given": 2,
+          "reviews_received": 24,
+          "quality_score": 50.0
+        },
+        {
+          "student_id": "D1090434",
+          "name": "賴盈如",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 37.96
+        },
+        {
+          "student_id": "D1090477",
+          "name": "楊雨宸",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 12,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090494",
+          "name": "林怡君",
+          "hw_score": 81,
+          "reviews_given": 18,
+          "reviews_received": 12,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1090519",
+          "name": "許祐誠",
+          "hw_score": 69,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1090522",
+          "name": "陳俊佑",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1090566",
+          "name": "賴尹鋗",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 30,
+          "quality_score": 4.63
+        }
+      ],
+      "correlation_given": 0.4977,
+      "correlation_quality": 0.3284,
+      "stats": {
+        "avg_score": 75.53,
+        "avg_given": 20.76,
+        "avg_quality": 15.52,
+        "std_score": 28.09,
+        "total_students": 75
+      }
+    },
+    "HW7": {
+      "data_points": [
+        {
+          "student_id": "D0746163",
+          "name": "胡凱喆",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 19,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0751292",
+          "name": "王家誼",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 18,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0785683",
+          "name": "陳光宇",
+          "hw_score": 32,
+          "reviews_given": 0,
+          "reviews_received": 1,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D0843601",
+          "name": "林哲瑋",
+          "hw_score": 84,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 4.63
+        },
+        {
+          "student_id": "D1009269",
+          "name": "蔡仲林",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 18,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1009299",
+          "name": "喻唯甄",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 18,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1010467",
+          "name": "郭品修",
+          "hw_score": 79,
+          "reviews_given": 18,
+          "reviews_received": 12,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1011175",
+          "name": "林煜展",
+          "hw_score": 65,
+          "reviews_given": 1,
+          "reviews_received": 24,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1011264",
+          "name": "馬萁蔚",
+          "hw_score": 100,
+          "reviews_given": 18,
+          "reviews_received": 36,
+          "quality_score": 38.89
+        },
+        {
+          "student_id": "D1012323",
+          "name": "周庭緯",
+          "hw_score": 47,
+          "reviews_given": 18,
+          "reviews_received": 36,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018467",
+          "name": "黃紹軒",
+          "hw_score": 97,
+          "reviews_given": 13,
+          "reviews_received": 30,
+          "quality_score": 38.46
+        },
+        {
+          "student_id": "D1018508",
+          "name": "蔡武宏",
+          "hw_score": 96,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 38.89
+        },
+        {
+          "student_id": "D1018525",
+          "name": "趙家豪",
+          "hw_score": 82,
+          "reviews_given": 0,
+          "reviews_received": 35,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1018572",
+          "name": "沈彥良",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1018599",
+          "name": "莊程為",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018600",
+          "name": "劉哲瑋",
+          "hw_score": 99,
+          "reviews_given": 30,
+          "reviews_received": 7,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1018627",
+          "name": "張家郡",
+          "hw_score": 91,
+          "reviews_given": 24,
+          "reviews_received": 6,
+          "quality_score": 27.78
+        },
+        {
+          "student_id": "D1018631",
+          "name": "楊怡仁",
+          "hw_score": 99,
+          "reviews_given": 30,
+          "reviews_received": 12,
+          "quality_score": 4.44
+        },
+        {
+          "student_id": "D1018661",
+          "name": "黃亭蓉",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 9.26
+        },
+        {
+          "student_id": "D1018703",
+          "name": "黃健紘",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1018720",
+          "name": "劉政諺",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 36,
+          "quality_score": 5.56
+        },
+        {
+          "student_id": "D1030965",
+          "name": "劉文鑫",
+          "hw_score": 15,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1030978",
+          "name": "布樂心",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 0.93
+        },
+        {
+          "student_id": "D1035899",
+          "name": "張牧翔",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 18.52
+        },
+        {
+          "student_id": "D1050855",
+          "name": "蕭鍇安",
+          "hw_score": 98,
+          "reviews_given": 12,
+          "reviews_received": 12,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1050869",
+          "name": "蔡定瑋",
+          "hw_score": 70,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1050927",
+          "name": "葉子郡",
+          "hw_score": 96,
+          "reviews_given": 6,
+          "reviews_received": 12,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1050957",
+          "name": "葉秋彤",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 6,
+          "quality_score": 17.59
+        },
+        {
+          "student_id": "D1050988",
+          "name": "呂欣諭",
+          "hw_score": 100,
+          "reviews_given": 35,
+          "reviews_received": 0,
+          "quality_score": 15.24
+        },
+        {
+          "student_id": "D1051015",
+          "name": "李映頡",
+          "hw_score": 94,
+          "reviews_given": 30,
+          "reviews_received": 12,
+          "quality_score": 4.44
+        },
+        {
+          "student_id": "D1051028",
+          "name": "邱怡清",
+          "hw_score": 95,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1051058",
+          "name": "陳文斌",
+          "hw_score": 91,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051062",
+          "name": "陳建丞",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051089",
+          "name": "林郁倫",
+          "hw_score": 95,
+          "reviews_given": 6,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051118",
+          "name": "吳柏逸",
+          "hw_score": 81,
+          "reviews_given": 12,
+          "reviews_received": 36,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051121",
+          "name": "曾苔湘",
+          "hw_score": 66,
+          "reviews_given": 18,
+          "reviews_received": 36,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051151",
+          "name": "洪梓祐",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051210",
+          "name": "尤婕蓉",
+          "hw_score": 98,
+          "reviews_given": 1,
+          "reviews_received": 12,
+          "quality_score": 66.67
+        },
+        {
+          "student_id": "D1051253",
+          "name": "潘柏叡",
+          "hw_score": 95,
+          "reviews_given": 12,
+          "reviews_received": 0,
+          "quality_score": 22.22
+        },
+        {
+          "student_id": "D1051267",
+          "name": "楚延靜",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051312",
+          "name": "林芷儀",
+          "hw_score": 57,
+          "reviews_given": 0,
+          "reviews_received": 12,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051428",
+          "name": "沈誌恩",
+          "hw_score": 65,
+          "reviews_given": 13,
+          "reviews_received": 12,
+          "quality_score": 5.13
+        },
+        {
+          "student_id": "D1051458",
+          "name": "林建甫",
+          "hw_score": 61,
+          "reviews_given": 0,
+          "reviews_received": 6,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051489",
+          "name": "李政達",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 6,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051492",
+          "name": "張詠瑄",
+          "hw_score": 78,
+          "reviews_given": 12,
+          "reviews_received": 10,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051517",
+          "name": "鄧芸非",
+          "hw_score": 61,
+          "reviews_given": 0,
+          "reviews_received": 16,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051550",
+          "name": "吳建凱",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 14,
+          "quality_score": 40.74
+        },
+        {
+          "student_id": "D1051564",
+          "name": "林邑軒",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 19,
+          "quality_score": 30.56
+        },
+        {
+          "student_id": "D1051594",
+          "name": "翁家雋",
+          "hw_score": 68,
+          "reviews_given": 36,
+          "reviews_received": 21,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051619",
+          "name": "林柏宇",
+          "hw_score": 66,
+          "reviews_given": 30,
+          "reviews_received": 12,
+          "quality_score": 3.33
+        },
+        {
+          "student_id": "D1051622",
+          "name": "鄭凱翔",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 6,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1051652",
+          "name": "張珮怡",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 18,
+          "quality_score": 7.41
+        },
+        {
+          "student_id": "D1051666",
+          "name": "呂奕萱",
+          "hw_score": 99,
+          "reviews_given": 35,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051683",
+          "name": "楊凱心",
+          "hw_score": 100,
+          "reviews_given": 19,
+          "reviews_received": 18,
+          "quality_score": 26.32
+        },
+        {
+          "student_id": "D1051712",
+          "name": "吳政鴻",
+          "hw_score": 82,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 3.7
+        },
+        {
+          "student_id": "D1051769",
+          "name": "白翔哲",
+          "hw_score": 98,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051786",
+          "name": "劉哲睿",
+          "hw_score": 82,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1051799",
+          "name": "盧偉宸",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1051827",
+          "name": "龔寬心",
+          "hw_score": 83,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1051861",
+          "name": "陳宥銜",
+          "hw_score": 82,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 2.78
+        },
+        {
+          "student_id": "D1051916",
+          "name": "李文心",
+          "hw_score": 100,
+          "reviews_given": 36,
+          "reviews_received": 24,
+          "quality_score": 6.48
+        },
+        {
+          "student_id": "D1051929",
+          "name": "陳宥蓉",
+          "hw_score": 77,
+          "reviews_given": 18,
+          "reviews_received": 24,
+          "quality_score": 18.52
+        },
+        {
+          "student_id": "D1051959",
+          "name": "李炎錡",
+          "hw_score": 98,
+          "reviews_given": 1,
+          "reviews_received": 12,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1072770",
+          "name": "阮成福",
+          "hw_score": 43,
+          "reviews_given": 18,
+          "reviews_received": 18,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1073027",
+          "name": "中江輝",
+          "hw_score": 95,
+          "reviews_given": 24,
+          "reviews_received": 30,
+          "quality_score": 0.0
+        },
+        {
+          "student_id": "D1076758",
+          "name": "賴俊霖",
+          "hw_score": 42,
+          "reviews_given": 18,
+          "reviews_received": 30,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1076789",
+          "name": "王麒翔",
+          "hw_score": 89,
+          "reviews_given": 0,
+          "reviews_received": 35,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090417",
+          "name": "張芯瑜",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 36,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090420",
+          "name": "林易威",
+          "hw_score": 97,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090434",
+          "name": "賴盈如",
+          "hw_score": 98,
+          "reviews_given": 36,
+          "reviews_received": 12,
+          "quality_score": 33.33
+        },
+        {
+          "student_id": "D1090477",
+          "name": "楊雨宸",
+          "hw_score": 0,
+          "reviews_given": 0,
+          "reviews_received": 30,
+          "quality_score": 0
+        },
+        {
+          "student_id": "D1090494",
+          "name": "林怡君",
+          "hw_score": 99,
+          "reviews_given": 36,
+          "reviews_received": 6,
+          "quality_score": 1.85
+        },
+        {
+          "student_id": "D1090519",
+          "name": "許祐誠",
+          "hw_score": 81,
+          "reviews_given": 30,
+          "reviews_received": 18,
+          "quality_score": 4.44
+        },
+        {
+          "student_id": "D1090522",
+          "name": "陳俊佑",
+          "hw_score": 98,
+          "reviews_given": 30,
+          "reviews_received": 18,
+          "quality_score": 6.67
+        },
+        {
+          "student_id": "D1090566",
+          "name": "賴尹鋗",
+          "hw_score": 97,
+          "reviews_given": 36,
+          "reviews_received": 16,
+          "quality_score": 8.33
+        }
+      ],
+      "correlation_given": 0.5999,
+      "correlation_quality": 0.2339,
+      "stats": {
+        "avg_score": 77.68,
+        "avg_given": 20.05,
+        "avg_quality": 9.71,
+        "std_score": 30.84,
+        "total_students": 75
+      }
+    }
+  },
+  "students": [
+    {
+      "id": "D0746163",
+      "name": "胡凱喆",
+      "hw_scores": {
+        "HW1": 92,
+        "HW2": 92,
+        "HW3": 0,
+        "HW4": 0,
+        "HW5": 0,
+        "HW6": 0,
+        "HW7": 0
+      },
+      "avg_hw_score": 26.29,
+      "midterm": 0,
+      "final": 0,
+      "reviews_given": 54,
+      "reviews_received": 215,
+      "quality_score": 1.85,
+      "quality_breakdown": {
+        "relevance": 3,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 36
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 0,
+          "received": 28
+        },
+        "HW4": {
+          "given": 0,
+          "received": 30
+        },
+        "HW5": {
+          "given": 0,
+          "received": 36
+        },
+        "HW6": {
+          "given": 0,
+          "received": 36
+        },
+        "HW7": {
+          "given": 0,
+          "received": 19
+        }
+      }
+    },
+    {
+      "id": "D0751292",
+      "name": "王家誼",
+      "hw_scores": {
+        "HW1": 55,
+        "HW2": 55,
+        "HW3": 98,
+        "HW4": 69,
+        "HW5": 77,
+        "HW6": 67,
+        "HW7": 0
+      },
+      "avg_hw_score": 60.14,
+      "midterm": 11,
+      "final": 0,
+      "reviews_given": 113,
+      "reviews_received": 168,
+      "quality_score": 14.75,
+      "quality_breakdown": {
+        "relevance": 41,
+        "concreteness": 9,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 3,
+          "received": 25
+        },
+        "HW2": {
+          "given": 3,
+          "received": 22
+        },
+        "HW3": {
+          "given": 18,
+          "received": 12
+        },
+        "HW4": {
+          "given": 35,
+          "received": 19
+        },
+        "HW5": {
+          "given": 18,
+          "received": 36
+        },
+        "HW6": {
+          "given": 36,
+          "received": 36
+        },
+        "HW7": {
+          "given": 0,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D0785683",
+      "name": "陳光宇",
+      "hw_scores": {
+        "HW1": 71,
+        "HW2": 71,
+        "HW3": 64,
+        "HW4": 48,
+        "HW5": 71,
+        "HW6": 78,
+        "HW7": 32
+      },
+      "avg_hw_score": 62.14,
+      "midterm": 73,
+      "final": 62,
+      "reviews_given": 11,
+      "reviews_received": 135,
+      "quality_score": 6.06,
+      "quality_breakdown": {
+        "relevance": 2,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 1,
+          "received": 25
+        },
+        "HW2": {
+          "given": 0,
+          "received": 12
+        },
+        "HW3": {
+          "given": 2,
+          "received": 17
+        },
+        "HW4": {
+          "given": 6,
+          "received": 20
+        },
+        "HW5": {
+          "given": 0,
+          "received": 36
+        },
+        "HW6": {
+          "given": 2,
+          "received": 24
+        },
+        "HW7": {
+          "given": 0,
+          "received": 1
+        }
+      }
+    },
+    {
+      "id": "D0843601",
+      "name": "林哲瑋",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 99,
+        "HW4": 80,
+        "HW5": 97,
+        "HW6": 82,
+        "HW7": 84
+      },
+      "avg_hw_score": 87.43,
+      "midterm": 47,
+      "final": 52,
+      "reviews_given": 216,
+      "reviews_received": 133,
+      "quality_score": 5.4,
+      "quality_breakdown": {
+        "relevance": 27,
+        "concreteness": 8,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 24
+        },
+        "HW2": {
+          "given": 36,
+          "received": 5
+        },
+        "HW3": {
+          "given": 36,
+          "received": 12
+        },
+        "HW4": {
+          "given": 18,
+          "received": 14
+        },
+        "HW5": {
+          "given": 36,
+          "received": 36
+        },
+        "HW6": {
+          "given": 18,
+          "received": 24
+        },
+        "HW7": {
+          "given": 36,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D1009269",
+      "name": "蔡仲林",
+      "hw_scores": {
+        "HW1": 100,
+        "HW2": 100,
+        "HW3": 60,
+        "HW4": 68,
+        "HW5": 33,
+        "HW6": 65,
+        "HW7": 0
+      },
+      "avg_hw_score": 60.86,
+      "midterm": 73,
+      "final": 54,
+      "reviews_given": 13,
+      "reviews_received": 165,
+      "quality_score": 64.1,
+      "quality_breakdown": {
+        "relevance": 13,
+        "concreteness": 12,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 4,
+          "received": 30
+        },
+        "HW2": {
+          "given": 2,
+          "received": 7
+        },
+        "HW3": {
+          "given": 1,
+          "received": 28
+        },
+        "HW4": {
+          "given": 1,
+          "received": 28
+        },
+        "HW5": {
+          "given": 1,
+          "received": 36
+        },
+        "HW6": {
+          "given": 4,
+          "received": 18
+        },
+        "HW7": {
+          "given": 0,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D1009299",
+      "name": "喻唯甄",
+      "hw_scores": {
+        "HW1": 63,
+        "HW2": 63,
+        "HW3": 100,
+        "HW4": 99,
+        "HW5": 0,
+        "HW6": 0,
+        "HW7": 0
+      },
+      "avg_hw_score": 46.43,
+      "midterm": 35,
+      "final": 0,
+      "reviews_given": 84,
+      "reviews_received": 174,
+      "quality_score": 7.94,
+      "quality_breakdown": {
+        "relevance": 19,
+        "concreteness": 1,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 14,
+          "received": 24
+        },
+        "HW2": {
+          "given": 30,
+          "received": 7
+        },
+        "HW3": {
+          "given": 32,
+          "received": 35
+        },
+        "HW4": {
+          "given": 8,
+          "received": 24
+        },
+        "HW5": {
+          "given": 0,
+          "received": 36
+        },
+        "HW6": {
+          "given": 0,
+          "received": 30
+        },
+        "HW7": {
+          "given": 0,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D1010467",
+      "name": "郭品修",
+      "hw_scores": {
+        "HW1": 48,
+        "HW2": 48,
+        "HW3": 99,
+        "HW4": 83,
+        "HW5": 79,
+        "HW6": 82,
+        "HW7": 79
+      },
+      "avg_hw_score": 74.0,
+      "midterm": 100,
+      "final": 98,
+      "reviews_given": 132,
+      "reviews_received": 121,
+      "quality_score": 27.53,
+      "quality_breakdown": {
+        "relevance": 108,
+        "concreteness": 1,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 0,
+          "received": 23
+        },
+        "HW2": {
+          "given": 36,
+          "received": 8
+        },
+        "HW3": {
+          "given": 24,
+          "received": 30
+        },
+        "HW4": {
+          "given": 18,
+          "received": 12
+        },
+        "HW5": {
+          "given": 18,
+          "received": 24
+        },
+        "HW6": {
+          "given": 18,
+          "received": 12
+        },
+        "HW7": {
+          "given": 18,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1011175",
+      "name": "林煜展",
+      "hw_scores": {
+        "HW1": 48,
+        "HW2": 48,
+        "HW3": 100,
+        "HW4": 100,
+        "HW5": 85,
+        "HW6": 97,
+        "HW7": 65
+      },
+      "avg_hw_score": 77.57,
+      "midterm": 100,
+      "final": 85,
+      "reviews_given": 122,
+      "reviews_received": 99,
+      "quality_score": 9.29,
+      "quality_breakdown": {
+        "relevance": 23,
+        "concreteness": 9,
+        "constructive": 2
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 17,
+          "received": 24
+        },
+        "HW2": {
+          "given": 42,
+          "received": 11
+        },
+        "HW3": {
+          "given": 18,
+          "received": 24
+        },
+        "HW4": {
+          "given": 3,
+          "received": 0
+        },
+        "HW5": {
+          "given": 23,
+          "received": 15
+        },
+        "HW6": {
+          "given": 18,
+          "received": 1
+        },
+        "HW7": {
+          "given": 1,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1011264",
+      "name": "馬萁蔚",
+      "hw_scores": {
+        "HW1": 100,
+        "HW2": 100,
+        "HW3": 100,
+        "HW4": 92,
+        "HW5": 97,
+        "HW6": 100,
+        "HW7": 100
+      },
+      "avg_hw_score": 98.43,
+      "midterm": 66,
+      "final": 74,
+      "reviews_given": 212,
+      "reviews_received": 132,
+      "quality_score": 16.51,
+      "quality_breakdown": {
+        "relevance": 65,
+        "concreteness": 40,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 19
+        },
+        "HW2": {
+          "given": 30,
+          "received": 23
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 30,
+          "received": 6
+        },
+        "HW5": {
+          "given": 35,
+          "received": 12
+        },
+        "HW6": {
+          "given": 27,
+          "received": 12
+        },
+        "HW7": {
+          "given": 18,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1012323",
+      "name": "周庭緯",
+      "hw_scores": {
+        "HW1": 43,
+        "HW2": 43,
+        "HW3": 57,
+        "HW4": 82,
+        "HW5": 95,
+        "HW6": 48,
+        "HW7": 47
+      },
+      "avg_hw_score": 59.29,
+      "midterm": 37,
+      "final": 27,
+      "reviews_given": 156,
+      "reviews_received": 154,
+      "quality_score": 4.06,
+      "quality_breakdown": {
+        "relevance": 19,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 13
+        },
+        "HW2": {
+          "given": 36,
+          "received": 26
+        },
+        "HW3": {
+          "given": 18,
+          "received": 20
+        },
+        "HW4": {
+          "given": 18,
+          "received": 12
+        },
+        "HW5": {
+          "given": 30,
+          "received": 17
+        },
+        "HW6": {
+          "given": 18,
+          "received": 30
+        },
+        "HW7": {
+          "given": 18,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1018467",
+      "name": "黃紹軒",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 97,
+        "HW4": 88,
+        "HW5": 83,
+        "HW6": 69,
+        "HW7": 97
+      },
+      "avg_hw_score": 86.29,
+      "midterm": 94,
+      "final": 67,
+      "reviews_given": 82,
+      "reviews_received": 163,
+      "quality_score": 10.57,
+      "quality_breakdown": {
+        "relevance": 21,
+        "concreteness": 5,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 12,
+          "received": 15
+        },
+        "HW2": {
+          "given": 0,
+          "received": 17
+        },
+        "HW3": {
+          "given": 1,
+          "received": 24
+        },
+        "HW4": {
+          "given": 1,
+          "received": 24
+        },
+        "HW5": {
+          "given": 19,
+          "received": 24
+        },
+        "HW6": {
+          "given": 36,
+          "received": 29
+        },
+        "HW7": {
+          "given": 13,
+          "received": 30
+        }
+      }
+    },
+    {
+      "id": "D1018508",
+      "name": "蔡武宏",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 94,
+        "HW4": 99,
+        "HW5": 99,
+        "HW6": 83,
+        "HW7": 96
+      },
+      "avg_hw_score": 91.57,
+      "midterm": 93,
+      "final": 94,
+      "reviews_given": 234,
+      "reviews_received": 174,
+      "quality_score": 24.93,
+      "quality_breakdown": {
+        "relevance": 154,
+        "concreteness": 20,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 19
+        },
+        "HW2": {
+          "given": 36,
+          "received": 4
+        },
+        "HW3": {
+          "given": 36,
+          "received": 19
+        },
+        "HW4": {
+          "given": 36,
+          "received": 30
+        },
+        "HW5": {
+          "given": 36,
+          "received": 36
+        },
+        "HW6": {
+          "given": 18,
+          "received": 30
+        },
+        "HW7": {
+          "given": 36,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1018525",
+      "name": "趙家豪",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 97,
+        "HW4": 100,
+        "HW5": 100,
+        "HW6": 82,
+        "HW7": 82
+      },
+      "avg_hw_score": 90.14,
+      "midterm": 63,
+      "final": 66,
+      "reviews_given": 44,
+      "reviews_received": 172,
+      "quality_score": 18.18,
+      "quality_breakdown": {
+        "relevance": 17,
+        "concreteness": 7,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 21
+        },
+        "HW2": {
+          "given": 0,
+          "received": 7
+        },
+        "HW3": {
+          "given": 1,
+          "received": 19
+        },
+        "HW4": {
+          "given": 2,
+          "received": 30
+        },
+        "HW5": {
+          "given": 17,
+          "received": 36
+        },
+        "HW6": {
+          "given": 6,
+          "received": 24
+        },
+        "HW7": {
+          "given": 0,
+          "received": 35
+        }
+      }
+    },
+    {
+      "id": "D1018572",
+      "name": "沈彥良",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 32,
+        "HW4": 25,
+        "HW5": 61,
+        "HW6": 59,
+        "HW7": 0
+      },
+      "avg_hw_score": 47.57,
+      "midterm": 49,
+      "final": 31,
+      "reviews_given": 44,
+      "reviews_received": 187,
+      "quality_score": 0.76,
+      "quality_breakdown": {
+        "relevance": 1,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 14,
+          "received": 30
+        },
+        "HW2": {
+          "given": 18,
+          "received": 24
+        },
+        "HW3": {
+          "given": 0,
+          "received": 16
+        },
+        "HW4": {
+          "given": 0,
+          "received": 30
+        },
+        "HW5": {
+          "given": 12,
+          "received": 30
+        },
+        "HW6": {
+          "given": 0,
+          "received": 21
+        },
+        "HW7": {
+          "given": 0,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1018599",
+      "name": "莊程為",
+      "hw_scores": {
+        "HW1": 48,
+        "HW2": 48,
+        "HW3": 96,
+        "HW4": 83,
+        "HW5": 74,
+        "HW6": 63,
+        "HW7": 82
+      },
+      "avg_hw_score": 70.57,
+      "midterm": 68,
+      "final": 56,
+      "reviews_given": 192,
+      "reviews_received": 170,
+      "quality_score": 8.68,
+      "quality_breakdown": {
+        "relevance": 42,
+        "concreteness": 4,
+        "constructive": 4
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 30
+        },
+        "HW2": {
+          "given": 36,
+          "received": 36
+        },
+        "HW3": {
+          "given": 36,
+          "received": 4
+        },
+        "HW4": {
+          "given": 18,
+          "received": 30
+        },
+        "HW5": {
+          "given": 36,
+          "received": 21
+        },
+        "HW6": {
+          "given": 30,
+          "received": 25
+        },
+        "HW7": {
+          "given": 18,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1018600",
+      "name": "劉哲瑋",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 100,
+        "HW4": 100,
+        "HW5": 99,
+        "HW6": 98,
+        "HW7": 99
+      },
+      "avg_hw_score": 95.14,
+      "midterm": 86,
+      "final": 87,
+      "reviews_given": 246,
+      "reviews_received": 149,
+      "quality_score": 5.83,
+      "quality_breakdown": {
+        "relevance": 24,
+        "concreteness": 19,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 36
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 12
+        },
+        "HW4": {
+          "given": 36,
+          "received": 31
+        },
+        "HW5": {
+          "given": 36,
+          "received": 18
+        },
+        "HW6": {
+          "given": 36,
+          "received": 15
+        },
+        "HW7": {
+          "given": 30,
+          "received": 7
+        }
+      }
+    },
+    {
+      "id": "D1018627",
+      "name": "張家郡",
+      "hw_scores": {
+        "HW1": 100,
+        "HW2": 100,
+        "HW3": 98,
+        "HW4": 70,
+        "HW5": 98,
+        "HW6": 53,
+        "HW7": 91
+      },
+      "avg_hw_score": 87.14,
+      "midterm": 72,
+      "final": 64,
+      "reviews_given": 204,
+      "reviews_received": 154,
+      "quality_score": 21.24,
+      "quality_breakdown": {
+        "relevance": 121,
+        "concreteness": 8,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 36
+        },
+        "HW2": {
+          "given": 18,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 12
+        },
+        "HW4": {
+          "given": 36,
+          "received": 36
+        },
+        "HW5": {
+          "given": 36,
+          "received": 24
+        },
+        "HW6": {
+          "given": 18,
+          "received": 10
+        },
+        "HW7": {
+          "given": 24,
+          "received": 6
+        }
+      }
+    },
+    {
+      "id": "D1018631",
+      "name": "楊怡仁",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 69,
+        "HW4": 100,
+        "HW5": 89,
+        "HW6": 67,
+        "HW7": 99
+      },
+      "avg_hw_score": 84.86,
+      "midterm": 53,
+      "final": 70,
+      "reviews_given": 240,
+      "reviews_received": 177,
+      "quality_score": 6.81,
+      "quality_breakdown": {
+        "relevance": 41,
+        "concreteness": 8,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 36
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 30,
+          "received": 27
+        },
+        "HW5": {
+          "given": 36,
+          "received": 30
+        },
+        "HW6": {
+          "given": 36,
+          "received": 18
+        },
+        "HW7": {
+          "given": 30,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1018661",
+      "name": "黃亭蓉",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 100,
+        "HW4": 100,
+        "HW5": 98,
+        "HW6": 100,
+        "HW7": 100
+      },
+      "avg_hw_score": 93.43,
+      "midterm": 81,
+      "final": 86,
+      "reviews_given": 209,
+      "reviews_received": 169,
+      "quality_score": 11.48,
+      "quality_breakdown": {
+        "relevance": 49,
+        "concreteness": 22,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 3,
+          "received": 24
+        },
+        "HW2": {
+          "given": 35,
+          "received": 35
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 27,
+          "received": 19
+        },
+        "HW5": {
+          "given": 36,
+          "received": 25
+        },
+        "HW6": {
+          "given": 36,
+          "received": 18
+        },
+        "HW7": {
+          "given": 36,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1018703",
+      "name": "黃健紘",
+      "hw_scores": {
+        "HW1": 100,
+        "HW2": 100,
+        "HW3": 98,
+        "HW4": 99,
+        "HW5": 97,
+        "HW6": 98,
+        "HW7": 99
+      },
+      "avg_hw_score": 98.71,
+      "midterm": 58,
+      "final": 73,
+      "reviews_given": 239,
+      "reviews_received": 148,
+      "quality_score": 6.42,
+      "quality_breakdown": {
+        "relevance": 29,
+        "concreteness": 17,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 12
+        },
+        "HW2": {
+          "given": 35,
+          "received": 29
+        },
+        "HW3": {
+          "given": 24,
+          "received": 36
+        },
+        "HW4": {
+          "given": 36,
+          "received": 9
+        },
+        "HW5": {
+          "given": 36,
+          "received": 12
+        },
+        "HW6": {
+          "given": 36,
+          "received": 14
+        },
+        "HW7": {
+          "given": 36,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1018720",
+      "name": "劉政諺",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 99,
+        "HW4": 95,
+        "HW5": 94,
+        "HW6": 99,
+        "HW7": 100
+      },
+      "avg_hw_score": 93.86,
+      "midterm": 76,
+      "final": 76,
+      "reviews_given": 251,
+      "reviews_received": 148,
+      "quality_score": 7.97,
+      "quality_breakdown": {
+        "relevance": 45,
+        "concreteness": 13,
+        "constructive": 2
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 35,
+          "received": 13
+        },
+        "HW2": {
+          "given": 36,
+          "received": 36
+        },
+        "HW3": {
+          "given": 36,
+          "received": 36
+        },
+        "HW4": {
+          "given": 36,
+          "received": 7
+        },
+        "HW5": {
+          "given": 36,
+          "received": 6
+        },
+        "HW6": {
+          "given": 36,
+          "received": 14
+        },
+        "HW7": {
+          "given": 36,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1030965",
+      "name": "劉文鑫",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 99,
+        "HW4": 82,
+        "HW5": 66,
+        "HW6": 49,
+        "HW7": 15
+      },
+      "avg_hw_score": 66.71,
+      "midterm": 70,
+      "final": 60,
+      "reviews_given": 49,
+      "reviews_received": 160,
+      "quality_score": 10.2,
+      "quality_breakdown": {
+        "relevance": 13,
+        "concreteness": 2,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 14
+        },
+        "HW2": {
+          "given": 18,
+          "received": 28
+        },
+        "HW3": {
+          "given": 9,
+          "received": 35
+        },
+        "HW4": {
+          "given": 1,
+          "received": 12
+        },
+        "HW5": {
+          "given": 3,
+          "received": 13
+        },
+        "HW6": {
+          "given": 0,
+          "received": 28
+        },
+        "HW7": {
+          "given": 0,
+          "received": 30
+        }
+      }
+    },
+    {
+      "id": "D1030978",
+      "name": "布樂心",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 100,
+        "HW4": 30,
+        "HW5": 61,
+        "HW6": 94,
+        "HW7": 99
+      },
+      "avg_hw_score": 79.14,
+      "midterm": 49,
+      "final": 58,
+      "reviews_given": 182,
+      "reviews_received": 147,
+      "quality_score": 10.99,
+      "quality_breakdown": {
+        "relevance": 49,
+        "concreteness": 10,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 11
+        },
+        "HW2": {
+          "given": 20,
+          "received": 24
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 0,
+          "received": 24
+        },
+        "HW5": {
+          "given": 36,
+          "received": 14
+        },
+        "HW6": {
+          "given": 36,
+          "received": 31
+        },
+        "HW7": {
+          "given": 36,
+          "received": 19
+        }
+      }
+    },
+    {
+      "id": "D1035899",
+      "name": "張牧翔",
+      "hw_scores": {
+        "HW1": 90,
+        "HW2": 90,
+        "HW3": 95,
+        "HW4": 82,
+        "HW5": 75,
+        "HW6": 82,
+        "HW7": 98
+      },
+      "avg_hw_score": 87.43,
+      "midterm": 51,
+      "final": 64,
+      "reviews_given": 179,
+      "reviews_received": 140,
+      "quality_score": 18.62,
+      "quality_breakdown": {
+        "relevance": 82,
+        "concreteness": 17,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 35,
+          "received": 20
+        },
+        "HW2": {
+          "given": 36,
+          "received": 12
+        },
+        "HW3": {
+          "given": 18,
+          "received": 18
+        },
+        "HW4": {
+          "given": 18,
+          "received": 36
+        },
+        "HW5": {
+          "given": 18,
+          "received": 24
+        },
+        "HW6": {
+          "given": 18,
+          "received": 18
+        },
+        "HW7": {
+          "given": 36,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1050855",
+      "name": "蕭鍇安",
+      "hw_scores": {
+        "HW1": 23,
+        "HW2": 23,
+        "HW3": 95,
+        "HW4": 67,
+        "HW5": 93,
+        "HW6": 65,
+        "HW7": 98
+      },
+      "avg_hw_score": 66.29,
+      "midterm": 67,
+      "final": 56,
+      "reviews_given": 58,
+      "reviews_received": 126,
+      "quality_score": 6.32,
+      "quality_breakdown": {
+        "relevance": 11,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 7,
+          "received": 19
+        },
+        "HW2": {
+          "given": 0,
+          "received": 16
+        },
+        "HW3": {
+          "given": 0,
+          "received": 6
+        },
+        "HW4": {
+          "given": 27,
+          "received": 36
+        },
+        "HW5": {
+          "given": 0,
+          "received": 24
+        },
+        "HW6": {
+          "given": 12,
+          "received": 13
+        },
+        "HW7": {
+          "given": 12,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1050869",
+      "name": "蔡定瑋",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 31,
+        "HW4": 31,
+        "HW5": 5,
+        "HW6": 6,
+        "HW7": 70
+      },
+      "avg_hw_score": 42.71,
+      "midterm": 92,
+      "final": 84,
+      "reviews_given": 96,
+      "reviews_received": 156,
+      "quality_score": 3.47,
+      "quality_breakdown": {
+        "relevance": 9,
+        "concreteness": 1,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 13
+        },
+        "HW2": {
+          "given": 18,
+          "received": 15
+        },
+        "HW3": {
+          "given": 18,
+          "received": 20
+        },
+        "HW4": {
+          "given": 18,
+          "received": 30
+        },
+        "HW5": {
+          "given": 0,
+          "received": 36
+        },
+        "HW6": {
+          "given": 6,
+          "received": 18
+        },
+        "HW7": {
+          "given": 18,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1050927",
+      "name": "葉子郡",
+      "hw_scores": {
+        "HW1": 100,
+        "HW2": 100,
+        "HW3": 99,
+        "HW4": 95,
+        "HW5": 90,
+        "HW6": 53,
+        "HW7": 96
+      },
+      "avg_hw_score": 90.43,
+      "midterm": 47,
+      "final": 71,
+      "reviews_given": 54,
+      "reviews_received": 132,
+      "quality_score": 4.94,
+      "quality_breakdown": {
+        "relevance": 7,
+        "concreteness": 1,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 19,
+          "received": 12
+        },
+        "HW2": {
+          "given": 6,
+          "received": 18
+        },
+        "HW3": {
+          "given": 1,
+          "received": 12
+        },
+        "HW4": {
+          "given": 15,
+          "received": 24
+        },
+        "HW5": {
+          "given": 0,
+          "received": 36
+        },
+        "HW6": {
+          "given": 7,
+          "received": 18
+        },
+        "HW7": {
+          "given": 6,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1050957",
+      "name": "葉秋彤",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 98,
+        "HW4": 100,
+        "HW5": 100,
+        "HW6": 100,
+        "HW7": 100
+      },
+      "avg_hw_score": 95.43,
+      "midterm": 96,
+      "final": 94,
+      "reviews_given": 207,
+      "reviews_received": 126,
+      "quality_score": 15.78,
+      "quality_breakdown": {
+        "relevance": 64,
+        "concreteness": 34,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 7,
+          "received": 0
+        },
+        "HW2": {
+          "given": 24,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 33,
+          "received": 12
+        },
+        "HW5": {
+          "given": 36,
+          "received": 36
+        },
+        "HW6": {
+          "given": 35,
+          "received": 18
+        },
+        "HW7": {
+          "given": 36,
+          "received": 6
+        }
+      }
+    },
+    {
+      "id": "D1050988",
+      "name": "呂欣諭",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 100,
+        "HW4": 98,
+        "HW5": 99,
+        "HW6": 100,
+        "HW7": 100
+      },
+      "avg_hw_score": 95.29,
+      "midterm": 85,
+      "final": 86,
+      "reviews_given": 250,
+      "reviews_received": 124,
+      "quality_score": 22.0,
+      "quality_breakdown": {
+        "relevance": 135,
+        "concreteness": 24,
+        "constructive": 6
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 13
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 21
+        },
+        "HW4": {
+          "given": 36,
+          "received": 12
+        },
+        "HW5": {
+          "given": 35,
+          "received": 24
+        },
+        "HW6": {
+          "given": 36,
+          "received": 24
+        },
+        "HW7": {
+          "given": 35,
+          "received": 0
+        }
+      }
+    },
+    {
+      "id": "D1051015",
+      "name": "李映頡",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 65,
+        "HW4": 50,
+        "HW5": 11,
+        "HW6": 52,
+        "HW7": 94
+      },
+      "avg_hw_score": 61.14,
+      "midterm": 100,
+      "final": 83,
+      "reviews_given": 114,
+      "reviews_received": 152,
+      "quality_score": 2.92,
+      "quality_breakdown": {
+        "relevance": 6,
+        "concreteness": 4,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 20
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 0,
+          "received": 24
+        },
+        "HW4": {
+          "given": 0,
+          "received": 18
+        },
+        "HW5": {
+          "given": 12,
+          "received": 18
+        },
+        "HW6": {
+          "given": 18,
+          "received": 30
+        },
+        "HW7": {
+          "given": 30,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1051028",
+      "name": "邱怡清",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 100,
+        "HW4": 100,
+        "HW5": 95,
+        "HW6": 95,
+        "HW7": 95
+      },
+      "avg_hw_score": 93.57,
+      "midterm": 68,
+      "final": 55,
+      "reviews_given": 246,
+      "reviews_received": 150,
+      "quality_score": 2.57,
+      "quality_breakdown": {
+        "relevance": 16,
+        "concreteness": 3,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 30
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 36,
+          "received": 18
+        },
+        "HW5": {
+          "given": 36,
+          "received": 6
+        },
+        "HW6": {
+          "given": 30,
+          "received": 30
+        },
+        "HW7": {
+          "given": 36,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1051058",
+      "name": "陳文斌",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 100,
+        "HW4": 83,
+        "HW5": 100,
+        "HW6": 82,
+        "HW7": 91
+      },
+      "avg_hw_score": 89.43,
+      "midterm": 98,
+      "final": 100,
+      "reviews_given": 193,
+      "reviews_received": 155,
+      "quality_score": 8.64,
+      "quality_breakdown": {
+        "relevance": 33,
+        "concreteness": 14,
+        "constructive": 3
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 30
+        },
+        "HW2": {
+          "given": 36,
+          "received": 18
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 18,
+          "received": 12
+        },
+        "HW5": {
+          "given": 34,
+          "received": 18
+        },
+        "HW6": {
+          "given": 15,
+          "received": 29
+        },
+        "HW7": {
+          "given": 18,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051062",
+      "name": "陳建丞",
+      "hw_scores": {
+        "HW1": 70,
+        "HW2": 70,
+        "HW3": 95,
+        "HW4": 64,
+        "HW5": 94,
+        "HW6": 76,
+        "HW7": 98
+      },
+      "avg_hw_score": 81.0,
+      "midterm": 55,
+      "final": 47,
+      "reviews_given": 198,
+      "reviews_received": 136,
+      "quality_score": 0.51,
+      "quality_breakdown": {
+        "relevance": 3,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 30
+        },
+        "HW2": {
+          "given": 18,
+          "received": 18
+        },
+        "HW3": {
+          "given": 36,
+          "received": 19
+        },
+        "HW4": {
+          "given": 0,
+          "received": 3
+        },
+        "HW5": {
+          "given": 36,
+          "received": 12
+        },
+        "HW6": {
+          "given": 36,
+          "received": 30
+        },
+        "HW7": {
+          "given": 36,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051089",
+      "name": "林郁倫",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 100,
+        "HW4": 100,
+        "HW5": 97,
+        "HW6": 100,
+        "HW7": 95
+      },
+      "avg_hw_score": 94.57,
+      "midterm": 98,
+      "final": 69,
+      "reviews_given": 108,
+      "reviews_received": 144,
+      "quality_score": 29.63,
+      "quality_breakdown": {
+        "relevance": 62,
+        "concreteness": 30,
+        "constructive": 4
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 30
+        },
+        "HW2": {
+          "given": 10,
+          "received": 18
+        },
+        "HW3": {
+          "given": 5,
+          "received": 18
+        },
+        "HW4": {
+          "given": 21,
+          "received": 14
+        },
+        "HW5": {
+          "given": 16,
+          "received": 12
+        },
+        "HW6": {
+          "given": 14,
+          "received": 28
+        },
+        "HW7": {
+          "given": 6,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051118",
+      "name": "吳柏逸",
+      "hw_scores": {
+        "HW1": 70,
+        "HW2": 70,
+        "HW3": 100,
+        "HW4": 83,
+        "HW5": 96,
+        "HW6": 80,
+        "HW7": 81
+      },
+      "avg_hw_score": 82.86,
+      "midterm": 100,
+      "final": 98,
+      "reviews_given": 67,
+      "reviews_received": 144,
+      "quality_score": 11.94,
+      "quality_breakdown": {
+        "relevance": 15,
+        "concreteness": 9,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 30
+        },
+        "HW2": {
+          "given": 3,
+          "received": 18
+        },
+        "HW3": {
+          "given": 4,
+          "received": 12
+        },
+        "HW4": {
+          "given": 6,
+          "received": 15
+        },
+        "HW5": {
+          "given": 5,
+          "received": 7
+        },
+        "HW6": {
+          "given": 1,
+          "received": 26
+        },
+        "HW7": {
+          "given": 12,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1051121",
+      "name": "曾苔湘",
+      "hw_scores": {
+        "HW1": 55,
+        "HW2": 55,
+        "HW3": 98,
+        "HW4": 98,
+        "HW5": 65,
+        "HW6": 76,
+        "HW7": 66
+      },
+      "avg_hw_score": 73.29,
+      "midterm": 70,
+      "final": 82,
+      "reviews_given": 99,
+      "reviews_received": 163,
+      "quality_score": 17.17,
+      "quality_breakdown": {
+        "relevance": 39,
+        "concreteness": 12,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 1,
+          "received": 36
+        },
+        "HW2": {
+          "given": 7,
+          "received": 12
+        },
+        "HW3": {
+          "given": 19,
+          "received": 13
+        },
+        "HW4": {
+          "given": 26,
+          "received": 24
+        },
+        "HW5": {
+          "given": 10,
+          "received": 17
+        },
+        "HW6": {
+          "given": 18,
+          "received": 25
+        },
+        "HW7": {
+          "given": 18,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1051151",
+      "name": "洪梓祐",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 98,
+        "HW4": 100,
+        "HW5": 96,
+        "HW6": 100,
+        "HW7": 97
+      },
+      "avg_hw_score": 94.43,
+      "midterm": 70,
+      "final": 78,
+      "reviews_given": 205,
+      "reviews_received": 120,
+      "quality_score": 7.15,
+      "quality_breakdown": {
+        "relevance": 27,
+        "concreteness": 15,
+        "constructive": 2
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 14,
+          "received": 26
+        },
+        "HW2": {
+          "given": 15,
+          "received": 0
+        },
+        "HW3": {
+          "given": 36,
+          "received": 12
+        },
+        "HW4": {
+          "given": 36,
+          "received": 18
+        },
+        "HW5": {
+          "given": 33,
+          "received": 24
+        },
+        "HW6": {
+          "given": 35,
+          "received": 16
+        },
+        "HW7": {
+          "given": 36,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051210",
+      "name": "尤婕蓉",
+      "hw_scores": {
+        "HW1": 70,
+        "HW2": 70,
+        "HW3": 98,
+        "HW4": 100,
+        "HW5": 91,
+        "HW6": 98,
+        "HW7": 98
+      },
+      "avg_hw_score": 89.29,
+      "midterm": 68,
+      "final": 75,
+      "reviews_given": 36,
+      "reviews_received": 140,
+      "quality_score": 30.56,
+      "quality_breakdown": {
+        "relevance": 29,
+        "concreteness": 4,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 12,
+          "received": 21
+        },
+        "HW2": {
+          "given": 0,
+          "received": 12
+        },
+        "HW3": {
+          "given": 0,
+          "received": 24
+        },
+        "HW4": {
+          "given": 4,
+          "received": 30
+        },
+        "HW5": {
+          "given": 19,
+          "received": 29
+        },
+        "HW6": {
+          "given": 0,
+          "received": 12
+        },
+        "HW7": {
+          "given": 1,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1051253",
+      "name": "潘柏叡",
+      "hw_scores": {
+        "HW1": 100,
+        "HW2": 100,
+        "HW3": 100,
+        "HW4": 96,
+        "HW5": 99,
+        "HW6": 100,
+        "HW7": 95
+      },
+      "avg_hw_score": 98.57,
+      "midterm": 74,
+      "final": 87,
+      "reviews_given": 56,
+      "reviews_received": 124,
+      "quality_score": 26.79,
+      "quality_breakdown": {
+        "relevance": 32,
+        "concreteness": 13,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 7,
+          "received": 4
+        },
+        "HW2": {
+          "given": 6,
+          "received": 12
+        },
+        "HW3": {
+          "given": 6,
+          "received": 36
+        },
+        "HW4": {
+          "given": 10,
+          "received": 30
+        },
+        "HW5": {
+          "given": 7,
+          "received": 30
+        },
+        "HW6": {
+          "given": 8,
+          "received": 12
+        },
+        "HW7": {
+          "given": 12,
+          "received": 0
+        }
+      }
+    },
+    {
+      "id": "D1051267",
+      "name": "楚延靜",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 100,
+        "HW4": 98,
+        "HW5": 98,
+        "HW6": 68,
+        "HW7": 100
+      },
+      "avg_hw_score": 88.57,
+      "midterm": 66,
+      "final": 56,
+      "reviews_given": 225,
+      "reviews_received": 157,
+      "quality_score": 7.41,
+      "quality_breakdown": {
+        "relevance": 43,
+        "concreteness": 6,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 7
+        },
+        "HW2": {
+          "given": 27,
+          "received": 24
+        },
+        "HW3": {
+          "given": 36,
+          "received": 36
+        },
+        "HW4": {
+          "given": 36,
+          "received": 30
+        },
+        "HW5": {
+          "given": 36,
+          "received": 24
+        },
+        "HW6": {
+          "given": 36,
+          "received": 24
+        },
+        "HW7": {
+          "given": 36,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1051312",
+      "name": "林芷儀",
+      "hw_scores": {
+        "HW1": 87,
+        "HW2": 87,
+        "HW3": 100,
+        "HW4": 100,
+        "HW5": 65,
+        "HW6": 67,
+        "HW7": 57
+      },
+      "avg_hw_score": 80.43,
+      "midterm": 64,
+      "final": 88,
+      "reviews_given": 216,
+      "reviews_received": 165,
+      "quality_score": 6.02,
+      "quality_breakdown": {
+        "relevance": 33,
+        "concreteness": 5,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 18
+        },
+        "HW2": {
+          "given": 36,
+          "received": 24
+        },
+        "HW3": {
+          "given": 36,
+          "received": 36
+        },
+        "HW4": {
+          "given": 36,
+          "received": 18
+        },
+        "HW5": {
+          "given": 36,
+          "received": 21
+        },
+        "HW6": {
+          "given": 36,
+          "received": 36
+        },
+        "HW7": {
+          "given": 0,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1051428",
+      "name": "沈誌恩",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 91,
+        "HW4": 33,
+        "HW5": 80,
+        "HW6": 65,
+        "HW7": 65
+      },
+      "avg_hw_score": 70.0,
+      "midterm": 63,
+      "final": 54,
+      "reviews_given": 60,
+      "reviews_received": 163,
+      "quality_score": 8.89,
+      "quality_breakdown": {
+        "relevance": 13,
+        "concreteness": 3,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 3,
+          "received": 24
+        },
+        "HW2": {
+          "given": 14,
+          "received": 30
+        },
+        "HW3": {
+          "given": 2,
+          "received": 30
+        },
+        "HW4": {
+          "given": 0,
+          "received": 17
+        },
+        "HW5": {
+          "given": 13,
+          "received": 15
+        },
+        "HW6": {
+          "given": 15,
+          "received": 35
+        },
+        "HW7": {
+          "given": 13,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1051458",
+      "name": "林建甫",
+      "hw_scores": {
+        "HW1": 40,
+        "HW2": 40,
+        "HW3": 91,
+        "HW4": 0,
+        "HW5": 48,
+        "HW6": 0,
+        "HW7": 61
+      },
+      "avg_hw_score": 40.0,
+      "midterm": 11,
+      "final": 0,
+      "reviews_given": 59,
+      "reviews_received": 167,
+      "quality_score": 4.52,
+      "quality_breakdown": {
+        "relevance": 8,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 5,
+          "received": 30
+        },
+        "HW2": {
+          "given": 0,
+          "received": 32
+        },
+        "HW3": {
+          "given": 18,
+          "received": 30
+        },
+        "HW4": {
+          "given": 0,
+          "received": 15
+        },
+        "HW5": {
+          "given": 36,
+          "received": 30
+        },
+        "HW6": {
+          "given": 0,
+          "received": 24
+        },
+        "HW7": {
+          "given": 0,
+          "received": 6
+        }
+      }
+    },
+    {
+      "id": "D1051489",
+      "name": "李政達",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 59,
+        "HW4": 0,
+        "HW5": 59,
+        "HW6": 65,
+        "HW7": 100
+      },
+      "avg_hw_score": 62.71,
+      "midterm": 27,
+      "final": 29,
+      "reviews_given": 108,
+      "reviews_received": 170,
+      "quality_score": 5.25,
+      "quality_breakdown": {
+        "relevance": 17,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 6,
+          "received": 30
+        },
+        "HW2": {
+          "given": 0,
+          "received": 36
+        },
+        "HW3": {
+          "given": 6,
+          "received": 32
+        },
+        "HW4": {
+          "given": 0,
+          "received": 21
+        },
+        "HW5": {
+          "given": 25,
+          "received": 30
+        },
+        "HW6": {
+          "given": 35,
+          "received": 15
+        },
+        "HW7": {
+          "given": 36,
+          "received": 6
+        }
+      }
+    },
+    {
+      "id": "D1051492",
+      "name": "張詠瑄",
+      "hw_scores": {
+        "HW1": 15,
+        "HW2": 15,
+        "HW3": 86,
+        "HW4": 80,
+        "HW5": 56,
+        "HW6": 78,
+        "HW7": 78
+      },
+      "avg_hw_score": 58.29,
+      "midterm": 56,
+      "final": 77,
+      "reviews_given": 87,
+      "reviews_received": 143,
+      "quality_score": 1.15,
+      "quality_breakdown": {
+        "relevance": 3,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 3,
+          "received": 24
+        },
+        "HW2": {
+          "given": 31,
+          "received": 35
+        },
+        "HW3": {
+          "given": 17,
+          "received": 24
+        },
+        "HW4": {
+          "given": 18,
+          "received": 6
+        },
+        "HW5": {
+          "given": 0,
+          "received": 36
+        },
+        "HW6": {
+          "given": 6,
+          "received": 8
+        },
+        "HW7": {
+          "given": 12,
+          "received": 10
+        }
+      }
+    },
+    {
+      "id": "D1051517",
+      "name": "鄧芸非",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 100,
+        "HW4": 49,
+        "HW5": 98,
+        "HW6": 80,
+        "HW7": 61
+      },
+      "avg_hw_score": 79.71,
+      "midterm": 70,
+      "final": 67,
+      "reviews_given": 180,
+      "reviews_received": 151,
+      "quality_score": 4.81,
+      "quality_breakdown": {
+        "relevance": 19,
+        "concreteness": 7,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 30
+        },
+        "HW2": {
+          "given": 36,
+          "received": 24
+        },
+        "HW3": {
+          "given": 36,
+          "received": 19
+        },
+        "HW4": {
+          "given": 18,
+          "received": 7
+        },
+        "HW5": {
+          "given": 36,
+          "received": 36
+        },
+        "HW6": {
+          "given": 18,
+          "received": 19
+        },
+        "HW7": {
+          "given": 0,
+          "received": 16
+        }
+      }
+    },
+    {
+      "id": "D1051550",
+      "name": "吳建凱",
+      "hw_scores": {
+        "HW1": 64,
+        "HW2": 64,
+        "HW3": 100,
+        "HW4": 100,
+        "HW5": 92,
+        "HW6": 97,
+        "HW7": 97
+      },
+      "avg_hw_score": 87.71,
+      "midterm": 59,
+      "final": 72,
+      "reviews_given": 234,
+      "reviews_received": 141,
+      "quality_score": 30.48,
+      "quality_breakdown": {
+        "relevance": 187,
+        "concreteness": 27,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 24
+        },
+        "HW2": {
+          "given": 36,
+          "received": 13
+        },
+        "HW3": {
+          "given": 36,
+          "received": 18
+        },
+        "HW4": {
+          "given": 36,
+          "received": 12
+        },
+        "HW5": {
+          "given": 36,
+          "received": 36
+        },
+        "HW6": {
+          "given": 36,
+          "received": 24
+        },
+        "HW7": {
+          "given": 36,
+          "received": 14
+        }
+      }
+    },
+    {
+      "id": "D1051564",
+      "name": "林邑軒",
+      "hw_scores": {
+        "HW1": 65,
+        "HW2": 65,
+        "HW3": 98,
+        "HW4": 91,
+        "HW5": 74,
+        "HW6": 81,
+        "HW7": 97
+      },
+      "avg_hw_score": 81.57,
+      "midterm": 47,
+      "final": 64,
+      "reviews_given": 210,
+      "reviews_received": 141,
+      "quality_score": 20.95,
+      "quality_breakdown": {
+        "relevance": 130,
+        "concreteness": 2,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 24
+        },
+        "HW2": {
+          "given": 18,
+          "received": 14
+        },
+        "HW3": {
+          "given": 30,
+          "received": 12
+        },
+        "HW4": {
+          "given": 36,
+          "received": 11
+        },
+        "HW5": {
+          "given": 36,
+          "received": 36
+        },
+        "HW6": {
+          "given": 18,
+          "received": 25
+        },
+        "HW7": {
+          "given": 36,
+          "received": 19
+        }
+      }
+    },
+    {
+      "id": "D1051594",
+      "name": "翁家雋",
+      "hw_scores": {
+        "HW1": 55,
+        "HW2": 55,
+        "HW3": 92,
+        "HW4": 65,
+        "HW5": 80,
+        "HW6": 98,
+        "HW7": 68
+      },
+      "avg_hw_score": 73.29,
+      "midterm": 91,
+      "final": 62,
+      "reviews_given": 215,
+      "reviews_received": 125,
+      "quality_score": 19.53,
+      "quality_breakdown": {
+        "relevance": 123,
+        "concreteness": 3,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 18
+        },
+        "HW2": {
+          "given": 35,
+          "received": 12
+        },
+        "HW3": {
+          "given": 18,
+          "received": 6
+        },
+        "HW4": {
+          "given": 18,
+          "received": 18
+        },
+        "HW5": {
+          "given": 36,
+          "received": 36
+        },
+        "HW6": {
+          "given": 36,
+          "received": 14
+        },
+        "HW7": {
+          "given": 36,
+          "received": 21
+        }
+      }
+    },
+    {
+      "id": "D1051619",
+      "name": "林柏宇",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 100,
+        "HW4": 98,
+        "HW5": 98,
+        "HW6": 97,
+        "HW7": 66
+      },
+      "avg_hw_score": 87.86,
+      "midterm": 93,
+      "final": 95,
+      "reviews_given": 227,
+      "reviews_received": 129,
+      "quality_score": 5.87,
+      "quality_breakdown": {
+        "relevance": 23,
+        "concreteness": 14,
+        "constructive": 3
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 30
+        },
+        "HW2": {
+          "given": 35,
+          "received": 25
+        },
+        "HW3": {
+          "given": 36,
+          "received": 18
+        },
+        "HW4": {
+          "given": 36,
+          "received": 18
+        },
+        "HW5": {
+          "given": 36,
+          "received": 24
+        },
+        "HW6": {
+          "given": 36,
+          "received": 2
+        },
+        "HW7": {
+          "given": 30,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1051622",
+      "name": "鄭凱翔",
+      "hw_scores": {
+        "HW1": 79,
+        "HW2": 79,
+        "HW3": 87,
+        "HW4": 98,
+        "HW5": 66,
+        "HW6": 77,
+        "HW7": 100
+      },
+      "avg_hw_score": 83.71,
+      "midterm": 52,
+      "final": 72,
+      "reviews_given": 221,
+      "reviews_received": 132,
+      "quality_score": 2.26,
+      "quality_breakdown": {
+        "relevance": 9,
+        "concreteness": 6,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 24
+        },
+        "HW2": {
+          "given": 36,
+          "received": 25
+        },
+        "HW3": {
+          "given": 24,
+          "received": 25
+        },
+        "HW4": {
+          "given": 36,
+          "received": 12
+        },
+        "HW5": {
+          "given": 36,
+          "received": 27
+        },
+        "HW6": {
+          "given": 17,
+          "received": 13
+        },
+        "HW7": {
+          "given": 36,
+          "received": 6
+        }
+      }
+    },
+    {
+      "id": "D1051652",
+      "name": "張珮怡",
+      "hw_scores": {
+        "HW1": 79,
+        "HW2": 79,
+        "HW3": 99,
+        "HW4": 98,
+        "HW5": 100,
+        "HW6": 100,
+        "HW7": 100
+      },
+      "avg_hw_score": 93.57,
+      "midterm": 75,
+      "final": 61,
+      "reviews_given": 237,
+      "reviews_received": 144,
+      "quality_score": 12.38,
+      "quality_breakdown": {
+        "relevance": 63,
+        "concreteness": 22,
+        "constructive": 3
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 24
+        },
+        "HW2": {
+          "given": 29,
+          "received": 30
+        },
+        "HW3": {
+          "given": 35,
+          "received": 24
+        },
+        "HW4": {
+          "given": 31,
+          "received": 18
+        },
+        "HW5": {
+          "given": 36,
+          "received": 18
+        },
+        "HW6": {
+          "given": 34,
+          "received": 12
+        },
+        "HW7": {
+          "given": 36,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D1051666",
+      "name": "呂奕萱",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 99,
+        "HW4": 100,
+        "HW5": 98,
+        "HW6": 99,
+        "HW7": 99
+      },
+      "avg_hw_score": 95.0,
+      "midterm": 67,
+      "final": 81,
+      "reviews_given": 251,
+      "reviews_received": 150,
+      "quality_score": 6.37,
+      "quality_breakdown": {
+        "relevance": 30,
+        "concreteness": 14,
+        "constructive": 4
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 11
+        },
+        "HW2": {
+          "given": 36,
+          "received": 36
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 36,
+          "received": 13
+        },
+        "HW5": {
+          "given": 36,
+          "received": 18
+        },
+        "HW6": {
+          "given": 36,
+          "received": 18
+        },
+        "HW7": {
+          "given": 35,
+          "received": 30
+        }
+      }
+    },
+    {
+      "id": "D1051683",
+      "name": "楊凱心",
+      "hw_scores": {
+        "HW1": 70,
+        "HW2": 70,
+        "HW3": 98,
+        "HW4": 98,
+        "HW5": 100,
+        "HW6": 100,
+        "HW7": 100
+      },
+      "avg_hw_score": 90.86,
+      "midterm": 69,
+      "final": 51,
+      "reviews_given": 68,
+      "reviews_received": 130,
+      "quality_score": 28.43,
+      "quality_breakdown": {
+        "relevance": 31,
+        "concreteness": 23,
+        "constructive": 4
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 5,
+          "received": 15
+        },
+        "HW2": {
+          "given": 5,
+          "received": 36
+        },
+        "HW3": {
+          "given": 12,
+          "received": 24
+        },
+        "HW4": {
+          "given": 7,
+          "received": 13
+        },
+        "HW5": {
+          "given": 14,
+          "received": 6
+        },
+        "HW6": {
+          "given": 6,
+          "received": 18
+        },
+        "HW7": {
+          "given": 19,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D1051712",
+      "name": "吳政鴻",
+      "hw_scores": {
+        "HW1": 40,
+        "HW2": 40,
+        "HW3": 99,
+        "HW4": 82,
+        "HW5": 98,
+        "HW6": 98,
+        "HW7": 82
+      },
+      "avg_hw_score": 77.0,
+      "midterm": 74,
+      "final": 76,
+      "reviews_given": 169,
+      "reviews_received": 141,
+      "quality_score": 6.71,
+      "quality_breakdown": {
+        "relevance": 24,
+        "concreteness": 10,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 7,
+          "received": 14
+        },
+        "HW2": {
+          "given": 36,
+          "received": 24
+        },
+        "HW3": {
+          "given": 18,
+          "received": 36
+        },
+        "HW4": {
+          "given": 18,
+          "received": 7
+        },
+        "HW5": {
+          "given": 36,
+          "received": 0
+        },
+        "HW6": {
+          "given": 36,
+          "received": 30
+        },
+        "HW7": {
+          "given": 18,
+          "received": 30
+        }
+      }
+    },
+    {
+      "id": "D1051769",
+      "name": "白翔哲",
+      "hw_scores": {
+        "HW1": 70,
+        "HW2": 70,
+        "HW3": 100,
+        "HW4": 98,
+        "HW5": 100,
+        "HW6": 99,
+        "HW7": 98
+      },
+      "avg_hw_score": 90.71,
+      "midterm": 67,
+      "final": 87,
+      "reviews_given": 32,
+      "reviews_received": 159,
+      "quality_score": 21.88,
+      "quality_breakdown": {
+        "relevance": 12,
+        "concreteness": 7,
+        "constructive": 2
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 16,
+          "received": 8
+        },
+        "HW2": {
+          "given": 2,
+          "received": 24
+        },
+        "HW3": {
+          "given": 9,
+          "received": 25
+        },
+        "HW4": {
+          "given": 0,
+          "received": 18
+        },
+        "HW5": {
+          "given": 4,
+          "received": 12
+        },
+        "HW6": {
+          "given": 1,
+          "received": 36
+        },
+        "HW7": {
+          "given": 0,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1051786",
+      "name": "劉哲睿",
+      "hw_scores": {
+        "HW1": 49,
+        "HW2": 49,
+        "HW3": 95,
+        "HW4": 83,
+        "HW5": 65,
+        "HW6": 79,
+        "HW7": 82
+      },
+      "avg_hw_score": 71.71,
+      "midterm": 75,
+      "final": 61,
+      "reviews_given": 20,
+      "reviews_received": 166,
+      "quality_score": 23.33,
+      "quality_breakdown": {
+        "relevance": 13,
+        "concreteness": 1,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 0,
+          "received": 19
+        },
+        "HW2": {
+          "given": 5,
+          "received": 12
+        },
+        "HW3": {
+          "given": 10,
+          "received": 15
+        },
+        "HW4": {
+          "given": 2,
+          "received": 30
+        },
+        "HW5": {
+          "given": 3,
+          "received": 24
+        },
+        "HW6": {
+          "given": 0,
+          "received": 30
+        },
+        "HW7": {
+          "given": 0,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1051799",
+      "name": "盧偉宸",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 99,
+        "HW4": 97,
+        "HW5": 98,
+        "HW6": 68,
+        "HW7": 98
+      },
+      "avg_hw_score": 90.0,
+      "midterm": 60,
+      "final": 57,
+      "reviews_given": 251,
+      "reviews_received": 162,
+      "quality_score": 3.98,
+      "quality_breakdown": {
+        "relevance": 20,
+        "concreteness": 9,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 27
+        },
+        "HW2": {
+          "given": 36,
+          "received": 18
+        },
+        "HW3": {
+          "given": 35,
+          "received": 10
+        },
+        "HW4": {
+          "given": 36,
+          "received": 36
+        },
+        "HW5": {
+          "given": 36,
+          "received": 29
+        },
+        "HW6": {
+          "given": 36,
+          "received": 18
+        },
+        "HW7": {
+          "given": 36,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051827",
+      "name": "龔寬心",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 100,
+        "HW4": 99,
+        "HW5": 100,
+        "HW6": 100,
+        "HW7": 83
+      },
+      "avg_hw_score": 93.14,
+      "midterm": 76,
+      "final": 75,
+      "reviews_given": 231,
+      "reviews_received": 170,
+      "quality_score": 32.9,
+      "quality_breakdown": {
+        "relevance": 194,
+        "concreteness": 27,
+        "constructive": 7
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 36
+        },
+        "HW2": {
+          "given": 18,
+          "received": 18
+        },
+        "HW3": {
+          "given": 36,
+          "received": 20
+        },
+        "HW4": {
+          "given": 35,
+          "received": 24
+        },
+        "HW5": {
+          "given": 35,
+          "received": 30
+        },
+        "HW6": {
+          "given": 35,
+          "received": 18
+        },
+        "HW7": {
+          "given": 36,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051861",
+      "name": "陳宥銜",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 96,
+        "HW4": 99,
+        "HW5": 100,
+        "HW6": 99,
+        "HW7": 82
+      },
+      "avg_hw_score": 90.29,
+      "midterm": 64,
+      "final": 59,
+      "reviews_given": 234,
+      "reviews_received": 170,
+      "quality_score": 3.13,
+      "quality_breakdown": {
+        "relevance": 16,
+        "concreteness": 6,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 30
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 18
+        },
+        "HW4": {
+          "given": 36,
+          "received": 33
+        },
+        "HW5": {
+          "given": 36,
+          "received": 23
+        },
+        "HW6": {
+          "given": 36,
+          "received": 12
+        },
+        "HW7": {
+          "given": 36,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051916",
+      "name": "李文心",
+      "hw_scores": {
+        "HW1": 100,
+        "HW2": 100,
+        "HW3": 94,
+        "HW4": 99,
+        "HW5": 100,
+        "HW6": 95,
+        "HW7": 100
+      },
+      "avg_hw_score": 98.29,
+      "midterm": 77,
+      "final": 86,
+      "reviews_given": 234,
+      "reviews_received": 177,
+      "quality_score": 9.97,
+      "quality_breakdown": {
+        "relevance": 50,
+        "concreteness": 20,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 19
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 18,
+          "received": 14
+        },
+        "HW4": {
+          "given": 36,
+          "received": 36
+        },
+        "HW5": {
+          "given": 36,
+          "received": 36
+        },
+        "HW6": {
+          "given": 36,
+          "received": 18
+        },
+        "HW7": {
+          "given": 36,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051929",
+      "name": "陳宥蓉",
+      "hw_scores": {
+        "HW1": 70,
+        "HW2": 70,
+        "HW3": 96,
+        "HW4": 83,
+        "HW5": 36,
+        "HW6": 15,
+        "HW7": 77
+      },
+      "avg_hw_score": 63.86,
+      "midterm": 64,
+      "final": 75,
+      "reviews_given": 108,
+      "reviews_received": 143,
+      "quality_score": 13.89,
+      "quality_breakdown": {
+        "relevance": 29,
+        "concreteness": 13,
+        "constructive": 3
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 8
+        },
+        "HW2": {
+          "given": 18,
+          "received": 30
+        },
+        "HW3": {
+          "given": 18,
+          "received": 14
+        },
+        "HW4": {
+          "given": 18,
+          "received": 24
+        },
+        "HW5": {
+          "given": 18,
+          "received": 33
+        },
+        "HW6": {
+          "given": 0,
+          "received": 10
+        },
+        "HW7": {
+          "given": 18,
+          "received": 24
+        }
+      }
+    },
+    {
+      "id": "D1051959",
+      "name": "李炎錡",
+      "hw_scores": {
+        "HW1": 100,
+        "HW2": 100,
+        "HW3": 98,
+        "HW4": 82,
+        "HW5": 97,
+        "HW6": 96,
+        "HW7": 98
+      },
+      "avg_hw_score": 95.86,
+      "midterm": 78,
+      "final": 69,
+      "reviews_given": 144,
+      "reviews_received": 114,
+      "quality_score": 13.19,
+      "quality_breakdown": {
+        "relevance": 48,
+        "concreteness": 9,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 13
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 32,
+          "received": 26
+        },
+        "HW4": {
+          "given": 18,
+          "received": 12
+        },
+        "HW5": {
+          "given": 15,
+          "received": 14
+        },
+        "HW6": {
+          "given": 6,
+          "received": 7
+        },
+        "HW7": {
+          "given": 1,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1072770",
+      "name": "阮成福",
+      "hw_scores": {
+        "HW1": 35,
+        "HW2": 35,
+        "HW3": 41,
+        "HW4": 60,
+        "HW5": 92,
+        "HW6": 88,
+        "HW7": 43
+      },
+      "avg_hw_score": 56.29,
+      "midterm": 17,
+      "final": 24,
+      "reviews_given": 79,
+      "reviews_received": 112,
+      "quality_score": 1.69,
+      "quality_breakdown": {
+        "relevance": 4,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 12,
+          "received": 14
+        },
+        "HW2": {
+          "given": 0,
+          "received": 36
+        },
+        "HW3": {
+          "given": 13,
+          "received": 24
+        },
+        "HW4": {
+          "given": 0,
+          "received": 7
+        },
+        "HW5": {
+          "given": 18,
+          "received": 6
+        },
+        "HW6": {
+          "given": 18,
+          "received": 7
+        },
+        "HW7": {
+          "given": 18,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D1073027",
+      "name": "中江輝",
+      "hw_scores": {
+        "HW1": 78,
+        "HW2": 78,
+        "HW3": 89,
+        "HW4": 82,
+        "HW5": 97,
+        "HW6": 98,
+        "HW7": 95
+      },
+      "avg_hw_score": 88.14,
+      "midterm": 11,
+      "final": 10,
+      "reviews_given": 162,
+      "reviews_received": 140,
+      "quality_score": 0.41,
+      "quality_breakdown": {
+        "relevance": 2,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 18,
+          "received": 16
+        },
+        "HW2": {
+          "given": 18,
+          "received": 34
+        },
+        "HW3": {
+          "given": 18,
+          "received": 19
+        },
+        "HW4": {
+          "given": 18,
+          "received": 14
+        },
+        "HW5": {
+          "given": 36,
+          "received": 15
+        },
+        "HW6": {
+          "given": 30,
+          "received": 12
+        },
+        "HW7": {
+          "given": 24,
+          "received": 30
+        }
+      }
+    },
+    {
+      "id": "D1076758",
+      "name": "賴俊霖",
+      "hw_scores": {
+        "HW1": 35,
+        "HW2": 35,
+        "HW3": 97,
+        "HW4": 99,
+        "HW5": 80,
+        "HW6": 49,
+        "HW7": 42
+      },
+      "avg_hw_score": 62.43,
+      "midterm": 29,
+      "final": 47,
+      "reviews_given": 234,
+      "reviews_received": 142,
+      "quality_score": 11.4,
+      "quality_breakdown": {
+        "relevance": 76,
+        "concreteness": 4,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 7
+        },
+        "HW2": {
+          "given": 36,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 7
+        },
+        "HW4": {
+          "given": 36,
+          "received": 24
+        },
+        "HW5": {
+          "given": 36,
+          "received": 25
+        },
+        "HW6": {
+          "given": 36,
+          "received": 19
+        },
+        "HW7": {
+          "given": 18,
+          "received": 30
+        }
+      }
+    },
+    {
+      "id": "D1076789",
+      "name": "王麒翔",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 99,
+        "HW4": 50,
+        "HW5": 98,
+        "HW6": 83,
+        "HW7": 89
+      },
+      "avg_hw_score": 84.14,
+      "midterm": 67,
+      "final": 79,
+      "reviews_given": 49,
+      "reviews_received": 128,
+      "quality_score": 17.01,
+      "quality_breakdown": {
+        "relevance": 17,
+        "concreteness": 8,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 10
+        },
+        "HW2": {
+          "given": 0,
+          "received": 22
+        },
+        "HW3": {
+          "given": 6,
+          "received": 11
+        },
+        "HW4": {
+          "given": 0,
+          "received": 15
+        },
+        "HW5": {
+          "given": 3,
+          "received": 15
+        },
+        "HW6": {
+          "given": 4,
+          "received": 20
+        },
+        "HW7": {
+          "given": 0,
+          "received": 35
+        }
+      }
+    },
+    {
+      "id": "D1090417",
+      "name": "張芯瑜",
+      "hw_scores": {
+        "HW1": 0,
+        "HW2": 0,
+        "HW3": 16,
+        "HW4": 0,
+        "HW5": 0,
+        "HW6": 0,
+        "HW7": 0
+      },
+      "avg_hw_score": 2.29,
+      "midterm": 9,
+      "final": 0,
+      "reviews_given": 0,
+      "reviews_received": 195,
+      "quality_score": 0,
+      "quality_breakdown": {
+        "relevance": 0,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 0,
+          "received": 18
+        },
+        "HW2": {
+          "given": 0,
+          "received": 30
+        },
+        "HW3": {
+          "given": 0,
+          "received": 24
+        },
+        "HW4": {
+          "given": 0,
+          "received": 30
+        },
+        "HW5": {
+          "given": 0,
+          "received": 27
+        },
+        "HW6": {
+          "given": 0,
+          "received": 30
+        },
+        "HW7": {
+          "given": 0,
+          "received": 36
+        }
+      }
+    },
+    {
+      "id": "D1090420",
+      "name": "林易威",
+      "hw_scores": {
+        "HW1": 65,
+        "HW2": 65,
+        "HW3": 91,
+        "HW4": 66,
+        "HW5": 99,
+        "HW6": 83,
+        "HW7": 97
+      },
+      "avg_hw_score": 80.86,
+      "midterm": 60,
+      "final": 44,
+      "reviews_given": 40,
+      "reviews_received": 173,
+      "quality_score": 25.83,
+      "quality_breakdown": {
+        "relevance": 24,
+        "concreteness": 7,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 20,
+          "received": 24
+        },
+        "HW2": {
+          "given": 0,
+          "received": 16
+        },
+        "HW3": {
+          "given": 3,
+          "received": 30
+        },
+        "HW4": {
+          "given": 8,
+          "received": 23
+        },
+        "HW5": {
+          "given": 7,
+          "received": 26
+        },
+        "HW6": {
+          "given": 2,
+          "received": 24
+        },
+        "HW7": {
+          "given": 0,
+          "received": 30
+        }
+      }
+    },
+    {
+      "id": "D1090434",
+      "name": "賴盈如",
+      "hw_scores": {
+        "HW1": 70,
+        "HW2": 70,
+        "HW3": 99,
+        "HW4": 100,
+        "HW5": 98,
+        "HW6": 100,
+        "HW7": 98
+      },
+      "avg_hw_score": 90.71,
+      "midterm": 73,
+      "final": 66,
+      "reviews_given": 242,
+      "reviews_received": 161,
+      "quality_score": 32.51,
+      "quality_breakdown": {
+        "relevance": 213,
+        "concreteness": 23,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 26,
+          "received": 24
+        },
+        "HW2": {
+          "given": 36,
+          "received": 18
+        },
+        "HW3": {
+          "given": 36,
+          "received": 36
+        },
+        "HW4": {
+          "given": 36,
+          "received": 23
+        },
+        "HW5": {
+          "given": 36,
+          "received": 30
+        },
+        "HW6": {
+          "given": 36,
+          "received": 18
+        },
+        "HW7": {
+          "given": 36,
+          "received": 12
+        }
+      }
+    },
+    {
+      "id": "D1090477",
+      "name": "楊雨宸",
+      "hw_scores": {
+        "HW1": 0,
+        "HW2": 0,
+        "HW3": 64,
+        "HW4": 0,
+        "HW5": 0,
+        "HW6": 0,
+        "HW7": 0
+      },
+      "avg_hw_score": 9.14,
+      "midterm": 0,
+      "final": 0,
+      "reviews_given": 0,
+      "reviews_received": 162,
+      "quality_score": 0,
+      "quality_breakdown": {
+        "relevance": 0,
+        "concreteness": 0,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 0,
+          "received": 24
+        },
+        "HW2": {
+          "given": 0,
+          "received": 12
+        },
+        "HW3": {
+          "given": 0,
+          "received": 30
+        },
+        "HW4": {
+          "given": 0,
+          "received": 24
+        },
+        "HW5": {
+          "given": 0,
+          "received": 30
+        },
+        "HW6": {
+          "given": 0,
+          "received": 12
+        },
+        "HW7": {
+          "given": 0,
+          "received": 30
+        }
+      }
+    },
+    {
+      "id": "D1090494",
+      "name": "林怡君",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 99,
+        "HW4": 100,
+        "HW5": 67,
+        "HW6": 81,
+        "HW7": 99
+      },
+      "avg_hw_score": 88.0,
+      "midterm": 68,
+      "final": 43,
+      "reviews_given": 217,
+      "reviews_received": 104,
+      "quality_score": 5.38,
+      "quality_breakdown": {
+        "relevance": 33,
+        "concreteness": 2,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 19,
+          "received": 18
+        },
+        "HW2": {
+          "given": 36,
+          "received": 12
+        },
+        "HW3": {
+          "given": 36,
+          "received": 24
+        },
+        "HW4": {
+          "given": 36,
+          "received": 18
+        },
+        "HW5": {
+          "given": 36,
+          "received": 14
+        },
+        "HW6": {
+          "given": 18,
+          "received": 12
+        },
+        "HW7": {
+          "given": 36,
+          "received": 6
+        }
+      }
+    },
+    {
+      "id": "D1090519",
+      "name": "許祐誠",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 67,
+        "HW4": 51,
+        "HW5": 66,
+        "HW6": 69,
+        "HW7": 81
+      },
+      "avg_hw_score": 72.0,
+      "midterm": 40,
+      "final": 58,
+      "reviews_given": 196,
+      "reviews_received": 162,
+      "quality_score": 2.89,
+      "quality_breakdown": {
+        "relevance": 15,
+        "concreteness": 2,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 13,
+          "received": 24
+        },
+        "HW2": {
+          "given": 27,
+          "received": 24
+        },
+        "HW3": {
+          "given": 36,
+          "received": 30
+        },
+        "HW4": {
+          "given": 18,
+          "received": 18
+        },
+        "HW5": {
+          "given": 36,
+          "received": 24
+        },
+        "HW6": {
+          "given": 36,
+          "received": 24
+        },
+        "HW7": {
+          "given": 30,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D1090522",
+      "name": "陳俊佑",
+      "hw_scores": {
+        "HW1": 85,
+        "HW2": 85,
+        "HW3": 99,
+        "HW4": 99,
+        "HW5": 100,
+        "HW6": 98,
+        "HW7": 98
+      },
+      "avg_hw_score": 94.86,
+      "midterm": 84,
+      "final": 89,
+      "reviews_given": 237,
+      "reviews_received": 152,
+      "quality_score": 6.89,
+      "quality_breakdown": {
+        "relevance": 32,
+        "concreteness": 17,
+        "constructive": 0
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 28,
+          "received": 14
+        },
+        "HW2": {
+          "given": 35,
+          "received": 30
+        },
+        "HW3": {
+          "given": 36,
+          "received": 30
+        },
+        "HW4": {
+          "given": 36,
+          "received": 12
+        },
+        "HW5": {
+          "given": 36,
+          "received": 24
+        },
+        "HW6": {
+          "given": 36,
+          "received": 24
+        },
+        "HW7": {
+          "given": 30,
+          "received": 18
+        }
+      }
+    },
+    {
+      "id": "D1090566",
+      "name": "賴尹鋗",
+      "hw_scores": {
+        "HW1": 65,
+        "HW2": 65,
+        "HW3": 100,
+        "HW4": 100,
+        "HW5": 99,
+        "HW6": 97,
+        "HW7": 97
+      },
+      "avg_hw_score": 89.0,
+      "midterm": 52,
+      "final": 61,
+      "reviews_given": 251,
+      "reviews_received": 167,
+      "quality_score": 7.3,
+      "quality_breakdown": {
+        "relevance": 40,
+        "concreteness": 14,
+        "constructive": 1
+      },
+      "hw_activity": {
+        "HW1": {
+          "given": 36,
+          "received": 24
+        },
+        "HW2": {
+          "given": 36,
+          "received": 36
+        },
+        "HW3": {
+          "given": 35,
+          "received": 29
+        },
+        "HW4": {
+          "given": 36,
+          "received": 8
+        },
+        "HW5": {
+          "given": 36,
+          "received": 24
+        },
+        "HW6": {
+          "given": 36,
+          "received": 30
+        },
+        "HW7": {
+          "given": 36,
+          "received": 16
+        }
+      }
+    }
+  ],
+  "generated_at": "1768225491.148806"
+}

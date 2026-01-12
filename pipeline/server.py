@@ -55,6 +55,10 @@ class PipelineHandler(SimpleHTTPRequestHandler):
             self.serve_index()
         elif path == '/graph' or path == '/graph.html':
             self.serve_graph()
+        elif path == '/correlation' or path == '/score_review_correlation.html':
+            self.serve_correlation()
+        elif path == '/api/run-analysis':
+            self.run_score_analysis()
         elif path == '/status':
             self.serve_status()
         elif path == '/result':
@@ -106,6 +110,35 @@ class PipelineHandler(SimpleHTTPRequestHandler):
                 self.wfile.write(f.read())
         else:
             self.send_error(404, "graph.html not found")
+    
+    def serve_correlation(self):
+        """Serve the score-review correlation analysis page."""
+        html_path = PIPELINE_DIR / "score_review_correlation.html"
+        if html_path.exists():
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html; charset=utf-8')
+            self.end_headers()
+            with open(html_path, 'rb') as f:
+                self.wfile.write(f.read())
+        else:
+            self.send_error(404, "score_review_correlation.html not found")
+    
+    def run_score_analysis(self):
+        """Run score-review correlation analysis and return results."""
+        try:
+            from score_review_analysis import generate_analysis_report
+            report = generate_analysis_report()
+            
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json; charset=utf-8')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(json.dumps(report, ensure_ascii=False).encode('utf-8'))
+        except Exception as e:
+            self.send_response(500)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
     
     def serve_status(self):
         """Serve pipeline status as JSON."""

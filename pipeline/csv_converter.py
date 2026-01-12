@@ -3,8 +3,10 @@
 CSV to JSON Converter for Review Data Pipeline
 Converts CSV format to JSON format for further processing.
 
-Expected CSV format (based on 1131test_64.csv):
-Author_ID,Reviewer_ID,Author_Name,Reviewer_Name,Feedback,Label,Time,Assignment,Metrics,Category,Round
+Expected CSV format:
+Author_Name,Reviewer_Name,Feedback,Time,Assignment,Round
+
+Note: Author_ID, Reviewer_ID, are auto-generated during conversion.
 """
 
 import csv
@@ -20,61 +22,32 @@ def create_id_mapping(names: List[str]) -> Dict[str, int]:
     return {name: idx + 1 for idx, name in enumerate(unique_names)}
 
 
-def calculate_score(feedback: str) -> int:
-    """Calculate score based on feedback content length."""
-    if not feedback or feedback.strip() == '' or feedback.upper() == 'NULL':
-        return 0
-    if len(feedback.strip()) > 5:
-        return 2
-    return 1
-
-
-def calculate_label(feedback: str) -> int:
-    """Calculate label based on feedback meaningfulness."""
-    if not feedback or feedback.strip() == '' or feedback.upper() == 'NULL':
-        return 0
-    simple_responses = ['是', '否', '有', '無', '可', '好', '0', '1', '?', 'yes', 'no', 'YES', 'NO']
-    if feedback.strip() in simple_responses:
-        return 0
-    if len(feedback.strip()) > 3:
-        return 1
-    return 0
-
-
 def detect_column_names(reader_fieldnames: List[str]) -> dict:
     """
     Detect the correct column names from CSV header.
     Returns a mapping of standard names to actual column names.
+    
+    Required columns: Author_Name, Reviewer_Name, Feedback, Time, Assignment, Round
     """
     fieldnames = [f.strip() if f else '' for f in reader_fieldnames]
     fieldnames_lower = [f.lower() for f in fieldnames]
     
     mapping = {
-        'author_id': None,
-        'reviewer_id': None,
         'author_name': None,
         'reviewer_name': None,
         'feedback': None,
-        'label': None,
         'time': None,
         'assignment': None,
-        'metrics': None,
-        'category': None,
         'round': None
     }
     
     # Map variations to standard names
     variations = {
-        'author_id': ['author_id', 'authorid', 'owner_id', 'ownerid'],
-        'reviewer_id': ['reviewer_id', 'reviewerid'],
         'author_name': ['author_name', 'authorname', 'owner_name', 'ownername', 'author'],
         'reviewer_name': ['reviewer_name', 'reviewername', 'reviewer'],
         'feedback': ['feedback', 'comment', 'review', 'text'],
-        'label': ['label', 'rating', 'score'],
         'time': ['time', 'timestamp', 'date', 'datetime', 'created_at'],
         'assignment': ['assignment', 'hw', 'homework', 'task'],
-        'metrics': ['metrics', 'metric'],
-        'category': ['category', 'pmetric', 'cat'],
         'round': ['round', 'iteration', 'attempt']
     }
     
@@ -120,16 +93,13 @@ def convert_csv_to_json(csv_path: str, json_path: str) -> dict:
     
     print(f"Found {len(rows)} rows in CSV")
     
-    # Get column names
+    # Get column names (only 6 required columns)
     author_col = col_map['author_name']
     reviewer_col = col_map['reviewer_name']
     feedback_col = col_map['feedback']
     assignment_col = col_map['assignment']
     round_col = col_map['round']
     time_col = col_map['time']
-    metrics_col = col_map['metrics']
-    category_col = col_map['category']
-    label_col = col_map['label']
     
     if not author_col or not reviewer_col:
         print(f"WARNING: Could not find author/reviewer columns!")
@@ -169,42 +139,19 @@ def convert_csv_to_json(csv_path: str, json_path: str) -> dict:
         if feedback.upper() == 'NULL':
             feedback = ''
         
-        # Parse numeric fields
-        try:
-            metrics = int(row.get(metrics_col, '') or '0') if metrics_col else 0
-        except (ValueError, TypeError):
-            metrics = 0
-        
-        try:
-            category = int(row.get(category_col, '') or '0') if category_col else 0
-        except (ValueError, TypeError):
-            category = 0
-        
+        # Parse round number
         try:
             round_num = int(row.get(round_col, '') or '1') if round_col else 1
         except (ValueError, TypeError):
             round_num = 1
+       
         
-        # Use existing label if present, otherwise calculate
-        try:
-            label = int(row.get(label_col, '') or '') if label_col else None
-            if label is None or (isinstance(label, str) and label.upper() == 'NULL'):
-                label = calculate_label(feedback)
-        except (ValueError, TypeError):
-            label = calculate_label(feedback)
-        
-        record = {
-            "Author_ID": author_id_map.get(author_name, 0),
-            "Reviewer_ID": reviewer_id_map.get(reviewer_name, 0),
+        record = {            
             "Author_Name": author_name,
             "Reviewer_Name": reviewer_name,
-            "Feedback": feedback,
-            "Score": calculate_score(feedback),
-            "Label": label,
+            "Feedback": feedback,            
             "Time": (row.get(time_col, '') if time_col else '') or '',
             "Assignment": (row.get(assignment_col, '') if assignment_col else '') or '',
-            "Metrics": metrics,
-            "Category": category,
             "Round": round_num
         }
         records.append(record)

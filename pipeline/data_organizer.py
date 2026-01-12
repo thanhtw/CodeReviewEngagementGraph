@@ -46,11 +46,7 @@ def organize_data(input_data: List[Dict]) -> Dict[str, List]:
         assignment_dict[assignment_name][key]["Round"].append({
             "Round": record.get("Round", 1),
             "Time": record.get("Time", ""),
-            "Feedback": record.get("Feedback", ""),
-            "Score": record.get("Score", 0),
-            "Metrics": record.get("Metrics", 0),
-            "Category": record.get("Category", 0),
-            "Label": record.get("Label", 0),
+            "Feedback": record.get("Feedback", ""),            
         })
 
     return {

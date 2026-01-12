@@ -344,11 +344,7 @@ def run_pipeline_async(filename: str, use_ml: bool, hw_start: int, hw_end: int):
                 str(json_final_path)
             )
         
-        # Also copy to function directory for graph.html compatibility
-        function_output = PROJECT_ROOT / "function" / "3labeled_processed_totalData.json"
-        shutil.copy(json_final_path, function_output)
-        print(f"Copied result to: {function_output}")
-        
+       
         # Complete
         pipeline_status["step"] = 4
         pipeline_status["message"] = "Pipeline completed successfully!"

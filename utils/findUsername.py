@@ -1,17 +1,17 @@
-# 尋找作者 與 其reviewer
+# Find author and their reviewer
 
 import json
 
-# 打開並讀取JSON文件
+# Open and read JSON file
 with open('totalData.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
-# 假設數據包含在"data"鍵下，調整為你的實際鍵名
-recordData = data['recordData']  # 或其他對應的鍵名
+# Assuming data is contained under "data" key, adjust to your actual key name
+recordData = data['recordData']  # or other corresponding key name
 
-# 找 pmId=13 的資料
+# Find data where pmId=13
 for record in recordData:
     if record.get('pmId') == 53:
-        # 現在直接從record字典中訪問鍵的值
-        print('author:', record.get('authorName'))  # 打印作者名稱
-        print('reviewer:', record.get('reviewerName'))  # 打印審核者名稱
+        # Now access key values directly from record dict
+        print('author:', record.get('authorName'))  # Print author name
+        print('reviewer:', record.get('reviewerName'))  # Print reviewer name

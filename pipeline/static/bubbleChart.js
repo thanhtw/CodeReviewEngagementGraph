@@ -370,6 +370,19 @@ class BubbleChartManager {
     }
 
     showStudentDetails(studentData) {
+        // Remove existing modal if any
+        const existingModal = document.querySelector('.student-detail-modal');
+        if (existingModal) {
+            document.body.removeChild(existingModal);
+        }
+        
+        // Calculate label rates
+        const validReviews = studentData.validRounds || studentData.validComments || 0;
+        const relevanceRate = validReviews > 0 ? (studentData.relevanceCount / validReviews * 100).toFixed(1) : 0;
+        const concretenessRate = validReviews > 0 ? (studentData.concretenessCount / validReviews * 100).toFixed(1) : 0;
+        const constructiveRate = validReviews > 0 ? (studentData.constructiveCount / validReviews * 100).toFixed(1) : 0;
+        const participationRate = studentData.reviewCompletionRate || 0;
+        
         const modal = document.createElement('div');
         modal.className = 'student-detail-modal';
         modal.innerHTML = `
@@ -379,33 +392,49 @@ class BubbleChartManager {
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <div class="detail-row">
-                        <span class="detail-label">Valid Reviews:</span>
-                        <span class="detail-value">${studentData.validRounds || studentData.validComments}</span>
+                    <div class="modal-section">
+                        <div class="section-title">📊 Review Statistics</div>
+                        <div class="detail-row">
+                            <span class="detail-label">Valid Reviews:</span>
+                            <span class="detail-value">${validReviews}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Completed Tasks:</span>
+                            <span class="detail-value">${studentData.validComments || 0}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Assigned Tasks:</span>
+                            <span class="detail-value">${studentData.assignedTasks || 0}</span>
+                        </div>
+                        <div class="detail-row highlight">
+                            <span class="detail-label">Participation Rate:</span>
+                            <span class="detail-value rate-badge ${participationRate >= 0.8 ? 'rate-high' : participationRate >= 0.5 ? 'rate-medium' : 'rate-low'}">${(participationRate * 100).toFixed(1)}%</span>
+                        </div>
                     </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Completed Tasks:</span>
-                        <span class="detail-value">${studentData.validComments}</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Assigned Tasks:</span>
-                        <span class="detail-value">${studentData.assignedTasks}</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Participation Rate:</span>
-                        <span class="detail-value">${(studentData.reviewCompletionRate * 100).toFixed(1)}%</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Relevance Labels:</span>
-                        <span class="detail-value">${studentData.relevanceCount}</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Concreteness Labels:</span>
-                        <span class="detail-value">${studentData.concretenessCount}</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Constructive Labels:</span>
-                        <span class="detail-value">${studentData.constructiveCount}</span>
+                    
+                    <div class="modal-section">
+                        <div class="section-title">🏷️ Quality Labels</div>
+                        <div class="detail-row">
+                            <span class="detail-label">
+                                <span class="label-dot relevance"></span>
+                                Relevance:
+                            </span>
+                            <span class="detail-value">${studentData.relevanceCount || 0} <span class="rate-text">(${relevanceRate}%)</span></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">
+                                <span class="label-dot concreteness"></span>
+                                Concreteness:
+                            </span>
+                            <span class="detail-value">${studentData.concretenessCount || 0} <span class="rate-text">(${concretenessRate}%)</span></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">
+                                <span class="label-dot constructive"></span>
+                                Constructive:
+                            </span>
+                            <span class="detail-value">${studentData.constructiveCount || 0} <span class="rate-text">(${constructiveRate}%)</span></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -415,7 +444,11 @@ class BubbleChartManager {
 
         // Close modal event
         const closeBtn = modal.querySelector('.modal-close');
-        const closeModal = () => document.body.removeChild(modal);
+        const closeModal = () => {
+            if (document.body.contains(modal)) {
+                document.body.removeChild(modal);
+            }
+        };
         
         closeBtn.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => {

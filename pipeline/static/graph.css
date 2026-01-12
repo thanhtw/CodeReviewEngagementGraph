@@ -506,28 +506,46 @@ h1 {
     }
 }
 
-/* 學生詳細資料模態框樣式 */
+/* Student Detail Modal Styles - Professional Design */
 .student-detail-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .modal-content {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 420px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
+    animation: slideIn 0.3s ease-out;
 }
 
 .modal-header {
@@ -535,47 +553,66 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 20px 25px;
-    border-bottom: 1px solid #e9ecef;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    border-radius: 12px 12px 0 0;
+    border-radius: 16px 16px 0 0;
 }
 
 .modal-header h3 {
     margin: 0;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .modal-close {
-    background: none;
+    background: rgba(255, 255, 255, 0.15);
     border: none;
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     cursor: pointer;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    transition: background-color 0.2s;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
 .modal-close:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
 .modal-body {
-    padding: 25px;
+    padding: 0;
+}
+
+.modal-section {
+    padding: 20px 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
 }
 
 .detail-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #f8f9fa;
 }
 
@@ -583,41 +620,234 @@ h1 {
     border-bottom: none;
 }
 
+.detail-row.highlight {
+    background: linear-gradient(135deg, #f8f9ff 0%, #fff5f5 100%);
+    margin: 10px -25px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: none;
+}
+
 .detail-label {
     font-weight: 500;
     color: #495057;
     flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .detail-value {
-    font-weight: 600;
+    font-weight: 700;
     color: #333;
     text-align: right;
     flex: 0 0 auto;
-    min-width: 60px;
+    min-width: 80px;
+    font-size: 15px;
 }
 
-/* 響應式模態框 */
+.rate-text {
+    font-weight: 500;
+    color: #6c757d;
+    font-size: 13px;
+}
+
+/* Rate Badge Styles */
+.rate-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.rate-high {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+}
+
+.rate-medium {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+    color: #856404;
+}
+
+.rate-low {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+}
+
+/* Label Color Dots */
+.label-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.label-dot.relevance {
+    background: linear-gradient(135deg, #FFD753 0%, #D4A302 100%);
+    box-shadow: 0 2px 4px rgba(212, 163, 2, 0.3);
+}
+
+.label-dot.concreteness {
+    background: linear-gradient(135deg, #95ED65 0%, #327111 100%);
+    box-shadow: 0 2px 4px rgba(50, 113, 17, 0.3);
+}
+
+.label-dot.constructive {
+    background: linear-gradient(135deg, #C78EED 0%, #590A8E 100%);
+    box-shadow: 0 2px 4px rgba(89, 10, 142, 0.3);
+}
+
+/* Clickable Row and Feedback List Styles */
+.detail-row.clickable {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 8px;
+    margin: 0 -10px;
+    padding: 10px;
+}
+
+.detail-row.clickable:hover {
+    background-color: #f8f9ff;
+}
+
+.detail-row.clickable.expanded {
+    background-color: #f0f4ff;
+}
+
+.expand-hint {
+    font-size: 11px;
+    color: #667eea;
+    margin-left: 8px;
+    font-weight: 400;
+}
+
+.feedback-list-container {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.feedback-item {
+    background: white;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-left: 3px solid #667eea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.feedback-item:last-child {
+    margin-bottom: 0;
+}
+
+.feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.feedback-number {
+    background: #667eea;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.feedback-author {
+    font-size: 12px;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.feedback-labels {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.label-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: white;
+}
+
+.label-tag.relevance {
+    background: #D4A302;
+}
+
+.label-tag.concreteness {
+    background: #327111;
+}
+
+.label-tag.constructive {
+    background: #590A8E;
+}
+
+.feedback-text {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.feedback-time {
+    font-size: 11px;
+    color: #adb5bd;
+    margin-top: 8px;
+}
+
+.no-feedback {
+    text-align: center;
+    color: #6c757d;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Responsive Modal */
 @media (max-width: 768px) {
     .modal-content {
         width: 95%;
         margin: 20px;
+        border-radius: 12px;
     }
     
     .modal-header {
-        padding: 15px 20px;
+        padding: 16px 20px;
+        border-radius: 12px 12px 0 0;
     }
     
     .modal-header h3 {
-        font-size: 16px;
+        font-size: 18px;
     }
     
-    .modal-body {
-        padding: 20px;
+    .modal-section {
+        padding: 16px 20px;
     }
     
     .detail-row {
-        padding: 10px 0;
+        padding: 8px 0;
+    }
+    
+    .detail-row.highlight {
+        margin: 8px -20px;
+        padding: 12px 20px;
+    }
+    
+    .feedback-list-container {
+        max-height: 200px;
+    }
+    
+    .feedback-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;

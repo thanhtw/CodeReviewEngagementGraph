@@ -13,19 +13,216 @@ export function updateNetworkInstance(container, data, options, rawData) {
         window.networkInstance.redraw();
     } else {
         window.networkInstance = new vis.Network(container, data, options);
-        window.networkInstance.on('click', function(properties) {
-            if (properties.nodes.length > 0) {
-                const nodeId = properties.nodes[0];
-                const nodeData = new vis.DataSet(data.nodes).get(nodeId);
-                const selectedHWs = Array.from(document.getElementById('hw-select').selectedOptions)
-                                        .map(opt => opt.value);
-                const reviewerRecords = selectedHWs.flatMap(hwName => 
-                    rawData[hwName]?.filter(a => a.Reviewer_Name === nodeId) || []
-                );
-                console.log("Review tasks:", reviewerRecords);
+    }
+    
+    // Always set up click handler (for both new and existing instances)
+    window.networkInstance.off('click'); // Remove old handler
+    window.networkInstance.on('click', function(properties) {
+        if (properties.nodes.length > 0) {
+            const nodeId = properties.nodes[0];
+            const nodeData = new vis.DataSet(data.nodes).get(nodeId);
+            const selectedHWs = Array.from(document.getElementById('hw-select').selectedOptions)
+                                    .map(opt => opt.value);
+            const reviewerRecords = selectedHWs.flatMap(hwName => 
+                rawData[hwName]?.filter(a => a.Reviewer_Name === nodeId) || []
+            );
+            
+            // Calculate statistics for the modal
+            const studentStats = calculateStudentStats(nodeId, reviewerRecords);
+            showStudentDetailsModal(studentStats);
+        }
+    });
+}
+
+// Calculate student statistics from reviewer records
+function calculateStudentStats(nodeId, reviewerRecords) {
+    let validReviews = 0;
+    let relevanceCount = 0;
+    let concretenessCount = 0;
+    let constructiveCount = 0;
+    let completedTasks = 0;
+    const assignedTasks = reviewerRecords.length;
+    const feedbackList = []; // Collect all feedbacks
+    
+    reviewerRecords.forEach(record => {
+        const rounds = record.Round || [];
+        let hasValidFeedback = false;
+        const authorName = record.Author_Name || 'Unknown';
+        
+        rounds.forEach(round => {
+            const feedback = round.Feedback || '';
+            if (feedback && feedback.trim() && feedback.toUpperCase() !== 'NULL') {
+                validReviews++;
+                hasValidFeedback = true;
+                
+                // Collect feedback details
+                feedbackList.push({
+                    author: authorName,
+                    feedback: feedback.trim(),
+                    time: round.Time || '',
+                    roundNum: round.Round || 1,
+                    relevance: round.Relevance === 1,
+                    concreteness: round.Concreteness === 1,
+                    constructive: round.Constructive === 1
+                });
+                
+                if (round.Relevance === 1) relevanceCount++;
+                if (round.Concreteness === 1) concretenessCount++;
+                if (round.Constructive === 1) constructiveCount++;
             }
         });
+        
+        if (hasValidFeedback) {
+            completedTasks++;
+        }
+    });
+    
+    const participationRate = assignedTasks > 0 ? (completedTasks / assignedTasks) : 0;
+    
+    return {
+        studentName: nodeId,
+        validReviews: validReviews,
+        completedTasks: completedTasks,
+        assignedTasks: assignedTasks,
+        participationRate: participationRate,
+        relevanceCount: relevanceCount,
+        concretenessCount: concretenessCount,
+        constructiveCount: constructiveCount,
+        feedbackList: feedbackList // Include feedback list
+    };
+}
+
+// Show student details modal (professional design)
+function showStudentDetailsModal(stats) {
+    // Remove existing modal if any
+    const existingModal = document.querySelector('.student-detail-modal');
+    if (existingModal) {
+        document.body.removeChild(existingModal);
     }
+    
+    // Calculate label rates
+    const totalLabels = stats.relevanceCount + stats.concretenessCount + stats.constructiveCount;
+    const relevanceRate = stats.validReviews > 0 ? (stats.relevanceCount / stats.validReviews * 100).toFixed(1) : 0;
+    const concretenessRate = stats.validReviews > 0 ? (stats.concretenessCount / stats.validReviews * 100).toFixed(1) : 0;
+    const constructiveRate = stats.validReviews > 0 ? (stats.constructiveCount / stats.validReviews * 100).toFixed(1) : 0;
+    
+    // Generate feedback list HTML
+    const feedbackListHtml = stats.feedbackList && stats.feedbackList.length > 0 
+        ? stats.feedbackList.map((fb, index) => `
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span class="feedback-number">#${index + 1}</span>
+                    <span class="feedback-author">→ ${fb.author}</span>
+                    <div class="feedback-labels">
+                        ${fb.relevance ? '<span class="label-tag relevance">R</span>' : ''}
+                        ${fb.concreteness ? '<span class="label-tag concreteness">C</span>' : ''}
+                        ${fb.constructive ? '<span class="label-tag constructive">S</span>' : ''}
+                    </div>
+                </div>
+                <div class="feedback-text">${fb.feedback}</div>
+                ${fb.time ? `<div class="feedback-time">📅 ${fb.time}</div>` : ''}
+            </div>
+        `).join('')
+        : '<div class="no-feedback">No feedback available</div>';
+    
+    const modal = document.createElement('div');
+    modal.className = 'student-detail-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>${stats.studentName}</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <div class="section-title">📊 Review Statistics</div>
+                    <div class="detail-row clickable" id="valid-reviews-row">
+                        <span class="detail-label">
+                            Valid Reviews:
+                            <span class="expand-hint">▼ click to view</span>
+                        </span>
+                        <span class="detail-value">${stats.validReviews}</span>
+                    </div>
+                    <div class="feedback-list-container" id="feedback-list" style="display: none;">
+                        ${feedbackListHtml}
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Completed Tasks:</span>
+                        <span class="detail-value">${stats.completedTasks}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Assigned Tasks:</span>
+                        <span class="detail-value">${stats.assignedTasks}</span>
+                    </div>
+                    <div class="detail-row highlight">
+                        <span class="detail-label">Participation Rate:</span>
+                        <span class="detail-value rate-badge ${stats.participationRate >= 0.8 ? 'rate-high' : stats.participationRate >= 0.5 ? 'rate-medium' : 'rate-low'}">${(stats.participationRate * 100).toFixed(1)}%</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <div class="section-title">🏷️ Quality Labels</div>
+                    <div class="detail-row">
+                        <span class="detail-label">
+                            <span class="label-dot relevance"></span>
+                            Relevance:
+                        </span>
+                        <span class="detail-value">${stats.relevanceCount} <span class="rate-text">(${relevanceRate}%)</span></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">
+                            <span class="label-dot concreteness"></span>
+                            Concreteness:
+                        </span>
+                        <span class="detail-value">${stats.concretenessCount} <span class="rate-text">(${concretenessRate}%)</span></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">
+                            <span class="label-dot constructive"></span>
+                            Constructive:
+                        </span>
+                        <span class="detail-value">${stats.constructiveCount} <span class="rate-text">(${constructiveRate}%)</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    
+    // Toggle feedback list visibility
+    const validReviewsRow = modal.querySelector('#valid-reviews-row');
+    const feedbackList = modal.querySelector('#feedback-list');
+    const expandHint = validReviewsRow.querySelector('.expand-hint');
+    
+    validReviewsRow.addEventListener('click', () => {
+        const isHidden = feedbackList.style.display === 'none';
+        feedbackList.style.display = isHidden ? 'block' : 'none';
+        expandHint.textContent = isHidden ? '▲ click to hide' : '▼ click to view';
+        validReviewsRow.classList.toggle('expanded', isHidden);
+    });
+
+    // Close modal event
+    const closeBtn = modal.querySelector('.modal-close');
+    const closeModal = () => {
+        if (document.body.contains(modal)) {
+            document.body.removeChild(modal);
+        }
+    };
+    
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // ESC key to close
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', handleEscape);
+        }
+    };
+    document.addEventListener('keydown', handleEscape);
 }
 
 export function generateGraph(rawData, mode, hwNames) {

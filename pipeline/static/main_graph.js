@@ -62,7 +62,7 @@ export function updateGraphMode(mode, hwNames = [...currentHW]) {
             generateConcretenessGraph(rawData, hwNames);
             break;
         case 'constructive':
-            console.log(`Switching to constructive (${hwNames.join(',')})`);
+            console.log(`Switching to constructiveness (${hwNames.join(',')})`);
             generateConstructiveGraph(rawData, hwNames);
             break;
     }

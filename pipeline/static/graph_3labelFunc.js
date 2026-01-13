@@ -179,7 +179,7 @@ function showStudentDetailsModal(stats) {
                     <div class="detail-row">
                         <span class="detail-label">
                             <span class="label-dot constructive"></span>
-                            Constructive:
+                            Constructiveness:
                         </span>
                         <span class="detail-value">${stats.constructiveCount} <span class="rate-text">(${constructiveRate}%)</span></span>
                     </div>
@@ -255,7 +255,7 @@ export function generateGraph(rawData, mode, hwNames) {
         },
         constructive: { 
             colors: ["#F1DCFF", "#C78EED", "#9444CA", "#590A8E"], 
-            title: 'Constructive Score' 
+            title: 'Constructiveness Score' 
         },
         all: {
             colors: ["#F0F0F0", "#E0E0E0", "#757575", "#424242"],
@@ -292,7 +292,7 @@ export function generateGraph(rawData, mode, hwNames) {
                     console.log(`  Valid review Rounds: ${totalFeedbacks}`);
                     console.log(`  Relevance labels: ${n.labelCounts.relevance} (score: ${relevanceScore.toFixed(3)})`);
                     console.log(`  Concreteness labels: ${n.labelCounts.concreteness} (score: ${concretenessScore.toFixed(3)})`);
-                    console.log(`  Constructive labels: ${n.labelCounts.constructive} (score: ${constructiveScore.toFixed(3)})`);
+                    console.log(`  Constructiveness labels: ${n.labelCounts.constructive} (score: ${constructiveScore.toFixed(3)})`);
                     console.log(`  All mode score: ${score.toFixed(3)}`);
                 }
             } else {

@@ -88,7 +88,7 @@ def run_inference_with_model(input_path: str, output_path: str, model_path: str)
     model, tokenizer = load_model(model_path, device)
     
     # Thresholds for label prediction
-    thresholds = [0.5, 0.5, 0.7]  # relevance, concreteness, constructive
+    thresholds = [0.5, 0.5, 0.7]  # relevance, concreteness, constructiveness
     
     print(f"Reading input file: {input_path}")
     with open(input_path, 'r', encoding='utf-8') as f:

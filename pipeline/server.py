@@ -11,6 +11,8 @@ import cgi
 import time
 import shutil
 import traceback
+import socket
+import socketserver
 from pathlib import Path
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from urllib.parse import parse_qs, urlparse
@@ -45,6 +47,18 @@ pipeline_status = {
 
 class PipelineHandler(SimpleHTTPRequestHandler):
     """HTTP Request Handler for Pipeline Server."""
+    
+    # Set timeout for connections (30 seconds)
+    timeout = 30
+    
+    def handle(self):
+        """Handle with timeout protection."""
+        try:
+            super().handle()
+        except socket.timeout:
+            pass  # Ignore timeout errors
+        except Exception as e:
+            print(f"Connection error: {e}")
     
     def do_GET(self):
         """Handle GET requests."""
@@ -181,6 +195,7 @@ class PipelineHandler(SimpleHTTPRequestHandler):
             
             self.send_header('Content-type', content_type)
             self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Cache-Control', 'public, max-age=3600')  # Cache for 1 hour
             self.end_headers()
             
             with open(file_path, 'rb') as f:
@@ -196,6 +211,7 @@ class PipelineHandler(SimpleHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json; charset=utf-8')
             self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Cache-Control', 'public, max-age=300')  # Cache for 5 minutes
             self.end_headers()
             with open(file_path, 'rb') as f:
                 self.wfile.write(f.read())
@@ -209,6 +225,7 @@ class PipelineHandler(SimpleHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json; charset=utf-8')
             self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Cache-Control', 'public, max-age=60')  # Cache for 1 minute
             self.end_headers()
             with open(file_path, 'rb') as f:
                 self.wfile.write(f.read())
@@ -425,25 +442,51 @@ def run_pipeline_async(filename: str, use_ml: bool, hw_start: int, hw_end: int):
         traceback.print_exc()
 
 
+# Multi-threaded HTTP Server
+class ThreadedHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
+    """Handle requests in separate threads."""
+    daemon_threads = True  # Daemon threads exit when main thread exits
+    allow_reuse_address = True  # Allow reusing the address immediately
+    
+    def server_bind(self):
+        """Set socket options for better reliability."""
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        super().server_bind()
+
+
 def start_server(port: int = 8002):
     """Start the pipeline server."""
     server_address = ('', port)
-    httpd = HTTPServer(server_address, PipelineHandler)
+    httpd = ThreadedHTTPServer(server_address, PipelineHandler)
+    httpd.socket.settimeout(1)  # Allow checking for shutdown
+    
+    # Get local IP for display
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        local_ip = s.getsockname()[0]
+        s.close()
+    except:
+        local_ip = "localhost"
     
     print(f"\n{'='*60}")
     print("  Review Graph Visualization - Pipeline Server")
     print(f"{'='*60}")
-    print(f"\n  Server running at: http://localhost:{port}")
-    print(f"  Upload page:       http://localhost:{port}/")
-    print(f"  View graph:        http://localhost:{port}/graph")
+    print(f"\n  Local:    http://localhost:{port}")
+    print(f"  Network:  http://{local_ip}:{port}")
+    print(f"\n  Pages:")
+    print(f"    - Pipeline:    http://{local_ip}:{port}/")
+    print(f"    - Graph View:  http://{local_ip}:{port}/graph")
+    print(f"    - Correlation: http://{local_ip}:{port}/correlation")
     print(f"\n  Press Ctrl+C to stop the server")
     print(f"{'='*60}\n")
     
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        print("\nServer stopped.")
+        print("\nShutting down server...")
         httpd.shutdown()
+        print("Server stopped.")
 
 
 if __name__ == '__main__':

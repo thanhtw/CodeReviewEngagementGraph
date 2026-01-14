@@ -1,0 +1,109 @@
+Tiêu đề: Thư mời tham gia đánh giá Hệ thống Trực quan hóa Đánh giá mã ngang hàng (peer code review)
+
+Kính gửi Quý Thầy/Cô,
+
+Tôi là Dương Hoàng Thành, nghiên cứu sinh tiến sĩ tại Đại học Feng Chia, Đài Loan, dưới sự hướng dẫn của Giáo sư Hsi-Min Chen. Hiện tại, tôi đang phát triển hệ thống "Review Graph Visualization" nhằm hỗ trợ giảng viên theo dõi mức độ tham gia đánh giá đồng nghiệp và chất lượng nhận xét của sinh viên trong các khóa học lập trình.
+
+Tôi trân trọng kính mời Quý Thầy/Cô dùng thử hệ thống và chia sẻ ý kiến phản hồi thông qua bảng khảo sát ngắn.
+
+
+TÍNH NĂNG HỆ THỐNG
+------------------
+- Xử lý dữ liệu CSV tự động và phân loại theo bài tập
+- Phân loại chất lượng đánh giá dựa trên Machine Learning (Tính liên quan, Tính cụ thể, Tính xây dựng)
+- Cung cấp biểu đồ mạng tương tác thể hiện mối quan hệ người đánh giá - tác giả
+- Cung cấp biểu đồ phân tích chất lượng và thống kê theo từng bài tập
+- Phân tích tương quan điểm số và hoạt động đánh giá
+
+
+THÔNG TIN CÓ THỂ KHÁM PHÁ
+-------------------------
+Sử dụng hệ thống này, giảng viên có thể:
+- Xác định sinh viên đưa ra đánh giá chất lượng thấp hoặc để trống
+- Theo dõi mô hình tham gia đánh giá qua các bài tập
+- So sánh các chỉ số chất lượng đánh giá (tính liên quan, cụ thể, xây dựng)
+- Phát hiện mối tương quan giữa điểm số và hành vi đánh giá
+- Tìm ra sinh viên cần hướng dẫn cách đưa ra phản hồi mang tính xây dựng
+- Giám sát tổng quan mức độ tham gia đánh giá đồng nghiệp của cả lớp
+
+
+HƯỚNG DẪN SỬ DỤNG HỆ THỐNG
+--------------------------
+
+Bước 1: Đăng ký & Đăng nhập
+- URL: http://140.134.25.70:8002/register
+- Tạo tài khoản của bạn (tên đăng nhập, mật khẩu, tên hiển thị)
+- Hoặc đăng nhập tại: http://140.134.25.70:8002/login
+
+Bước 2: Tải lên & Xử lý dữ liệu
+- Nhấp "Upload CSV" để tải lên file dữ liệu mẫu (đính kèm)
+- Thiết lập phạm vi bài tập (ví dụ: HW1 đến HW7)
+- Nhấp "Run Pipeline" để xử lý dữ liệu
+
+Bước 3: Khám phá Trực quan hóa
+
+[GRAPH VIEW - Chế độ xem Biểu đồ] http://140.134.25.70:8002/graph
+
+Chế độ xem Biểu đồ hiển thị sơ đồ mạng tương tác với:
+- Các nút đại diện cho sinh viên (người đánh giá và tác giả)
+- Các cạnh thể hiện mối quan hệ đánh giá giữa sinh viên
+- Biểu đồ phân bố Tính liên quan, Tính cụ thể và Tính xây dựng
+
+Hướng dẫn các yếu tố trực quan:
+
+* Kích thước nút: Nút lớn hơn = điểm đánh giá trung bình nhận được cao hơn
+  (Sinh viên nhận được phản hồi tốt hơn sẽ có nút lớn hơn)
+
+* Màu sắc nút (Nhạt đến Đậm):
+  - Màu nhạt = nhận xét phản hồi ngắn
+  - Màu đậm = phản hồi dài và chi tiết hơn
+  (Nút màu đậm cho thấy sinh viên viết đánh giá toàn diện hơn)
+
+* Kiểu đường kẻ:
+  - Đường liền = đánh giá có nội dung phản hồi
+  - Đường đứt = đánh giá trống hoặc thiếu nhận xét
+  (Đường đứt giúp xác định sinh viên bỏ qua việc viết đánh giá)
+
+* Màu sắc chỉ số chất lượng:
+  - Vàng = Tính liên quan (Phản hồi có liên quan đến bài nộp không?)
+  - Xanh lá = Tính cụ thể (Phản hồi có cụ thể và chi tiết không?)
+  - Tím = Tính xây dựng (Phản hồi có đưa ra gợi ý không?)
+  - Xám = Không phát hiện chất lượng / Đánh giá trống
+
+Lợi ích giảng dạy:
+- Nhanh chóng xác định sinh viên cô lập với mức độ tham gia thấp
+- Phát hiện các mô hình hành vi đánh giá không hiệu quả (đường đứt)
+- Nhìn tổng quan ai viết đánh giá chi tiết (nút màu đậm)
+- Nhấp vào bất kỳ sinh viên nào để xem lịch sử đánh giá chi tiết
+
+
+[SCORE ANALYSIS - Phân tích Điểm số] http://140.134.25.70:8002/correlation
+
+Trang Phân tích Điểm số kiểm tra mối quan hệ giữa:
+- Điểm bài tập/thi của sinh viên và hoạt động đánh giá
+- Số lượng đánh giá đưa ra so với kết quả học tập
+- Chỉ số chất lượng đánh giá so với kết quả học tập
+
+Lợi ích giảng dạy:
+- Khám phá liệu sinh viên thành tích cao có đưa ra đánh giá tốt hơn không
+- Xác định sinh viên nộp bài nhưng bỏ qua đánh giá đồng nghiệp
+- Sử dụng dữ liệu để khuyến khích phản hồi đồng nghiệp có ý nghĩa
+- Hỗ trợ quyết định chấm điểm với các chỉ số đánh giá khách quan
+
+
+BẢNG KHẢO SÁT (10-15 phút)
+--------------------------
+Sau khi dùng thử, vui lòng hoàn thành bảng khảo sát:
+https://www.surveycake.com/s/14YZo
+
+Phản hồi của Quý Thầy/Cô rất có giá trị để cải thiện công cụ này. Tất cả câu trả lời sẽ được bảo mật và chỉ sử dụng cho mục đích nghiên cứu học thuật.
+
+Xin chân thành cảm ơn sự hỗ trợ của Quý Thầy/Cô!
+
+Trân trọng,
+
+Dương Hoàng Thành
+Nghiên cứu sinh Tiến sĩ, Phòng thí nghiệm Kỹ thuật Phần mềm
+Đại học Feng Chia, Đài Loan
+Email: thanh.duongrsm@gmail.com
+Điện thoại: +886-958-453-194

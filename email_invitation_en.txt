@@ -1,0 +1,109 @@
+Subject: Invitation to Evaluate Peer Review Visualization System
+
+Dear Professor,
+
+I am Hoang-Thanh Duong, a Ph.D. candidate at Feng Chia University under Prof. Hsi-Min Chen's supervision. I am developing a "Review Graph Visualization" system to help instructors monitor student peer review engagement and comment quality in programming courses.
+
+I would like to invite you to test the system and share your feedback through a brief questionnaire.
+
+
+SYSTEM FEATURES
+---------------
+- Automated CSV data processing and organization by assignment
+- ML-based review quality classification (Relevance, Concreteness, Constructiveness)
+- Interactive network graph showing reviewer-author relationships
+- Quality analysis charts and per-assignment statistics
+- Score-review correlation analysis
+
+
+WHAT YOU CAN DISCOVER
+---------------------
+Using this system, instructors can:
+- Identify students who provide low-quality or empty reviews
+- Track review engagement patterns across assignments
+- Compare review quality metrics (relevance, concreteness, constructiveness)
+- Discover correlations between student grades and review behaviors
+- Spot students who need guidance in giving constructive feedback
+- Monitor class-wide peer review participation at a glance
+
+
+HOW TO TEST THE SYSTEM
+----------------------
+
+Step 1: Register & Login
+- URL: http://140.134.25.70:8002/register
+- Create your own account (username, password, display name)
+- Or login at: http://140.134.25.70:8002/login
+
+Step 2: Upload & Process Data
+- Click "Upload CSV" to upload the sample data file (attached)
+- Set homework range (e.g., HW1 to HW7)
+- Click "Run Pipeline" to process the data
+
+Step 3: Explore Visualizations
+
+[GRAPH VIEW] http://140.134.25.70:8002/graph
+
+The Graph View displays an interactive network diagram where:
+- Nodes represent students (reviewers and authors)
+- Edges show review relationships between students
+- Charts show distribution of Relevance, Concreteness, and Constructiveness
+
+Visual Elements Guide:
+
+* Node Size: Larger nodes = higher average review scores received
+  (Students receiving better feedback appear bigger)
+
+* Node Color (Light to Dark):
+  - Light color = shorter feedback comments
+  - Dark color = longer, more detailed feedback
+  (Darker nodes indicate students who write more comprehensive reviews)
+
+* Edge Style:
+  - Solid line = review contains feedback content
+  - Dashed line = empty or missing review comment
+  (Dashed edges help identify students who skip writing reviews)
+
+* Quality Indicator Colors:
+  - Yellow = Relevance (Is feedback related to the submission?)
+  - Green = Concreteness (Is feedback specific and detailed?)
+  - Purple = Constructiveness (Does feedback offer suggestions?)
+  - Gray = No quality detected / Empty review
+
+Teaching Benefits:
+- Quickly identify isolated students with low engagement
+- Spot patterns of ineffective reviewing behavior (dashed edges)
+- See at a glance who writes detailed reviews (dark nodes)
+- Click on any student to see their detailed review history
+
+
+[SCORE ANALYSIS] http://140.134.25.70:8002/correlation
+
+The Score Analysis page examines relationships between:
+- Student homework/exam scores and their review activity
+- Number of reviews given vs. academic performance
+- Review quality metrics vs. learning outcomes
+
+Teaching Benefits:
+- Discover if high-performing students give better reviews
+- Identify students who submit work but skip peer review
+- Use data to encourage meaningful peer feedback
+- Support grading decisions with objective review metrics
+
+
+QUESTIONNAIRE (10-15 minutes)
+-----------------------------
+After testing, please complete the questionnaire:
+https://www.surveycake.com/s/OY4kq
+
+Your feedback is valuable for improving this tool. All responses are confidential and used for research purposes only.
+
+Thank you for your support!
+
+Best regards,
+
+Hoang-Thanh Duong
+Ph.D. Candidate, Software Engineering Laboratory
+Feng Chia University, Taiwan
+Email: thanh.duongrsm@gmail.com
+Phone: +886-958-453-194

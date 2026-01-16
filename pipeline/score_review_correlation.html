@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Score-Review Correlation Analysis</title>
+    <!-- i18n: Translations loaded from /api/translations -->
+    <script src="/static/i18n.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
@@ -449,18 +451,26 @@
         }
     </style>
 </head>
-<body>
+<body data-i18n-page-title="correlation.title">
     <div class="header">
-        <h1>📊 Score-Review Correlation Analysis</h1>
+        <h1>📊 <span data-i18n="correlation.title">Score-Review Correlation Analysis</span></h1>
         <div class="header-nav">
-            <span class="user-display" id="userDisplay">👤 Loading...</span>
-            <a href="/graph.html">📈 Graph View</a>
-            <a href="/">← Pipeline</a>
-            <a href="#" class="logout" onclick="logout(); return false;">🚪 Logout</a>
+            <span class="user-display" id="userDisplay">👤 <span data-i18n="common.loading">Loading...</span></span>
+            <div id="langSwitcher"></div>
+            <a href="/graph.html">📈 <span data-i18n="correlation.graph_view">Graph View</span></a>
+            <a href="/">← <span data-i18n="correlation.pipeline">Pipeline</span></a>
+            <a href="#" class="logout" onclick="logout(); return false;">🚪 <span data-i18n="common.logout">Logout</span></a>
         </div>
     </div>
     
     <script>
+        // Initialize language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            i18n.createLanguageSwitcher('langSwitcher', { style: 'dropdown', showFlags: true, showNames: true });
+            // Ensure translations are applied after all content is loaded
+            i18n.applyTranslations();
+        });
+
         // Check authentication and load user info
         async function checkAuth() {
             try {
@@ -494,41 +504,41 @@
             <div class="summary-card">
                 <div class="icon">👥</div>
                 <div class="value" id="totalStudents">-</div>
-                <div class="label">Total Students</div>
+                <div class="label" data-i18n="correlation.summary_students">Total Students</div>
             </div>
             <div class="summary-card success">
                 <div class="icon">📤</div>
                 <div class="value" id="totalGiven">-</div>
-                <div class="label">Total Reviews Given</div>
+                <div class="label" data-i18n="graph.reviews_given">Total Reviews Given</div>
             </div>
             <div class="summary-card info">
                 <div class="icon">📥</div>
                 <div class="value" id="totalReceived">-</div>
-                <div class="label">Total Reviews Received</div>
+                <div class="label" data-i18n="graph.reviews_received">Total Reviews Received</div>
             </div>
             <div class="summary-card warning">
                 <div class="icon">✍️</div>
                 <div class="value" id="activeReviewers">-</div>
-                <div class="label">Active Reviewers</div>
+                <div class="label" data-i18n="correlation.active_reviewers">Active Reviewers</div>
             </div>
         </div>
         
         <!-- Correlation by Quality Type -->
         <div class="section">
             <div class="section-title">
-                🎯 Correlation by Quality Type (All HW)
+                🎯 <span data-i18n="correlation.quality_overview">Correlation by Quality Type (All HW)</span>
             </div>
             <div class="chart-grid-3">
                 <div class="chart-box relevance">
-                    <h3>📙 Relevance vs Score</h3>
+                    <h3>📙 <span data-i18n="graph.relevance">Relevance</span> <span data-i18n="correlation.vs_score">vs Score</span></h3>
                     <canvas id="relevanceCorrelationChart"></canvas>
                 </div>
                 <div class="chart-box concreteness">
-                    <h3>📗 Concreteness vs Score</h3>
+                    <h3>📗 <span data-i18n="graph.concreteness">Concreteness</span> <span data-i18n="correlation.vs_score">vs Score</span></h3>
                     <canvas id="concretenessCorrelationChart"></canvas>
                 </div>
                 <div class="chart-box constructive">
-                    <h3>📕 Constructiveness vs Score</h3>
+                    <h3>📕 <span data-i18n="graph.constructiveness">Constructiveness</span> <span data-i18n="correlation.vs_score">vs Score</span></h3>
                     <canvas id="constructiveCorrelationChart"></canvas>
                 </div>
             </div>
@@ -537,7 +547,7 @@
         <!-- HW-specific Analysis -->
         <div class="section">
             <div class="section-title">
-                📈 Score vs Review Quality by Homework
+                📈 <span data-i18n="correlation.student_comparison">Score vs Review Quality by Homework</span>
             </div>
             
             <div class="hw-tabs" id="hwTabs">
@@ -556,15 +566,15 @@
             
             <div class="chart-grid-3">
                 <div class="chart-box relevance">
-                    <h3>Score vs Relevance %</h3>
+                    <h3><span data-i18n="correlation.table_avg_score">Score</span> vs <span data-i18n="graph.relevance">Relevance</span> %</h3>
                     <canvas id="hwRelevanceChart"></canvas>
                 </div>
                 <div class="chart-box concreteness">
-                    <h3>Score vs Concreteness %</h3>
+                    <h3><span data-i18n="correlation.table_avg_score">Score</span> vs <span data-i18n="graph.concreteness">Concreteness</span> %</h3>
                     <canvas id="hwConcretenessChart"></canvas>
                 </div>
                 <div class="chart-box constructive">
-                    <h3>Score vs Constructiveness %</h3>
+                    <h3><span data-i18n="correlation.table_avg_score">Score</span> vs <span data-i18n="graph.constructiveness">Constructiveness</span> %</h3>
                     <canvas id="hwConstructiveChart"></canvas>
                 </div>
             </div>
@@ -573,15 +583,15 @@
         <!-- Pearson Correlation Summary -->
         <div class="section">
             <div class="section-title">
-                🔗 Pearson Correlation Coefficients by Homework
+                🔗 <span data-i18n="correlation.pearson_title">Pearson Correlation Coefficients by Homework</span>
             </div>
             <div class="chart-container">
                 <div class="chart-box">
-                    <h3>Score vs Reviews Given (r)</h3>
+                    <h3 data-i18n="correlation.score_vs_given">Score vs Reviews Given (r)</h3>
                     <canvas id="correlationGivenChart"></canvas>
                 </div>
                 <div class="chart-box">
-                    <h3>Score vs Quality Labels (r)</h3>
+                    <h3 data-i18n="correlation.score_vs_quality">Score vs Quality Labels (r)</h3>
                     <canvas id="correlationQualityChart"></canvas>
                 </div>
             </div>
@@ -590,20 +600,20 @@
         <!-- Student Detail Table -->
         <div class="section">
             <div class="section-title">
-                📋 Student Details (Click row to see correlation)
+                📋 <span data-i18n="correlation.student_details">Student Details (Click row to see correlation)</span>
             </div>
             <div class="student-table-container">
                 <table class="student-table" id="studentTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Avg Score</th>
-                            <th>Reviews</th>
-                            <th>Relevance</th>
-                            <th>Concreteness</th>
-                            <th>Constructiveness</th>
-                            <th>Quality</th>
+                            <th data-i18n="correlation.table_id">ID</th>
+                            <th data-i18n="correlation.table_name">Name</th>
+                            <th data-i18n="correlation.table_avg_score">Avg Score</th>
+                            <th data-i18n="correlation.table_reviews">Reviews</th>
+                            <th data-i18n="correlation.table_relevance">Relevance</th>
+                            <th data-i18n="correlation.table_concreteness">Concreteness</th>
+                            <th data-i18n="correlation.table_constructiveness">Constructiveness</th>
+                            <th data-i18n="correlation.table_quality">Quality</th>
                         </tr>
                     </thead>
                     <tbody id="studentTableBody">
@@ -618,7 +628,7 @@
     <div class="student-modal" id="studentModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalStudentName">Student Details</h2>
+                <h2 id="modalStudentName" data-i18n="correlation.modal_title">Student Details</h2>
                 <button class="modal-close" onclick="closeStudentModal()">×</button>
             </div>
             <div class="modal-body">
@@ -627,11 +637,11 @@
                 </div>
                 <div class="student-charts">
                     <div class="student-chart-box">
-                        <h4>HW Score vs Quality by Assignment</h4>
+                        <h4 data-i18n="correlation.hw_score_vs_quality">HW Score vs Quality by Assignment</h4>
                         <canvas id="studentScoreChart"></canvas>
                     </div>
                     <div class="student-chart-box">
-                        <h4>Quality Labels Distribution</h4>
+                        <h4 data-i18n="correlation.quality_distribution">Quality Labels Distribution</h4>
                         <canvas id="studentQualityChart"></canvas>
                     </div>
                 </div>
@@ -679,17 +689,17 @@
                 
             } catch (error) {
                 console.error('Error loading analysis:', error);
-                showError('Failed to load analysis data. Please ensure the pipeline has been run and score data is available.');
+                showError(i18n.t('correlation.error_load_failed'));
             }
         }
         
         function showError(message) {
             document.querySelector('.container').innerHTML = `
                 <div class="error-message">
-                    <h3>⚠️ Error</h3>
+                    <h3>⚠️ ${i18n.t('correlation.error_title')}</h3>
                     <p>${message}</p>
                     <p style="margin-top: 15px;">
-                        <a href="/" style="color: #721c24;">Go to Pipeline →</a>
+                        <a href="/" style="color: #721c24;">${i18n.t('correlation.go_to_pipeline')}</a>
                     </p>
                 </div>
             `;
@@ -728,11 +738,11 @@
         
         function getCorrelationLabel(r) {
             const abs = Math.abs(r);
-            if (abs < 0.1) return 'Very Weak';
-            if (abs < 0.3) return 'Weak';
-            if (abs < 0.5) return 'Moderate';
-            if (abs < 0.7) return 'Strong';
-            return 'Very Strong';
+            if (abs < 0.1) return i18n.t('correlation.very_weak');
+            if (abs < 0.3) return i18n.t('correlation.weak');
+            if (abs < 0.5) return i18n.t('correlation.moderate');
+            if (abs < 0.7) return i18n.t('correlation.strong');
+            return i18n.t('correlation.very_strong');
         }
         
         function renderHWStats(hw) {
@@ -746,25 +756,27 @@
             document.getElementById('hwStats').innerHTML = `
                 <div class="stat-item">
                     <div class="value">${hwData.stats.avg_score}</div>
-                    <div class="label">Avg Score</div>
+                    <div class="label" data-i18n="correlation.stat_avg_score">Avg Score</div>
                 </div>
                 <div class="stat-item">
                     <div class="value">${hwData.stats.avg_given}</div>
-                    <div class="label">Avg Given</div>
+                    <div class="label" data-i18n="correlation.stat_avg_given">Avg Given</div>
                 </div>
                 <div class="stat-item relevance">
                     <div class="value">${corrRelevance.toFixed(3)}</div>
-                    <div class="label">r (Relevance)</div>
+                    <div class="label" data-i18n="correlation.stat_r_relevance">r (Relevance)</div>
                 </div>
                 <div class="stat-item concreteness">
                     <div class="value">${corrConcreteness.toFixed(3)}</div>
-                    <div class="label">r (Concreteness)</div>
+                    <div class="label" data-i18n="correlation.stat_r_concreteness">r (Concreteness)</div>
                 </div>
                 <div class="stat-item constructive">
                     <div class="value">${corrConstructive.toFixed(3)}</div>
-                    <div class="label">r (Constructiveness)</div>
+                    <div class="label" data-i18n="correlation.stat_r_constructive">r (Constructiveness)</div>
                 </div>
             `;
+            // Apply translations to newly added elements
+            i18n.applyTranslations();
         }
         
         function renderQualityCorrelationCharts() {
@@ -782,7 +794,7 @@
                 data: {
                     labels: hwList,
                     datasets: [{
-                        label: 'Relevance r',
+                        label: i18n.t('correlation.chart_relevance_r'),
                         data: relevanceCorr,
                         backgroundColor: 'rgba(255, 193, 7, 0.7)',
                         borderColor: '#ffc107',
@@ -803,7 +815,7 @@
                 data: {
                     labels: hwList,
                     datasets: [{
-                        label: 'Concreteness r',
+                        label: i18n.t('correlation.chart_concreteness_r'),
                         data: concretenessCorr,
                         backgroundColor: 'rgba(40, 167, 69, 0.7)',
                         borderColor: '#28a745',
@@ -824,7 +836,7 @@
                 data: {
                     labels: hwList,
                     datasets: [{
-                        label: 'Constructiveness r',
+                        label: i18n.t('correlation.chart_constructive_r'),
                         data: constructiveCorr,
                         backgroundColor: 'rgba(148, 68, 202, 0.7)',
                         borderColor: '#9444ca',
@@ -851,7 +863,7 @@
                 type: 'scatter',
                 data: {
                     datasets: [{
-                        label: 'Students',
+                        label: i18n.t('correlation.chart_students'),
                         data: dataPoints.map(d => ({ x: d.hw_score, y: d.relevance_score || 0 })),
                         backgroundColor: 'rgba(255, 193, 7, 0.6)',
                         borderColor: '#ffc107',
@@ -866,14 +878,14 @@
                             callbacks: {
                                 label: (ctx) => {
                                     const p = dataPoints[ctx.dataIndex];
-                                    return `${p.name}: Score=${p.hw_score}, Rel=${p.relevance_score || 0}%`;
+                                    return `${p.name}: ${i18n.t('correlation.tooltip_score')}=${p.hw_score}, ${i18n.t('correlation.tooltip_relevance')}=${p.relevance_score || 0}%`;
                                 }
                             }
                         }
                     },
                     scales: {
-                        x: { title: { display: true, text: 'HW Score' }, min: 0, max: 100 },
-                        y: { title: { display: true, text: 'Relevance %' }, min: 0, max: 100 }
+                        x: { title: { display: true, text: i18n.t('correlation.chart_hw_score') }, min: 0, max: 100 },
+                        y: { title: { display: true, text: `${i18n.t('graph.relevance')} %` }, min: 0, max: 100 }
                     }
                 }
             });
@@ -884,7 +896,7 @@
                 type: 'scatter',
                 data: {
                     datasets: [{
-                        label: 'Students',
+                        label: i18n.t('correlation.chart_students'),
                         data: dataPoints.map(d => ({ x: d.hw_score, y: d.concreteness_score || 0 })),
                         backgroundColor: 'rgba(40, 167, 69, 0.6)',
                         borderColor: '#28a745',
@@ -899,14 +911,14 @@
                             callbacks: {
                                 label: (ctx) => {
                                     const p = dataPoints[ctx.dataIndex];
-                                    return `${p.name}: Score=${p.hw_score}, Con=${p.concreteness_score || 0}%`;
+                                    return `${p.name}: ${i18n.t('correlation.tooltip_score')}=${p.hw_score}, ${i18n.t('correlation.tooltip_concreteness')}=${p.concreteness_score || 0}%`;
                                 }
                             }
                         }
                     },
                     scales: {
-                        x: { title: { display: true, text: 'HW Score' }, min: 0, max: 100 },
-                        y: { title: { display: true, text: 'Concreteness %' }, min: 0, max: 100 }
+                        x: { title: { display: true, text: i18n.t('correlation.chart_hw_score') }, min: 0, max: 100 },
+                        y: { title: { display: true, text: `${i18n.t('graph.concreteness')} %` }, min: 0, max: 100 }
                     }
                 }
             });
@@ -917,7 +929,7 @@
                 type: 'scatter',
                 data: {
                     datasets: [{
-                        label: 'Students',
+                        label: i18n.t('correlation.chart_students'),
                         data: dataPoints.map(d => ({ x: d.hw_score, y: d.constructive_score || 0 })),
                         backgroundColor: 'rgba(148, 68, 202, 0.6)',
                         borderColor: '#9444ca',
@@ -932,14 +944,14 @@
                             callbacks: {
                                 label: (ctx) => {
                                     const p = dataPoints[ctx.dataIndex];
-                                    return `${p.name}: Score=${p.hw_score}, Const=${p.constructive_score || 0}%`;
+                                    return `${p.name}: ${i18n.t('correlation.tooltip_score')}=${p.hw_score}, ${i18n.t('correlation.tooltip_constructiveness')}=${p.constructive_score || 0}%`;
                                 }
                             }
                         }
                     },
                     scales: {
-                        x: { title: { display: true, text: 'HW Score' }, min: 0, max: 100 },
-                        y: { title: { display: true, text: 'Constructiveness %' }, min: 0, max: 100 }
+                        x: { title: { display: true, text: i18n.t('correlation.chart_hw_score') }, min: 0, max: 100 },
+                        y: { title: { display: true, text: `${i18n.t('graph.constructiveness')} %` }, min: 0, max: 100 }
                     }
                 }
             });
@@ -958,7 +970,7 @@
                 data: {
                     labels: hwList,
                     datasets: [{
-                        label: 'Score vs Given (r)',
+                        label: i18n.t('correlation.chart_score_vs_given'),
                         data: givenCorr,
                         backgroundColor: givenCorr.map(r => r >= 0 ? 'rgba(102, 126, 234, 0.7)' : 'rgba(220, 53, 69, 0.7)'),
                         borderColor: givenCorr.map(r => r >= 0 ? '#667eea' : '#dc3545'),
@@ -968,7 +980,7 @@
                 options: {
                     responsive: true,
                     plugins: { legend: { display: false } },
-                    scales: { y: { min: -1, max: 1, title: { display: true, text: 'Correlation (r)' } } }
+                    scales: { y: { min: -1, max: 1, title: { display: true, text: i18n.t('correlation.chart_correlation_r') } } }
                 }
             });
             
@@ -980,21 +992,21 @@
                     labels: hwList,
                     datasets: [
                         {
-                            label: 'Relevance',
+                            label: i18n.t('graph.relevance'),
                             data: hwList.map(hw => correlations[hw]?.correlation_relevance || 0),
                             backgroundColor: 'rgba(255, 193, 7, 0.7)',
                             borderColor: '#ffc107',
                             borderWidth: 1
                         },
                         {
-                            label: 'Concreteness',
+                            label: i18n.t('graph.concreteness'),
                             data: hwList.map(hw => correlations[hw]?.correlation_concreteness || 0),
                             backgroundColor: 'rgba(40, 167, 69, 0.7)',
                             borderColor: '#28a745',
                             borderWidth: 1
                         },
                         {
-                            label: 'Constructiveness',
+                            label: i18n.t('graph.constructiveness'),
                             data: hwList.map(hw => correlations[hw]?.correlation_constructive || 0),
                             backgroundColor: 'rgba(148, 68, 202, 0.7)',
                             borderColor: '#9444ca',
@@ -1005,7 +1017,7 @@
                 options: {
                     responsive: true,
                     plugins: { legend: { position: 'top' } },
-                    scales: { y: { min: -1, max: 1, title: { display: true, text: 'Correlation (r)' } } }
+                    scales: { y: { min: -1, max: 1, title: { display: true, text: i18n.t('correlation.chart_correlation_r') } } }
                 }
             });
         }
@@ -1047,27 +1059,27 @@
             document.getElementById('studentOverview').innerHTML = `
                 <div class="overview-item">
                     <div class="value">${student.avg_hw_score}</div>
-                    <div class="label">Avg HW Score</div>
+                    <div class="label">${i18n.t('correlation.modal_avg_hw_score')}</div>
                 </div>
                 <div class="overview-item">
                     <div class="value">${student.reviews_given}</div>
-                    <div class="label">Reviews Given</div>
+                    <div class="label">${i18n.t('correlation.modal_reviews_given')}</div>
                 </div>
                 <div class="overview-item relevance">
                     <div class="value">${student.relevance_score || 0}%</div>
-                    <div class="label">Relevance</div>
+                    <div class="label">${i18n.t('graph.relevance')}</div>
                 </div>
                 <div class="overview-item concreteness">
                     <div class="value">${student.concreteness_score || 0}%</div>
-                    <div class="label">Concreteness</div>
+                    <div class="label">${i18n.t('graph.concreteness')}</div>
                 </div>
                 <div class="overview-item constructive">
                     <div class="value">${student.constructive_score || 0}%</div>
-                    <div class="label">Constructiveness</div>
+                    <div class="label">${i18n.t('graph.constructiveness')}</div>
                 </div>
                 <div class="overview-item">
                     <div class="value">${student.quality_score}%</div>
-                    <div class="label">Overall Quality</div>
+                    <div class="label">${i18n.t('correlation.modal_overall_quality')}</div>
                 </div>
             `;
             
@@ -1094,7 +1106,7 @@
                     labels: hwList,
                     datasets: [
                         {
-                            label: 'HW Score',
+                            label: i18n.t('correlation.chart_hw_score'),
                             data: hwScores,
                             borderColor: '#667eea',
                             backgroundColor: 'rgba(102, 126, 234, 0.1)',
@@ -1103,7 +1115,7 @@
                             yAxisID: 'y'
                         },
                         {
-                            label: 'Quality %',
+                            label: i18n.t('correlation.chart_quality_percent'),
                             data: hwQuality,
                             borderColor: '#28a745',
                             backgroundColor: 'transparent',
@@ -1117,8 +1129,8 @@
                     responsive: true,
                     interaction: { mode: 'index', intersect: false },
                     scales: {
-                        y: { type: 'linear', position: 'left', min: 0, max: 100, title: { display: true, text: 'Score' } },
-                        y1: { type: 'linear', position: 'right', min: 0, max: 100, title: { display: true, text: 'Quality %' }, grid: { drawOnChartArea: false } }
+                        y: { type: 'linear', position: 'left', min: 0, max: 100, title: { display: true, text: i18n.t('correlation.chart_score') } },
+                        y1: { type: 'linear', position: 'right', min: 0, max: 100, title: { display: true, text: i18n.t('correlation.chart_quality') }, grid: { drawOnChartArea: false } }
                     }
                 }
             });
@@ -1131,21 +1143,21 @@
                     labels: hwList,
                     datasets: [
                         {
-                            label: 'Relevance',
+                            label: i18n.t('graph.relevance'),
                             data: hwRelevance,
                             borderColor: '#ffc107',
                             backgroundColor: 'rgba(255, 193, 7, 0.2)',
                             pointBackgroundColor: '#ffc107'
                         },
                         {
-                            label: 'Concreteness',
+                            label: i18n.t('graph.concreteness'),
                             data: hwConcreteness,
                             borderColor: '#28a745',
                             backgroundColor: 'rgba(40, 167, 69, 0.2)',
                             pointBackgroundColor: '#28a745'
                         },
                         {
-                            label: 'Constructiveness',
+                            label: i18n.t('graph.constructiveness'),
                             data: hwConstructive,
                             borderColor: '#9444ca',
                             backgroundColor: 'rgba(148, 68, 202, 0.2)',

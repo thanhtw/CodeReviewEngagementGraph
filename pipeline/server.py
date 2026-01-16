@@ -26,6 +26,7 @@ import threading
 from csv_converter import convert_csv_to_json
 from data_organizer import organize_json_file
 from ml_inference import run_inference_simple, run_inference_with_model
+from i18n_helper import get_all_translations, get_available_locales
 
 # Paths
 PIPELINE_DIR = Path(__file__).parent.absolute()
@@ -224,6 +225,20 @@ class PipelineHandler(SimpleHTTPRequestHandler):
             self.handle_logout()
             return
         
+        # Translations API (no auth required)
+        if path == '/api/translations':
+            self.serve_translations()
+            return
+        
+        if path == '/api/locales':
+            self.send_json_response({"locales": get_available_locales()})
+            return
+        
+        # Static files - serve without auth (needed for login/register pages)
+        if path.startswith('/static/'):
+            self.serve_static_file(path[8:])
+            return
+        
         # Protected routes (auth required)
         user = self.get_current_user()
         if not user:
@@ -252,8 +267,6 @@ class PipelineHandler(SimpleHTTPRequestHandler):
             self.serve_status(user)
         elif path == '/result':
             self.serve_result(user)
-        elif path.startswith('/static/'):
-            self.serve_static_file(path[8:])
         elif path.startswith('../static/'):
             self.serve_static_file(path[10:])
         elif path.startswith('/function/'):
@@ -436,6 +449,15 @@ class PipelineHandler(SimpleHTTPRequestHandler):
             })
         else:
             self.send_json_response({"logged_in": False})
+    
+    def serve_translations(self):
+        """Serve translations for a specific locale."""
+        parsed_path = urlparse(self.path)
+        query_params = parse_qs(parsed_path.query)
+        locale = query_params.get('locale', ['en'])[0]
+        
+        translations = get_all_translations(locale)
+        self.send_json_response(translations)
     
     def serve_index(self):
         """Serve the main HTML page."""
@@ -742,8 +764,7 @@ def run_pipeline_async(user_id: str, filename: str, use_ml: bool, hw_start: int,
             if analysis_report and 'error' not in analysis_report:
                 step4_stats = {
                     "total_students": analysis_report.get('summary', {}).get('total_students', 0),
-                    "total_reviews": analysis_report.get('summary', {}).get('total_reviews_given', 0),
-                    "analysis_file": str(output_dir / "score_review_analysis.json")
+                    "total_reviews": analysis_report.get('summary', {}).get('total_reviews_given', 0)
                 }
                 print(f"[{user_id}] Analysis completed: {step4_stats['total_students']} students, {step4_stats['total_reviews']} reviews")
             else:

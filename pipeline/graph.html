@@ -6,6 +6,8 @@
     <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="./static/graph.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- i18n: Translations loaded from /api/translations -->
+    <script src="/static/i18n.js"></script>
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@latest"></script>
@@ -101,19 +103,25 @@
         }
     </style>
 </head>
-<body>
+<body data-i18n-page-title="graph.title">
   <!-- Header -->
   <div class="pipeline-header">
-    <h1>📊 Peer Review Quality Analysis Dashboard</h1>
+    <h1>📊 <span data-i18n="graph.title">Peer Review Quality Analysis Dashboard</span></h1>
     <div style="display: flex; gap: 10px; align-items: center;">
-      <span id="userDisplay" style="font-size: 0.9em; opacity: 0.9;">👤 Loading...</span>
-      <a href="/correlation" style="background: rgba(40, 167, 69, 0.8);">📊 Score Analysis</a>
-      <a href="/">← Pipeline</a>
-      <a href="#" onclick="logout(); return false;" style="background: rgba(255,50,50,0.7);">🚪 Logout</a>
+      <span id="userDisplay" style="font-size: 0.9em; opacity: 0.9;">👤 <span data-i18n="common.loading">Loading...</span></span>
+      <div id="langSwitcher"></div>
+      <a href="/correlation" style="background: rgba(40, 167, 69, 0.8);">📊 <span data-i18n="graph.score_analysis">Score Analysis</span></a>
+      <a href="/">← <span data-i18n="graph.pipeline">Pipeline</span></a>
+      <a href="#" onclick="logout(); return false;" style="background: rgba(255,50,50,0.7);">🚪 <span data-i18n="common.logout">Logout</span></a>
     </div>
   </div>
   
   <script>
+    // Initialize language switcher
+    document.addEventListener('DOMContentLoaded', function() {
+      i18n.createLanguageSwitcher('langSwitcher', { style: 'dropdown', showFlags: true, showNames: true });
+    });
+
     // Check authentication and load user info
     async function checkAuth() {
       try {
@@ -143,7 +151,7 @@
   
   <!-- Data Status -->
   <div class="data-info" id="data-info">
-    <span id="loading-text">⏳ Loading data...</span>
+    <span id="loading-text">⏳ <span data-i18n="graph.loading_data">Loading data...</span></span>
     <div id="loading-progress" style="display:none; margin-top:8px;">
       <div style="width:100%; height:6px; background:#e0e0e0; border-radius:3px; overflow:hidden;">
         <div id="progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg, #667eea, #764ba2); transition:width 0.3s;"></div>
@@ -154,35 +162,34 @@
   <h1 style="display:none;">Review Engagement Graph</h1>
   
   <!-- Section: Network Graph -->
-  <h2 class="section-title">🔗 Review Engagement Network</h2>
+  <h2 class="section-title">🔗 <span data-i18n="graph.network_title">Review Engagement Network</span></h2>
   <div class="section-description">
-    <strong>Network Visualization:</strong> Each node represents a student reviewer. 
-    Arrows indicate review relationships (reviewer → author).<br>
-    <strong>Node Size:</strong> Review participation rate (completed assignments / assigned assignments).<br>
-    <strong>Node Color:</strong> Quality score intensity based on the selected metric below.
+    <strong><span data-i18n="graph.network_desc">Network Visualization:</span></strong> <span data-i18n="graph.network_desc_detail">Each node represents a student reviewer. Arrows indicate review relationships (reviewer → author).</span><br>
+    <strong><span data-i18n="graph.node_size">Node Size:</span></strong> <span data-i18n="graph.node_size_detail">Review participation rate (completed assignments / assigned assignments).</span><br>
+    <strong><span data-i18n="graph.node_color">Node Color:</span></strong> <span data-i18n="graph.node_color_detail">Quality score intensity based on the selected metric below.</span>
   </div>
   
   <!-- Mode Switch Buttons -->
   <div class="switch-bar">
-    <button class="switch-btn active" onclick="window.updateGraphMode('all')">All Metrics</button>
-    <button class="switch-btn" onclick="window.updateGraphMode('relevance')">Relevance</button>
-    <button class="switch-btn" onclick="window.updateGraphMode('concreteness')">Concreteness</button>
-    <button class="switch-btn" onclick="window.updateGraphMode('constructive')">Constructiveness</button>
+    <button class="switch-btn active" onclick="window.updateGraphMode('all')" data-i18n="graph.all_metrics">All Metrics</button>
+    <button class="switch-btn" onclick="window.updateGraphMode('relevance')" data-i18n="graph.relevance">Relevance</button>
+    <button class="switch-btn" onclick="window.updateGraphMode('concreteness')" data-i18n="graph.concreteness">Concreteness</button>
+    <button class="switch-btn" onclick="window.updateGraphMode('constructive')" data-i18n="graph.constructiveness">Constructiveness</button>
   </div>
 
   <!-- Legend -->
   <div class="legend-box">
-    <div class="legend-item"><div class="legend-color" style="background:#73BEFF"></div> Complete (≥3 rounds)</div>
-    <div class="legend-item"><div class="legend-color" style="background:#ff6b6b; border-style:dashed"></div> Incomplete (&lt;3 rounds)</div>
-    <div class="legend-item"><span style="font-size:1.2em">●</span> Large = High participation</div>
-    <div class="legend-item"><span style="opacity:0.3">●</span> Light = Low score | <span style="opacity:1">●</span> Dark = High score</div>
+    <div class="legend-item"><div class="legend-color" style="background:#73BEFF"></div> <span data-i18n="graph.legend_complete">Complete (≥3 rounds)</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#ff6b6b; border-style:dashed"></div> <span data-i18n="graph.legend_incomplete">Incomplete (&lt;3 rounds)</span></div>
+    <div class="legend-item"><span style="font-size:1.2em">●</span> <span data-i18n="graph.legend_large">Large = High participation</span></div>
+    <div class="legend-item"><span style="opacity:0.3">●</span> <span data-i18n="graph.legend_light">Light = Low score</span> | <span style="opacity:1">●</span> <span data-i18n="graph.legend_dark">Dark = High score</span></div>
   </div>
 
   <!-- Main Graph and Control Panel -->
   <div id="review-graph-container">
     <div class="floating-panel">
-      <label for="hw-select" class="assignment-label">Assignment Filter</label>
-      <button id="hw-apply-btn">Apply</button>
+      <label for="hw-select" class="assignment-label" data-i18n="graph.assignment_filter">Assignment Filter</label>
+      <button id="hw-apply-btn" data-i18n="common.apply">Apply</button>
       <select id="hw-select" multiple size="5">
         <!-- Options will be dynamically generated by JavaScript -->
       </select>
@@ -191,31 +198,31 @@
   </div>
 
   <!-- Section: Student Review Summary -->
-  <h2 class="section-title">📝 Student Review Summary</h2>
+  <h2 class="section-title">📝 <span data-i18n="graph.student_summary">Student Review Summary</span></h2>
   <div class="section-description">
-    <strong>Review Summary:</strong> View each student's review activity organized by homework assignment.<br>
-    <strong>📤 Reviews Given:</strong> Comments this student wrote to review other students' work.<br>
-    <strong>📥 Reviews Received:</strong> Feedback this student received from peer reviewers.<br>
-    <strong>Quality Labels:</strong> 
-    <span class="label-tag relevance">R</span> Relevance | 
-    <span class="label-tag concreteness">C</span> Concreteness | 
-    <span class="label-tag constructive">S</span> Constructiveness
+    <strong><span data-i18n="graph.summary_desc">Review Summary:</span></strong> <span data-i18n="graph.summary_desc_detail">View each student's review activity organized by homework assignment.</span><br>
+    <strong>📤 <span data-i18n="graph.reviews_given">Reviews Given</span>:</strong> <span data-i18n="graph.reviews_given_desc">Comments this student wrote to review other students' work.</span><br>
+    <strong>📥 <span data-i18n="graph.reviews_received">Reviews Received</span>:</strong> <span data-i18n="graph.reviews_received_desc">Feedback this student received from peer reviewers.</span><br>
+    <strong><span data-i18n="graph.quality_labels">Quality Labels:</span></strong> 
+    <span class="label-tag relevance">R</span> <span data-i18n="graph.relevance">Relevance</span> | 
+    <span class="label-tag concreteness">C</span> <span data-i18n="graph.concreteness">Concreteness</span> | 
+    <span class="label-tag constructive">S</span> <span data-i18n="graph.constructiveness">Constructiveness</span>
   </div>
   
   <!-- Search and Filter Controls -->
   <div class="student-summary-section">
     <div class="summary-controls">
       <div class="search-box">
-        <input type="text" id="studentSearch" placeholder="Search student ID..." />
+        <input type="text" id="studentSearch" data-i18n-placeholder="graph.search_student" placeholder="Search student ID..." />
       </div>
       <div class="filter-group">
         <select id="hwFilter">
-          <option value="all">All Assignments</option>
+          <option value="all" data-i18n="graph.all_assignments">All Assignments</option>
         </select>
         <select id="sortBy">
-          <option value="name">Sort by Name</option>
-          <option value="reviews">Sort by Review Count</option>
-          <option value="participation">Sort by Participation Rate</option>
+          <option value="name" data-i18n="graph.sort_name">Sort by Name</option>
+          <option value="reviews" data-i18n="graph.sort_reviews">Sort by Review Count</option>
+          <option value="participation" data-i18n="graph.sort_participation">Sort by Participation Rate</option>
         </select>
       </div>
     </div>
@@ -225,22 +232,22 @@
       <div class="stat-card primary">
         <div class="stat-icon">👥</div>
         <div class="stat-value" id="totalStudents">0</div>
-        <div class="stat-label">Total Students</div>
+        <div class="stat-label" data-i18n="graph.total_students">Total Students</div>
       </div>
       <div class="stat-card success">
         <div class="stat-icon">📝</div>
         <div class="stat-value" id="totalReviews">0</div>
-        <div class="stat-label">Total Reviews</div>
+        <div class="stat-label" data-i18n="graph.total_reviews">Total Reviews</div>
       </div>
       <div class="stat-card info">
         <div class="stat-icon">📊</div>
         <div class="stat-value" id="avgParticipation">0%</div>
-        <div class="stat-label">Avg Participation</div>
+        <div class="stat-label" data-i18n="graph.avg_participation">Avg Participation</div>
       </div>
       <div class="stat-card warning">
         <div class="stat-icon">⭐</div>
         <div class="stat-value" id="avgQuality">0%</div>
-        <div class="stat-label">Avg Quality Score</div>
+        <div class="stat-label" data-i18n="graph.avg_quality">Avg Quality Score</div>
       </div>
     </div>
     
@@ -248,7 +255,7 @@
     <div class="student-summary-container" id="studentSummaryContainer">
       <div class="loading-placeholder" style="text-align: center; padding: 40px; color: #666;">
         <div style="font-size: 48px; margin-bottom: 15px;">⏳</div>
-        Loading student data...
+        <span data-i18n="graph.loading_students">Loading student data...</span>
       </div>
     </div>
   </div>
@@ -334,7 +341,7 @@
                 color: { background: color, border: color },
                 borderWidth: 0,
                 shape: "dot",
-                title: `Reviewer: ${n.id}\n${colorConfig[mode].title}: ${Math.round(score * 100)}%\nReview participation: ${Math.round(completionRate * 100)}%`
+                title: `${i18n.t('graph.tooltip_reviewer')}: ${n.id}\n${i18n.t('graph.color_title.' + mode)}: ${Math.round(score * 100)}%\n${i18n.t('graph.tooltip_review_participation_rate')}: ${Math.round(completionRate * 100)}%`
             };
         });
 
@@ -547,10 +554,11 @@
             container.innerHTML = `
                 <div class="empty-state">
                     <div class="icon">📭</div>
-                    <h3>No students found</h3>
-                    <p>Try adjusting your search or filter criteria.</p>
+                    <h3 data-i18n="graph.empty_title">No students found</h3>
+                    <p data-i18n="graph.empty_subtitle">Try adjusting your search or filter criteria.</p>
                 </div>
             `;
+            i18n.applyTranslations();
             return;
         }
         
@@ -572,21 +580,21 @@
                         <div class="student-info">
                             <h3>👤 ${student.id}</h3>
                             <div class="student-meta">
-                                📤 ${student.totalGiven} given | 📥 ${student.totalReceived} received
+                                📤 ${student.totalGiven} ${i18n.t('graph.given')} | 📥 ${student.totalReceived} ${i18n.t('graph.received')}
                             </div>
                         </div>
                         <div class="student-stats-mini">
                             <div class="mini-stat">
                                 <div class="value">${participationRate}%</div>
-                                <div class="label">Participation</div>
+                                <div class="label" data-i18n="graph.participation">Participation</div>
                             </div>
                             <div class="mini-stat given">
                                 <div class="value">${student.totalGiven}</div>
-                                <div class="label">Given</div>
+                                <div class="label" data-i18n="graph.given_label">Given</div>
                             </div>
                             <div class="mini-stat received">
                                 <div class="value">${student.totalReceived}</div>
-                                <div class="label">Received</div>
+                                <div class="label" data-i18n="graph.received_label">Received</div>
                             </div>
                         </div>
                     </div>
@@ -609,6 +617,9 @@
             `;
         }).join('');
         
+        // Apply translations to newly rendered content
+        i18n.applyTranslations();
+        
         // Add tab click events
         container.querySelectorAll('.hw-tab').forEach(tab => {
             tab.addEventListener('click', function() {
@@ -625,6 +636,7 @@
                     // Update content
                     const content = card.querySelector('.hw-review-content');
                     content.innerHTML = renderReviewsGivenReceived(student.reviewsGiven[hw] || [], student.reviewsReceived[hw] || []);
+                    i18n.applyTranslations();
                 }
             });
         });
@@ -637,26 +649,26 @@
                 <div class="reviews-panel given-panel">
                     <div class="panel-header">
                         <span class="panel-icon">📤</span>
-                        <span class="panel-title">Reviews Given</span>
+                        <span class="panel-title" data-i18n="graph.panel_reviews_given">Reviews Given</span>
                         <span class="panel-count">${given.length}</span>
                     </div>
                     <div class="reviews-list">
                         ${given.length === 0 ? `
                             <div class="no-reviews">
                                 <div class="icon">📝</div>
-                                <p>No reviews given</p>
+                                <p data-i18n="graph.no_reviews_given">No reviews given</p>
                             </div>
                         ` : given.map(review => {
                             let primaryLabel = '';
                             let labelClass = '';
-                            if (review.constructive === 1) { primaryLabel = 'Constructive'; labelClass = 'constructive'; }
-                            else if (review.relevance === 1) { primaryLabel = 'Relevance'; labelClass = 'relevance'; }
-                            else if (review.concreteness === 1) { primaryLabel = 'Concreteness'; labelClass = 'concreteness'; }
+                            if (review.constructive === 1) { primaryLabel = i18n.t('graph.constructive_label'); labelClass = 'constructive'; }
+                            else if (review.relevance === 1) { primaryLabel = i18n.t('graph.relevance_label'); labelClass = 'relevance'; }
+                            else if (review.concreteness === 1) { primaryLabel = i18n.t('graph.concreteness_label'); labelClass = 'concreteness'; }
                             
                             return `
                                 <div class="review-item ${labelClass}">
                                     <div class="review-header">
-                                        <span class="reviewer-info">➡️ To: ${review.to}</span>
+                                        <span class="reviewer-info">➡️ ${i18n.t('graph.review_to')}: ${review.to}</span>
                                         <div class="review-meta">
                                             ${primaryLabel ? `<span class="review-label ${labelClass}">${primaryLabel}</span>` : ''}
                                         </div>
@@ -671,26 +683,26 @@
                 <div class="reviews-panel received-panel">
                     <div class="panel-header">
                         <span class="panel-icon">📥</span>
-                        <span class="panel-title">Reviews Received</span>
+                        <span class="panel-title" data-i18n="graph.panel_reviews_received">Reviews Received</span>
                         <span class="panel-count">${received.length}</span>
                     </div>
                     <div class="reviews-list">
                         ${received.length === 0 ? `
                             <div class="no-reviews">
                                 <div class="icon">📬</div>
-                                <p>No reviews received</p>
+                                <p data-i18n="graph.no_reviews_received">No reviews received</p>
                             </div>
                         ` : received.map(review => {
                             let primaryLabel = '';
                             let labelClass = '';
-                            if (review.constructive === 1) { primaryLabel = 'Constructive'; labelClass = 'constructive'; }
-                            else if (review.relevance === 1) { primaryLabel = 'Relevance'; labelClass = 'relevance'; }
-                            else if (review.concreteness === 1) { primaryLabel = 'Concreteness'; labelClass = 'concreteness'; }
+                            if (review.constructive === 1) { primaryLabel = i18n.t('graph.constructive_label'); labelClass = 'constructive'; }
+                            else if (review.relevance === 1) { primaryLabel = i18n.t('graph.relevance_label'); labelClass = 'relevance'; }
+                            else if (review.concreteness === 1) { primaryLabel = i18n.t('graph.concreteness_label'); labelClass = 'concreteness'; }
                             
                             return `
                                 <div class="review-item ${labelClass}">
                                     <div class="review-header">
-                                        <span class="reviewer-info">⬅️ From: ${review.from}</span>
+                                        <span class="reviewer-info">⬅️ ${i18n.t('graph.review_from')}: ${review.from}</span>
                                         <div class="review-meta">
                                             ${primaryLabel ? `<span class="review-label ${labelClass}">${primaryLabel}</span>` : ''}
                                         </div>
@@ -776,20 +788,20 @@
         
         // Load summary data (fast) or fall back to full data
         async function loadData() {
-            updateProgress(10, '⏳ Checking for data...');
+            updateProgress(10, `⏳ ${i18n.t('graph.progress_checking')}`);
             
             // Try summary first (much faster - ~400KB vs 14MB)
             try {
-                updateProgress(20, '⏳ Loading summary data...');
+                updateProgress(20, `⏳ ${i18n.t('graph.progress_loading_summary')}`);
                 if (response.ok) {
-                    updateProgress(50, '⏳ Parsing summary...');
+                    updateProgress(50, `⏳ ${i18n.t('graph.progress_parsing_summary')}`);
                     const summaryData = await response.json();
                     console.log('✅ Loaded summary data (fast mode)');
-                    updateProgress(80, '⏳ Converting to display format...');
+                    updateProgress(80, `⏳ ${i18n.t('graph.progress_converting')}`);
                     
                     // Convert summary format to display format
                     const displayData = convertSummaryToDisplayFormat(summaryData);
-                    updateProgress(100, '✅ Ready!');
+                    updateProgress(100, `✅ ${i18n.t('graph.progress_ready')}`);
                     return { data: displayData, source: 'summary', summaryData };
                 }
             } catch (e) {
@@ -797,17 +809,17 @@
             }
             
             // Fall back to full data (slower)
-            updateProgress(30, '⏳ Loading full data (this may take a moment)...');
+            updateProgress(30, `⏳ ${i18n.t('graph.progress_loading_full')}`);
             const response = await fetch("./output/final_result.json");
             if (response.ok) {
-                updateProgress(60, '⏳ Parsing large JSON file...');
+                updateProgress(60, `⏳ ${i18n.t('graph.progress_parsing_large')}`);
                 const data = await response.json();
-                updateProgress(100, '✅ Ready!');
+                updateProgress(100, `✅ ${i18n.t('graph.progress_ready')}`);
                 console.log('✅ Loaded full data');
                 return { data, source: 'full' };
             }
             
-            throw new Error("No data source available");
+            throw new Error(i18n.t('graph.error_no_data_source'));
         }
         
         // Convert summary format to the format expected by visualization
@@ -954,11 +966,11 @@
                     });
                 }
                 
-                const sourceLabel = source === 'summary' ? '⚡ Fast Mode' : '📦 Full Data';
+                const sourceLabel = source === 'summary' ? `⚡ ${i18n.t('graph.data_fast_mode')}` : `📦 ${i18n.t('graph.data_full_mode')}`;
                 document.getElementById('data-info').innerHTML = 
-                    `✅ Loaded: <strong>${hwKeys.length}</strong> assignments | ` +
-                    `<strong>${totalAssignments}</strong> records | ` +
-                    `<strong>${totalFeedbacks.toLocaleString()}</strong> reviews (${sourceLabel})`;
+                    `✅ ${i18n.t('graph.data_loaded')}: <strong>${hwKeys.length}</strong> ${i18n.t('graph.data_assignments')} | ` +
+                    `<strong>${totalAssignments}</strong> ${i18n.t('graph.data_records')} | ` +
+                    `<strong>${totalFeedbacks.toLocaleString()}</strong> ${i18n.t('graph.data_reviews')} (${sourceLabel})`;
                 
                 currentHW = [...hwKeys];
                 
@@ -978,7 +990,7 @@
                 // Initialize homework filter dropdown
                 const hwFilter = document.getElementById('hwFilter');
                 if (hwFilter) {
-                    hwFilter.innerHTML = '<option value="all">All Assignments</option>';
+                    hwFilter.innerHTML = `<option value="all" data-i18n="graph.all_assignments">${i18n.t('graph.all_assignments')}</option>`;
                     hwKeys.forEach(hwKey => {
                         const option = document.createElement('option');
                         option.value = hwKey;
@@ -995,7 +1007,7 @@
             .catch(error => {
                 console.error("Failed to load JSON:", error);
                 document.getElementById('data-info').innerHTML = 
-                    `❌ No data available. <a href="/">Upload CSV and run pipeline</a>`;
+                    `❌ ${i18n.t('graph.error_no_data_source')}. <a href="/">Upload CSV and run pipeline</a>`;
             });
 
         // GO button event
@@ -1003,7 +1015,7 @@
             const select = document.getElementById('hw-select');
             const selectedHWs = Array.from(select.selectedOptions).map(opt => opt.value);
             if (selectedHWs.length === 0) {
-                alert("Please select at least one assignment!");
+                alert(i18n.t('graph.alert_select_assignment'));
                 return;
             }
             currentHW = [...selectedHWs];

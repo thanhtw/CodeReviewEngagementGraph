@@ -36,7 +36,7 @@ class BubbleChartManager {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Multi-Dimensional Review Quality Matrix',
+                        text: window.i18n?.t('chart.quality_matrix') || 'Multi-Dimensional Review Quality Matrix',
                         font: {
                             size: 18,
                             weight: 'bold'
@@ -52,20 +52,25 @@ class BubbleChartManager {
                             },
                             label: function(context) {
                                 const data = context.raw;
-                                const labelNames = ['Relevance', 'Concreteness', 'Constructive', 'Overall'];
+                                const labelNames = [
+                                    window.i18n?.t('graph.relevance') || 'Relevance', 
+                                    window.i18n?.t('graph.concreteness') || 'Concreteness', 
+                                    window.i18n?.t('graph.constructiveness') || 'Constructive', 
+                                    window.i18n?.t('chart.overall') || 'Overall'
+                                ];
                                 const labelName = labelNames[Math.round(data.x)];
                                 const percentage = (data.labelRatio * 100).toFixed(1);
                                 
                                 const percentageText = data.labelType === 3 
-                                    ? `${percentage}% (3-label average)` 
-                                    : `${percentage}%${data.labelRatio > 1 ? ' (multi-label review)' : ''}`;
+                                    ? `${percentage}% ${window.i18n?.t('chart.label_average') || '(3-label average)'}` 
+                                    : `${percentage}%${data.labelRatio > 1 ? ' ' + (window.i18n?.t('chart.multi_label') || '(multi-label review)') : ''}`;
                                 
                                 return [
-                                    `Quality Metric: ${labelName}`,
-                                    `Label Ratio: ${percentageText}`,
-                                    `Participation Rate: ${(data.reviewCompletionRate * 100).toFixed(1)}%`,
-                                    `Valid Reviews: ${data.validRounds || data.validComments || 0}`,
-                                    `Assigned Tasks: ${data.assignedTasks || 0}`
+                                    `${window.i18n?.t('chart.quality_metric') || 'Quality Metric'}: ${labelName}`,
+                                    `${window.i18n?.t('chart.label_ratio') || 'Label Ratio'}: ${percentageText}`,
+                                    `${window.i18n?.t('chart.participation_rate') || 'Participation Rate'}: ${(data.reviewCompletionRate * 100).toFixed(1)}%`,
+                                    `${window.i18n?.t('chart.valid_reviews') || 'Valid Reviews'}: ${data.validRounds || data.validComments || 0}`,
+                                    `${window.i18n?.t('chart.assigned_tasks') || 'Assigned Tasks'}: ${data.assignedTasks || 0}`
                                 ];
                             }
                         }
@@ -76,7 +81,7 @@ class BubbleChartManager {
                         display: true,
                         title: {
                             display: true,
-                            text: 'Quality Metrics'
+                            text: window.i18n?.t('chart.quality_metrics') || 'Quality Metrics'
                         },
                         min: -0.5,
                         max: 3.5,
@@ -85,7 +90,12 @@ class BubbleChartManager {
                             min: 0,
                             max: 3,
                             callback: function(value, index, values) {
-                                const labels = ['Relevance', 'Concreteness', 'Constructive', 'Overall'];
+                                const labels = [
+                                    window.i18n?.t('graph.relevance') || 'Relevance', 
+                                    window.i18n?.t('graph.concreteness') || 'Concreteness', 
+                                    window.i18n?.t('graph.constructiveness') || 'Constructive', 
+                                    window.i18n?.t('chart.overall') || 'Overall'
+                                ];
                                 const roundedValue = Math.round(value);
                                 if (roundedValue >= 0 && roundedValue < labels.length) {
                                     return labels[roundedValue];
@@ -98,7 +108,7 @@ class BubbleChartManager {
                         display: true,
                         title: {
                             display: true,
-                            text: 'Students'
+                            text: window.i18n?.t('chart.students') || 'Students'
                         },
                         min: -1.5,
                         max: 1.5,
@@ -146,28 +156,28 @@ class BubbleChartManager {
         // Create datasets for four quality indicators
         const datasets = [
             {
-                label: 'Relevance',
+                label: window.i18n?.t('graph.relevance') || 'Relevance',
                 data: bubbleData.filter(d => d.labelType === 0),
                 backgroundColor: bubbleData.filter(d => d.labelType === 0).map(d => d.color),
                 borderColor: bubbleData.filter(d => d.labelType === 0).map(d => d.borderColor),
                 borderWidth: 2
             },
             {
-                label: 'Concreteness',
+                label: window.i18n?.t('graph.concreteness') || 'Concreteness',
                 data: bubbleData.filter(d => d.labelType === 1),
                 backgroundColor: bubbleData.filter(d => d.labelType === 1).map(d => d.color),
                 borderColor: bubbleData.filter(d => d.labelType === 1).map(d => d.borderColor),
                 borderWidth: 2
             },
             {
-                label: 'Constructive',
+                label: window.i18n?.t('graph.constructiveness') || 'Constructive',
                 data: bubbleData.filter(d => d.labelType === 2),
                 backgroundColor: bubbleData.filter(d => d.labelType === 2).map(d => d.color),
                 borderColor: bubbleData.filter(d => d.labelType === 2).map(d => d.borderColor),
                 borderWidth: 2
             },
             {
-                label: 'Overall',
+                label: window.i18n?.t('chart.overall') || 'Overall',
                 data: bubbleData.filter(d => d.labelType === 3),
                 backgroundColor: bubbleData.filter(d => d.labelType === 3).map(d => d.color),
                 borderColor: bubbleData.filter(d => d.labelType === 3).map(d => d.borderColor),
@@ -176,7 +186,7 @@ class BubbleChartManager {
         ];
 
         this.chart.data.datasets = datasets;
-        this.chart.options.plugins.title.text = 'Multi-Dimensional Review Quality Matrix';
+        this.chart.options.plugins.title.text = window.i18n?.t('chart.quality_matrix') || 'Multi-Dimensional Review Quality Matrix';
         
         this.chart.update();
     }

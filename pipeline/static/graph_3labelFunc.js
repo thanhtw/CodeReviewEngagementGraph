@@ -123,7 +123,7 @@ function showStudentDetailsModal(stats) {
                 ${fb.time ? `<div class="feedback-time">📅 ${fb.time}</div>` : ''}
             </div>
         `).join('')
-        : '<div class="no-feedback">No feedback available</div>';
+        : `<div class="no-feedback">${window.i18n?.t('graph.modal_no_feedback') || 'No feedback available'}</div>`;
     
     const modal = document.createElement('div');
     modal.className = 'student-detail-modal';
@@ -135,11 +135,11 @@ function showStudentDetailsModal(stats) {
             </div>
             <div class="modal-body">
                 <div class="modal-section">
-                    <div class="section-title">📊 Review Statistics</div>
+                    <div class="section-title">📊 ${window.i18n?.t('graph.modal_review_stats') || 'Review Statistics'}</div>
                     <div class="detail-row clickable" id="valid-reviews-row">
                         <span class="detail-label">
-                            Valid Reviews:
-                            <span class="expand-hint">▼ click to view</span>
+                            ${window.i18n?.t('graph.modal_valid_reviews') || 'Valid Reviews:'}
+                            <span class="expand-hint">▼ ${window.i18n?.t('graph.modal_click_to_view') || '(Click node to view)'}</span>
                         </span>
                         <span class="detail-value">${stats.validReviews}</span>
                     </div>
@@ -147,39 +147,39 @@ function showStudentDetailsModal(stats) {
                         ${feedbackListHtml}
                     </div>
                     <div class="detail-row">
-                        <span class="detail-label">Completed Tasks:</span>
+                        <span class="detail-label">${window.i18n?.t('graph.modal_completed_tasks') || 'Completed Tasks:'}</span>
                         <span class="detail-value">${stats.completedTasks}</span>
                     </div>
                     <div class="detail-row">
-                        <span class="detail-label">Assigned Tasks:</span>
+                        <span class="detail-label">${window.i18n?.t('graph.modal_assigned_tasks') || 'Assigned Tasks:'}</span>
                         <span class="detail-value">${stats.assignedTasks}</span>
                     </div>
                     <div class="detail-row highlight">
-                        <span class="detail-label">Participation Rate:</span>
+                        <span class="detail-label">${window.i18n?.t('graph.modal_participation_rate') || 'Participation Rate:'}</span>
                         <span class="detail-value rate-badge ${stats.participationRate >= 0.8 ? 'rate-high' : stats.participationRate >= 0.5 ? 'rate-medium' : 'rate-low'}">${(stats.participationRate * 100).toFixed(1)}%</span>
                     </div>
                 </div>
                 
                 <div class="modal-section">
-                    <div class="section-title">🏷️ Quality Labels</div>
+                    <div class="section-title">🏷️ ${window.i18n?.t('graph.modal_quality_labels') || 'Quality Labels'}</div>
                     <div class="detail-row">
                         <span class="detail-label">
                             <span class="label-dot relevance"></span>
-                            Relevance:
+                            ${window.i18n?.t('graph.modal_relevance') || 'Relevance:'}
                         </span>
                         <span class="detail-value">${stats.relevanceCount} <span class="rate-text">(${relevanceRate}%)</span></span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">
                             <span class="label-dot concreteness"></span>
-                            Concreteness:
+                            ${window.i18n?.t('graph.modal_concreteness') || 'Concreteness:'}
                         </span>
                         <span class="detail-value">${stats.concretenessCount} <span class="rate-text">(${concretenessRate}%)</span></span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">
                             <span class="label-dot constructive"></span>
-                            Constructiveness:
+                            ${window.i18n?.t('graph.modal_constructiveness') || 'Constructiveness:'}
                         </span>
                         <span class="detail-value">${stats.constructiveCount} <span class="rate-text">(${constructiveRate}%)</span></span>
                     </div>

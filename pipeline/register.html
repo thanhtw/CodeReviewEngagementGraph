@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Review Analysis Pipeline</title>
+    <!-- i18n: Translations loaded from /api/translations -->
+    <script src="/static/i18n.js"></script>
     <style>
         * {
             margin: 0;
@@ -197,6 +199,13 @@
             font-size: 12px;
         }
 
+        /* Language switcher positioning */
+        .lang-switcher-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
         .password-requirements h5 {
             color: #333;
             margin-bottom: 8px;
@@ -219,72 +228,80 @@
         }
     </style>
 </head>
-<body>
+<body data-i18n-page-title="register.title">
+    <!-- Language Switcher -->
+    <div id="langSwitcher" class="lang-switcher-container"></div>
+
     <div class="register-container">
         <div class="register-header">
             <div class="logo">📊</div>
-            <h1>Create Account</h1>
-            <p>Register for Review Analysis Pipeline</p>
+            <h1 data-i18n="register.title">Create Account</h1>
+            <p data-i18n="register.subtitle">Register for Review Analysis Pipeline</p>
         </div>
 
         <div id="message" class="message"></div>
 
         <form id="registerForm">
             <div class="form-group">
-                <label for="name">Full Name *</label>
+                <label for="name" data-i18n="register.name.label">Full Name *</label>
                 <input type="text" id="name" name="name" required 
-                       placeholder="Enter your full name" autocomplete="name">
+                       data-i18n-placeholder="register.name.placeholder" placeholder="Enter your full name" autocomplete="name">
                 <div class="field-error" id="nameError"></div>
             </div>
 
             <div class="form-group">
-                <label for="username">Username *</label>
+                <label for="username" data-i18n="register.username.label">Username *</label>
                 <input type="text" id="username" name="username" required 
-                       placeholder="Choose a username" autocomplete="username">
-                <div class="hint">Username must be 3-20 characters (letters, numbers, underscore)</div>
+                       data-i18n-placeholder="register.username.placeholder" placeholder="Choose a username" autocomplete="username">
+                <div class="hint" data-i18n="register.username.hint">Username must be 3-20 characters (letters, numbers, underscore)</div>
                 <div class="field-error" id="usernameError"></div>
             </div>
 
             <div class="form-group">
-                <label for="email">Email (Optional)</label>
+                <label for="email" data-i18n="register.email.label">Email (Optional)</label>
                 <input type="email" id="email" name="email" 
-                       placeholder="Enter your email" autocomplete="email">
+                       data-i18n-placeholder="register.email.placeholder" placeholder="Enter your email" autocomplete="email">
                 <div class="field-error" id="emailError"></div>
             </div>
 
             <div class="form-group">
-                <label for="password">Password *</label>
+                <label for="password" data-i18n="register.password.label">Password *</label>
                 <input type="password" id="password" name="password" required 
-                       placeholder="Create a password" autocomplete="new-password">
+                       data-i18n-placeholder="register.password.placeholder" placeholder="Create a password" autocomplete="new-password">
                 <div class="field-error" id="passwordError"></div>
             </div>
 
             <div class="form-group">
-                <label for="confirmPassword">Confirm Password *</label>
+                <label for="confirmPassword" data-i18n="register.confirm_password.label">Confirm Password *</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required 
-                       placeholder="Confirm your password" autocomplete="new-password">
+                       data-i18n-placeholder="register.confirm_password.placeholder" placeholder="Confirm your password" autocomplete="new-password">
                 <div class="field-error" id="confirmPasswordError"></div>
             </div>
 
             <div class="password-requirements">
-                <h5>Password Requirements:</h5>
+                <h5 data-i18n="register.password_requirements">Password Requirements:</h5>
                 <ul>
-                    <li>At least 6 characters long</li>
-                    <li>Contains at least one letter</li>
+                    <li data-i18n="register.password_req_1">At least 6 characters long</li>
+                    <li data-i18n="register.password_req_2">Contains at least one letter</li>
                 </ul>
             </div>
 
-            <button type="submit" id="registerBtn" class="register-btn">
+            <button type="submit" id="registerBtn" class="register-btn" data-i18n="register.button">
                 Create Account
             </button>
         </form>
 
         <div class="login-link">
-            <p>Already have an account? <a href="/login">Sign In</a></p>
+            <p><span data-i18n="register.has_account">Already have an account?</span> <a href="/login" data-i18n="register.signin">Sign In</a></p>
         </div>
     </div>
 
     <script>
+        // Initialize language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            i18n.createLanguageSwitcher('langSwitcher', { style: 'dropdown', showFlags: true, showNames: true });
+        });
+
         document.getElementById('registerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -304,37 +321,37 @@
             
             // Validate name
             if (name.length < 2) {
-                showFieldError('name', 'Name must be at least 2 characters');
+                showFieldError('name', i18n.t('register.error.name_short'));
                 hasErrors = true;
             }
             
             // Validate username
             if (username.length < 3 || username.length > 20) {
-                showFieldError('username', 'Username must be 3-20 characters');
+                showFieldError('username', i18n.t('register.error.username_length'));
                 hasErrors = true;
             } else if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-                showFieldError('username', 'Username can only contain letters, numbers, and underscore');
+                showFieldError('username', i18n.t('register.error.username_invalid'));
                 hasErrors = true;
             }
             
             // Validate email (if provided)
             if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                showFieldError('email', 'Please enter a valid email address');
+                showFieldError('email', i18n.t('register.error.email_invalid'));
                 hasErrors = true;
             }
             
             // Validate password
             if (password.length < 6) {
-                showFieldError('password', 'Password must be at least 6 characters');
+                showFieldError('password', i18n.t('register.error.password_short'));
                 hasErrors = true;
             } else if (!/[a-zA-Z]/.test(password)) {
-                showFieldError('password', 'Password must contain at least one letter');
+                showFieldError('password', i18n.t('register.error.password_no_letter'));
                 hasErrors = true;
             }
             
             // Validate confirm password
             if (password !== confirmPassword) {
-                showFieldError('confirmPassword', 'Passwords do not match');
+                showFieldError('confirmPassword', i18n.t('register.error.password_mismatch'));
                 hasErrors = true;
             }
             
@@ -342,7 +359,7 @@
             
             // Show loading state
             registerBtn.disabled = true;
-            registerBtn.innerHTML = '<span class="spinner"></span> Creating Account...';
+            registerBtn.innerHTML = '<span class="spinner"></span> ' + i18n.t('register.creating');
             message.classList.remove('show', 'error', 'success');
             
             try {
@@ -357,7 +374,7 @@
                 const data = await response.json();
                 
                 if (data.success) {
-                    message.textContent = '✅ Account created successfully! Redirecting to login...';
+                    message.textContent = '✅ ' + i18n.t('register.success');
                     message.classList.remove('error');
                     message.classList.add('success', 'show');
                     
@@ -366,18 +383,18 @@
                         window.location.href = '/login';
                     }, 2000);
                 } else {
-                    message.textContent = data.message || 'Registration failed. Please try again.';
+                    message.textContent = data.message || i18n.t('login.error.connection');
                     message.classList.remove('success');
                     message.classList.add('error', 'show');
                     registerBtn.disabled = false;
-                    registerBtn.innerHTML = 'Create Account';
+                    registerBtn.innerHTML = i18n.t('register.button');
                 }
             } catch (error) {
-                message.textContent = 'Connection error. Please try again.';
+                message.textContent = i18n.t('login.error.connection');
                 message.classList.remove('success');
                 message.classList.add('error', 'show');
                 registerBtn.disabled = false;
-                registerBtn.innerHTML = 'Create Account';
+                registerBtn.innerHTML = i18n.t('register.button');
             }
         });
         

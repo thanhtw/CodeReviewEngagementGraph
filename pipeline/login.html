@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Review Analysis Pipeline</title>
+    <!-- i18n: Translations loaded from /api/translations -->
+    <script src="/static/i18n.js"></script>
     <style>
         * {
             margin: 0;
@@ -177,32 +179,42 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Language switcher positioning */
+        .lang-switcher-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
     </style>
 </head>
-<body>
+<body data-i18n-page-title="login.title">
+    <!-- Language Switcher -->
+    <div id="langSwitcher" class="lang-switcher-container"></div>
+
     <div class="login-container">
         <div class="login-header">
             <div class="logo">📊</div>
-            <h1>Review Analysis</h1>
-            <p>Peer Review Classification Pipeline</p>
+            <h1 data-i18n="login.title">Review Analysis</h1>
+            <p data-i18n="login.subtitle">Peer Review Classification Pipeline</p>
         </div>
 
         <div id="errorMessage" class="error-message"></div>
 
         <form id="loginForm">
             <div class="form-group">
-                <label for="username">Username</label>
+                <label for="username" data-i18n="login.username.label">Username</label>
                 <input type="text" id="username" name="username" required 
-                       placeholder="Enter your username" autocomplete="username">
+                       data-i18n-placeholder="login.username.placeholder" placeholder="Enter your username" autocomplete="username">
             </div>
 
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password" data-i18n="login.password.label">Password</label>
                 <input type="password" id="password" name="password" required 
-                       placeholder="Enter your password" autocomplete="current-password">
+                       data-i18n-placeholder="login.password.placeholder" placeholder="Enter your password" autocomplete="current-password">
             </div>
 
-            <button type="submit" id="loginBtn" class="login-btn">
+            <button type="submit" id="loginBtn" class="login-btn" data-i18n="login.button">
                 Sign In
             </button>
         </form>
@@ -214,13 +226,14 @@
         </div> -->
 
         <div class="register-link">
-            <p>Don't have an account? <a href="/register">Create Account</a></p>
+            <p><span data-i18n="login.no_account">Don't have an account?</span> <a href="/register" data-i18n="login.create_account">Create Account</a></p>
         </div>
     </div>
 
     <script>
-        // Check if already logged in
+        // Initialize language switcher
         document.addEventListener('DOMContentLoaded', function() {
+            i18n.createLanguageSwitcher('langSwitcher', { style: 'dropdown', showFlags: true, showNames: true });
             checkSession();
         });
 
@@ -249,7 +262,7 @@
             
             // Show loading state
             loginBtn.disabled = true;
-            loginBtn.innerHTML = '<span class="spinner"></span> Signing in...';
+            loginBtn.innerHTML = '<span class="spinner"></span> ' + i18n.t('login.signing_in');
             
             try {
                 const response = await fetch('/api/login', {
@@ -266,15 +279,15 @@
                     // Redirect to main page
                     window.location.href = '/';
                 } else {
-                    errorMessage.textContent = data.message || 'Invalid username or password';
+                    errorMessage.textContent = data.message || i18n.t('login.error.invalid');
                     errorMessage.classList.add('show');
                 }
             } catch (error) {
-                errorMessage.textContent = 'Connection error. Please try again.';
+                errorMessage.textContent = i18n.t('login.error.connection');
                 errorMessage.classList.add('show');
             } finally {
                 loginBtn.disabled = false;
-                loginBtn.innerHTML = 'Sign In';
+                loginBtn.innerHTML = i18n.t('login.button');
             }
         });
     </script>

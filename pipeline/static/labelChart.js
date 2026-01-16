@@ -440,15 +440,19 @@ export function calculateDetailedConditionalAnalysis(selectedData, labels) {
 // Generate analysis insights
 function generateInsights(analysis, stats) {
     const insights = [];
+    const t = (key, fallback) => window.i18n?.t(key) || fallback;
     
     const singleProb = analysis.singleConditions.constructive_given_relevance || 0;
     const doubleProb = analysis.doubleConditions.constructive_given_both_rel_conc || 0;
     
     if (doubleProb > singleProb) {
         const improvement = ((doubleProb - singleProb) / singleProb * 100).toFixed(1);
+        const relevance = t('graph.relevance', '相關性');
+        const concreteness = t('graph.concreteness', '具體性');
+        const constructiveness = t('graph.constructiveness', '建設性');
         insights.push({
             type: 'positive_correlation',
-            message: `當評論同時具有相關性和具體性時，出現建設性的機率為 ${(doubleProb * 100).toFixed(1)}%，比只有相關性時的 ${(singleProb * 100).toFixed(1)}% 提高了 ${improvement}%`,
+            message: `${t('chart.both_labels_insight', '當評論同時具有相關性和具體性時')}，${constructiveness}: ${(doubleProb * 100).toFixed(1)}% (vs ${(singleProb * 100).toFixed(1)}%) +${improvement}%`,
             strength: doubleProb > 0.7 ? 'strong' : doubleProb > 0.5 ? 'moderate' : 'weak'
         });
     }
@@ -458,13 +462,13 @@ function generateInsights(analysis, stats) {
     const concProb = analysis.singleConditions.constructive_given_concreteness || 0;
     
     if (Math.abs(relProb - concProb) > 0.1) {
-        const stronger = relProb > concProb ? '相關性' : '具體性';
+        const stronger = relProb > concProb ? t('graph.relevance', '相關性') : t('graph.concreteness', '具體性');
         const stronger_prob = Math.max(relProb, concProb);
         const weaker_prob = Math.min(relProb, concProb);
         
         insights.push({
             type: 'differential_impact',
-            message: `${stronger}對建設性的預測能力更強（${(stronger_prob * 100).toFixed(1)}% vs ${(weaker_prob * 100).toFixed(1)}%）`,
+            message: `${stronger} ${t('chart.stronger_prediction', '對建設性的預測能力更強')}（${(stronger_prob * 100).toFixed(1)}% vs ${(weaker_prob * 100).toFixed(1)}%）`,
             strength: 'informative'
         });
     }
@@ -488,12 +492,13 @@ export function renderAnalysisInsights(selectedData, labels) {
     }
     
     // 生成 HTML 內容
-    let html = '<h3>條件機率分析洞察</h3><div class="insights-content">';
+    const t = (key, fallback) => window.i18n?.t(key) || fallback;
+    let html = `<h3>${t('chart.insight_title', '條件機率分析洞察')}</h3><div class="insights-content">`;
     
     // 顯示詳細數據
     html += '<div class="stats-summary">';
-    html += `<p><strong>數據概覽：</strong>總評論數 ${stats.total}，`;
-    html += `相關性 ${stats.single.relevance}，具體性 ${stats.single.concreteness}，建設性 ${stats.single.constructive}</p>`;
+    html += `<p><strong>${t('chart.data_overview', '數據概覽')}：</strong>${t('chart.total_reviews', '總評論數')} ${stats.total}，`;
+    html += `${t('graph.relevance', '相關性')} ${stats.single.relevance}，${t('graph.concreteness', '具體性')} ${stats.single.concreteness}，${t('graph.constructiveness', '建設性')} ${stats.single.constructive}</p>`;
     html += '</div>';
     
     // 顯示洞察
@@ -508,11 +513,11 @@ export function renderAnalysisInsights(selectedData, labels) {
     
     // 顯示具體機率數值
     html += '<div class="detailed-probabilities">';
-    html += '<h4>詳細條件機率：</h4>';
+    html += `<h4>${t('chart.detailed_probabilities', '詳細條件機率')}：</h4>`;
     html += '<ul>';
-    html += `<li>P(建設性|相關性) = ${(analysis.singleConditions.constructive_given_relevance * 100).toFixed(1)}%</li>`;
-    html += `<li>P(建設性|具體性) = ${(analysis.singleConditions.constructive_given_concreteness * 100).toFixed(1)}%</li>`;
-    html += `<li>P(建設性|相關性且具體性) = ${(analysis.doubleConditions.constructive_given_both_rel_conc * 100).toFixed(1)}%</li>`;
+    html += `<li>${t('chart.prob_constructive_given_relevance', 'P(建設性|相關性)')} = ${(analysis.singleConditions.constructive_given_relevance * 100).toFixed(1)}%</li>`;
+    html += `<li>${t('chart.prob_constructive_given_concreteness', 'P(建設性|具體性)')} = ${(analysis.singleConditions.constructive_given_concreteness * 100).toFixed(1)}%</li>`;
+    html += `<li>P(${t('graph.constructiveness', '建設性')}|${t('graph.relevance', '相關性')}∧${t('graph.concreteness', '具體性')}) = ${(analysis.doubleConditions.constructive_given_both_rel_conc * 100).toFixed(1)}%</li>`;
     html += '</ul>';
     html += '</div>';
     

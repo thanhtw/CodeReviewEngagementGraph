@@ -36,6 +36,15 @@
       "email": "",
       "role": "user",
       "created_at": "2026-01-14 11:22:40"
+    },
+    {
+      "id": "th1",
+      "username": "th1",
+      "password": "th123456",
+      "name": "th",
+      "email": "th1@gmail.om",
+      "role": "user",
+      "created_at": "2026-01-15 16:55:25"
     }
   ]
 }

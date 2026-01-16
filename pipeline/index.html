@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Graph - Data Pipeline</title>
+    <!-- i18n: Translations loaded from /api/translations -->
+    <script src="/static/i18n.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -397,55 +399,58 @@
         }
     </style>
 </head>
-<body>
+<body data-i18n-page-title="dashboard.title">
     <div class="container">
         <!-- User Header -->
         <div class="user-header" id="userHeader">
             <div class="user-info">
                 <div class="user-avatar">👤</div>
                 <div class="user-details">
-                    <span class="user-name" id="userName">Loading...</span>
+                    <span class="user-name" id="userName" data-i18n="common.loading">Loading...</span>
                     <span class="user-role" id="userRole"></span>
                 </div>
             </div>
-            <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div id="langSwitcher"></div>
+                <button class="logout-btn" onclick="logout()">🚪 <span data-i18n="common.logout">Logout</span></button>
+            </div>
         </div>
         
-        <h1>📊 Review Graph Data Pipeline</h1>
+        <h1>📊 <span data-i18n="dashboard.title">Review Graph Data Pipeline</span></h1>
         
         <!-- Quick Access Buttons -->
         <div style="text-align: center; margin-bottom: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
             <a href="/graph.html" class="view-graph-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                📈 Graph Visualization
+                📈 <span data-i18n="dashboard.graph_visualization">Graph Visualization</span>
             </a>
             <a href="/correlation" class="view-graph-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
-                📊 Score-Review Analysis
+                📊 <span data-i18n="dashboard.score_analysis">Score-Review Analysis</span>
             </a>
         </div>
         
         <!-- Pipeline Overview -->
         <div class="card">
-            <h2>Pipeline Overview</h2>
+            <h2 data-i18n="dashboard.pipeline_overview">Pipeline Overview</h2>
             <div class="pipeline-diagram">
-                <div class="pipeline-box">📄 CSV File<br><small>Raw Data</small></div>
+                <div class="pipeline-box">📄 <span data-i18n="dashboard.csv_file">CSV File</span><br><small data-i18n="dashboard.raw_data">Raw Data</small></div>
                 <span class="pipeline-arrow">→</span>
-                <div class="pipeline-box">📋 JSON<br><small>Converted</small></div>
+                <div class="pipeline-box">📋 <span data-i18n="dashboard.json">JSON</span><br><small data-i18n="dashboard.converted">Converted</small></div>
                 <span class="pipeline-arrow">→</span>
-                <div class="pipeline-box">🗂️ Organized<br><small>By HW</small></div>
+                <div class="pipeline-box">🗂️ <span data-i18n="dashboard.organized">Organized</span><br><small data-i18n="dashboard.by_hw">By HW</small></div>
                 <span class="pipeline-arrow">→</span>
-                <div class="pipeline-box">🤖 Labeled<br><small>ML Inference</small></div>
+                <div class="pipeline-box">🤖 <span data-i18n="dashboard.labeled">Labeled</span><br><small data-i18n="dashboard.ml_inference">ML Inference</small></div>
                 <span class="pipeline-arrow">→</span>
-                <div class="pipeline-box">📈 Graph<br><small>Visualization</small></div>
+                <div class="pipeline-box">📈 <span data-i18n="dashboard.graph">Graph</span><br><small data-i18n="dashboard.visualization">Visualization</small></div>
             </div>
         </div>
         
         <!-- Step 1: Upload -->
         <div class="card">
-            <h2><span class="step-num">1</span> Upload CSV File</h2>
+            <h2><span class="step-num">1</span> <span data-i18n="dashboard.step1_title">Upload CSV File</span></h2>
             <div class="upload-area" id="uploadArea">
                 <div class="icon">📁</div>
-                <p>Drag & drop your CSV file here</p>
-                <p>or click to browse</p>
+                <p data-i18n="dashboard.upload_drag">Drag & drop your CSV file here</p>
+                <p data-i18n="dashboard.upload_click">or click to browse</p>
                 <div class="filename" id="uploadedFilename"></div>
             </div>
             <input type="file" id="fileInput" accept=".csv">
@@ -453,10 +458,10 @@
         
         <!-- Step 2: Options -->
         <div class="card">
-            <h2><span class="step-num">2</span> Configure Options</h2>
+            <h2><span class="step-num">2</span> <span data-i18n="dashboard.step2_title">Configure Options</span></h2>
             <div class="options-grid">
                 <div class="option-group">
-                    <label for="hwStart">Start Homework</label>
+                    <label for="hwStart" data-i18n="dashboard.start_homework">Start Homework</label>
                     <select id="hwStart">
                         <option value="1">HW1</option>
                         <option value="2">HW2</option>
@@ -468,7 +473,7 @@
                     </select>
                 </div>
                 <div class="option-group">
-                    <label for="hwEnd">End Homework</label>
+                    <label for="hwEnd" data-i18n="dashboard.end_homework">End Homework</label>
                     <select id="hwEnd">
                         <option value="1">HW1</option>
                         <option value="2">HW2</option>
@@ -482,15 +487,15 @@
             </div>
             <div class="checkbox-option">
                 <input type="checkbox" id="useML" checked>
-                <label for="useML">Use ML Model for Labeling (BERT 3-Label Classification)</label>
+                <label for="useML" data-i18n="dashboard.use_ml">Use ML Model for Labeling (BERT 3-Label Classification)</label>
             </div>
         </div>
         
         <!-- Step 3: Run Pipeline -->
         <div class="card">
-            <h2><span class="step-num">3</span> Run Pipeline</h2>
+            <h2><span class="step-num">3</span> <span data-i18n="dashboard.step3_title">Run Pipeline</span></h2>
             <button class="run-btn" id="runBtn" disabled>
-                🚀 Start Pipeline
+                🚀 <span data-i18n="dashboard.start_pipeline">Start Pipeline</span>
             </button>
             
             <div class="progress-container" id="progressContainer" style="display: none;">
@@ -500,45 +505,51 @@
                 <div class="steps-list">
                     <div class="step-item" id="step1">
                         <div class="step-icon">📄</div>
-                        <span>CSV → JSON</span>
+                        <span data-i18n="dashboard.csv_to_json">CSV → JSON</span>
                     </div>
                     <div class="step-item" id="step2">
                         <div class="step-icon">🗂️</div>
-                        <span>Organize</span>
+                        <span data-i18n="dashboard.organize">Organize</span>
                     </div>
                     <div class="step-item" id="step3">
                         <div class="step-icon">🤖</div>
-                        <span>ML Inference</span>
+                        <span data-i18n="dashboard.ml_inference">ML Inference</span>
                     </div>
                     <div class="step-item" id="step4">
                         <div class="step-icon">📊</div>
-                        <span>Analysis</span>
+                        <span data-i18n="dashboard.analysis">Analysis</span>
                     </div>
                     <div class="step-item" id="step5">
                         <div class="step-icon">✅</div>
-                        <span>Complete</span>
+                        <span data-i18n="dashboard.complete">Complete</span>
                     </div>
                 </div>
-                <div class="status-message info" id="statusMessage">Ready to start...</div>
+                <div class="status-message info" id="statusMessage" data-i18n="dashboard.ready">Ready to start...</div>
             </div>
         </div>
         
         <!-- Result Section -->
         <div class="card result-section" id="resultSection">
-            <h2>✅ Pipeline Complete!</h2>
+            <h2>✅ <span data-i18n="dashboard.pipeline_complete">Pipeline Complete!</span></h2>
             <div class="result-stats" id="resultStats"></div>
             <p style="text-align: center; margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="/graph" class="view-graph-btn" target="_blank">
-                    📈 View Graph Visualization
+                    📈 <span data-i18n="dashboard.view_graph">View Graph Visualization</span>
                 </a>
                 <a href="/correlation" class="view-graph-btn" target="_blank" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
-                    📊 Score-Review Correlation
+                    📊 <span data-i18n="dashboard.score_correlation">Score-Review Correlation</span>
                 </a>
             </p>
         </div>
     </div>
     
     <script>
+        // Initialize language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            i18n.createLanguageSwitcher('langSwitcher', { style: 'dropdown', showFlags: true, showNames: true });
+            loadUserInfo();
+        });
+
         // Load user info on page load
         async function loadUserInfo() {
             try {
@@ -546,7 +557,7 @@
                 const data = await response.json();
                 if (data.logged_in && data.user) {
                     document.getElementById('userName').textContent = data.user.name;
-                    document.getElementById('userRole').textContent = data.user.role === 'admin' ? '👑 Administrator' : '👤 User';
+                    document.getElementById('userRole').textContent = data.user.role === 'admin' ? '👑 ' + i18n.t('common.administrator') : '👤 ' + i18n.t('common.user');
                 } else {
                     window.location.href = '/login';
                 }
@@ -565,9 +576,6 @@
                 window.location.href = '/login';
             }
         }
-        
-        // Load user info when page loads
-        document.addEventListener('DOMContentLoaded', loadUserInfo);
         
         // Elements
         const uploadArea = document.getElementById('uploadArea');
@@ -613,7 +621,7 @@
         // Handle File Selection
         function handleFile(file) {
             if (!file.name.endsWith('.csv')) {
-                alert('Please upload a CSV file');
+                alert(i18n.t('dashboard.please_upload_csv'));
                 return;
             }
             
@@ -644,13 +652,13 @@
                 const result = await response.json();
                 
                 if (result.success) {
-                    uploadedFilename.textContent = `✅ ${file.name} uploaded successfully`;
+                    uploadedFilename.textContent = `✅ ${file.name} ${i18n.t('dashboard.upload_success')}`;
                     runBtn.disabled = false;
                 } else {
-                    uploadedFilename.textContent = `❌ Upload failed: ${result.error}`;
+                    uploadedFilename.textContent = `❌ ${i18n.t('dashboard.upload_failed')}: ${result.error}`;
                 }
             } catch (error) {
-                uploadedFilename.textContent = `❌ Upload error: ${error.message}`;
+                uploadedFilename.textContent = `❌ ${i18n.t('dashboard.upload_error')}: ${error.message}`;
             }
         }
         
@@ -663,7 +671,7 @@
             resultSection.classList.remove('show');
             
             // Reset progress
-            updateProgress(0, 'Starting pipeline...');
+            updateProgress(0, i18n.t('dashboard.starting_pipeline'));
             
             try {
                 const response = await fetch('/run', {
@@ -747,7 +755,7 @@
         
         // Show Success
         function showSuccess(result) {
-            statusMessage.textContent = '✅ Pipeline completed successfully!';
+            statusMessage.textContent = '✅ ' + i18n.t('dashboard.pipeline_success');
             statusMessage.className = 'status-message success';
             
             // Mark all steps as completed
@@ -764,7 +772,7 @@
                     statsHtml += `
                         <div class="stat-box">
                             <div class="value">${result.step1.converted_records || 0}</div>
-                            <div class="label">Records Converted</div>
+                            <div class="label">${i18n.t('dashboard.records_converted')}</div>
                         </div>
                     `;
                 }
@@ -773,11 +781,11 @@
                     statsHtml += `
                         <div class="stat-box">
                             <div class="value">${result.step2.homework_count || 0}</div>
-                            <div class="label">Homework Sets</div>
+                            <div class="label">${i18n.t('dashboard.homework_sets')}</div>
                         </div>
                         <div class="stat-box">
                             <div class="value">${result.step2.total_assignments || 0}</div>
-                            <div class="label">Assignments</div>
+                            <div class="label">${i18n.t('dashboard.assignments')}</div>
                         </div>
                     `;
                 }
@@ -786,7 +794,7 @@
                     statsHtml += `
                         <div class="stat-box">
                             <div class="value">${result.step3.total_feedbacks || 0}</div>
-                            <div class="label">Feedbacks Labeled</div>
+                            <div class="label">${i18n.t('dashboard.feedbacks_labeled')}</div>
                         </div>
                     `;
                 }
@@ -795,7 +803,7 @@
                     statsHtml += `
                         <div class="stat-box">
                             <div class="value">${result.step4.total_students || 0}</div>
-                            <div class="label">Students Analyzed</div>
+                            <div class="label">${i18n.t('dashboard.students_analyzed')}</div>
                         </div>
                     `;
                 }

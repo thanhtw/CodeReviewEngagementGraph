@@ -244,7 +244,7 @@ document.getElementById('hw-apply-btn').addEventListener('click', () => {
     const select = document.getElementById('hw-select');
     const selectedHWs = Array.from(select.selectedOptions).map(opt => opt.value);
     if (selectedHWs.length === 0) {
-        alert("Please select at least one assignment!");
+        alert(window.i18n?.t('graph.alert_select_assignment') || "Please select at least one assignment!");
         return;
     }
     currentHW = [...selectedHWs];
@@ -399,7 +399,7 @@ function initHwLabelChartEvents() {
     if (generateBtn) {
         generateBtn.addEventListener('click', async () => {
             console.log('Generating assignment label frequency chart (all comments)...');
-            generateBtn.textContent = 'Generating...';
+            generateBtn.textContent = window.i18n?.t('graph.btn_generating') || 'Generating...';
             generateBtn.disabled = true;
             
             try {
@@ -410,9 +410,9 @@ function initHwLabelChartEvents() {
                 }
             } catch (error) {
                 console.error('Failed to generate chart:', error);
-                alert('Failed to generate chart. Check console for error details.');
+                alert(window.i18n?.t('graph.alert_generate_failed') || 'Failed to generate chart. Check console for error details.');
             } finally {
-                generateBtn.textContent = 'Generate Chart (All Comments)';
+                generateBtn.textContent = window.i18n?.t('graph.btn_generate_all') || 'Generate Chart (All Comments)';
                 generateBtn.disabled = false;
             }
         });
@@ -424,7 +424,7 @@ function initHwLabelChartEvents() {
             if (currentHwChart) {
                 saveChartAsPNG(currentHwChart, 'hwLabelChart_all.png');
             } else {
-                alert('Please generate chart first');
+                alert(window.i18n?.t('graph.alert_generate_first') || 'Please generate chart first');
             }
         });
     }
@@ -435,7 +435,7 @@ function initHwLabelChartEvents() {
         generateValidBtn.addEventListener('click', async () => {
             console.log('Valid comments chart generate button clicked');
             console.log('Generating assignment label frequency chart (valid comments only)...');
-            generateValidBtn.textContent = 'Generating...';
+            generateValidBtn.textContent = window.i18n?.t('graph.btn_generating') || 'Generating...';
             generateValidBtn.disabled = true;
             
             try {
@@ -448,9 +448,9 @@ function initHwLabelChartEvents() {
                 }
             } catch (error) {
                 console.error('Failed to generate chart:', error);
-                alert('Failed to generate chart. Check console for error details.');
+                alert(window.i18n?.t('graph.alert_generate_failed') || 'Failed to generate chart. Check console for error details.');
             } finally {
-                generateValidBtn.textContent = 'Generate Chart (Labeled Only)';
+                generateValidBtn.textContent = window.i18n?.t('graph.btn_generate_labeled') || 'Generate Chart (Labeled Only)';
                 generateValidBtn.disabled = false;
             }
         });
@@ -464,7 +464,7 @@ function initHwLabelChartEvents() {
             if (currentHwValidChart) {
                 saveChartAsPNG(currentHwValidChart, 'hwLabelChart_valid.png');
             } else {
-                alert('Please generate chart first');
+                alert(window.i18n?.t('graph.alert_generate_first') || 'Please generate chart first');
             }
         });
     }

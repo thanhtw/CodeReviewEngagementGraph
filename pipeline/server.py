@@ -168,6 +168,8 @@ class PipelineHandler(SimpleHTTPRequestHandler):
     
     def get_session_token(self):
         """Get session token from cookies."""
+        if not hasattr(self, 'headers') or self.headers is None:
+            return None
         cookie_header = self.headers.get('Cookie', '')
         cookie = SimpleCookie()
         cookie.load(cookie_header)
